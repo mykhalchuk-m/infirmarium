@@ -1,0 +1,70 @@
+html,body {
+	height: 100%; /* needed for container min-height */
+}
+
+.loginMain {
+	background-color: #fff;
+	font-size: 12px;
+	height: auto !important;
+	margin: 0 auto;
+	min-height: 100%;
+	position: relative;
+	width: 400px;
+}
+
+.logo {
+	width: 290px;
+	height: 129px;
+	background-image: url('../images/logo_large.gif');
+	background-position: bottom;
+	background-repeat: no-repeat;
+	margin: 0px auto;
+	margin-left: auto;
+}
+
+P {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	color: #7F7F7F;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.input {
+	border-style: solid;
+	border-width: 3px;
+	border-color: #ff5a00;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+}
+
+.input:hover {
+	border-style: solid;
+	border-width: 3px;
+	border-color: #7F7F7F;
+	margin: 0 auto;
+}
+
+.submitButton {
+	background-color: #FF5A00;
+	border-style: none;
+	color: #FFFFFF;
+	display: block;
+	font-weight: bold;
+	height: 23px;
+	margin: 15px auto;
+	width: 72px;
+	padding-bottom: 2px;
+}
+.submitButton:hover {
+	background-color: #7F7F7F;
+}
+
+FORM {
+	padding: 40px 0;
+	margin: 50px auto;
+}
+}

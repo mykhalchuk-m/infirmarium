@@ -1,0 +1,56 @@
+/* Tabs
+----------------------------------*/
+.ui-tabs {
+	width: 100%;
+}
+
+.ui-tabs .ui-tabs-nav {	
+		padding-top:20px;
+}
+
+.ui-tabs .ui-tabs-nav li {
+	background-image:
+		url("../../../images/departments/injury_not_selected.gif");
+	width: 75px;
+	height: 40px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+
+	display: block;
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	display: block;
+	height: 100%;
+	width: 60px;
+	text-decoration: none;
+	text-align: center;
+	font-family: monospace;
+	font-size: 30px;
+	color: white;
+	outline-style: none;
+	display: block;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {
+	background-image: url("../../../images/departments/injury_selected.gif")		;
+	width: 75px;
+	height: 40px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	
+}
+
+.ui-tabs .ui-tabs-panel {
+	display: table;
+	margin-left: 75px;
+	margin-top: 0px;
+	margin-bottom: 18px;
+	width: 905px;
+	float:none !important;
+	
+}
+
+.ui-tabs .ui-tabs-hide {
+	display: none !important;
+}

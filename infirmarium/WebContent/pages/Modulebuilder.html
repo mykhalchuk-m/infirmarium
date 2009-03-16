@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="../css/generic.css" />
+
+		<link type="text/css" href="../js/jquery/theme/ui.all.css"
+			rel="Stylesheet" />
+		<link type="text/css" href="../css/select_w
+		indow.css"
+			rel="Stylesheet" />
+		<script type="text/javascript" src="../js/jquery/jquery-1.3.2.min.js"></script>
+
+		<script type="text/javascript"
+			src="../js/jquery/jquery-ui-1.7.custom.min.js"></script>
+		<script type="text/javascript" src="../js/interface.js"></script>
+		<script type="text/javascript" src="../js/select_window.js"></script>
+		<script type="text/javascript">
+	$(document)
+			.ready( function() {
+				$('tr:odd').addClass('odd');
+				$('tr:even').addClass('even');
+				
+				});
+
+	$( function() {
+		$('#tabs').tabs( {
+			fx : [ null, {
+				height :'show',
+				opacity :'show'
+			} ]
+		});
+
+		$(".navButton").click( function() {
+			//$(this).effect("highlight", {}, 1000);
+				$(this).effect("pulsate", {
+					times :0
+				}, 200);
+			});
+
+		$(".ui-tabs .ui-tabs-nav li a").mouseover( function() {
+			$(this).animate( {
+				opacity :"1"
+			}, {
+				duration :0
+			}).animate( {
+				opacity :"0.6"
+			}, "slow");
+		});
+		$(".ui-tabs .ui-tabs-nav li a").mouseout( function() {
+			$(this).animate( {
+				opacity :"1"
+			}, "fast");
+		});
+
+	});
+</script>
+
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<a href="#" id="windowOpen">Open window</a>
+		<div id="window">
+			<div id="windowTop">
+				<div id="windowTopContent">
+					Window example
+				</div>
+				<img src="images/window_min.jpg" id="windowMin" />
+				<img src="images/window_max.jpg" id="windowMax" />
+				<img src="images/window_close.jpg" id="windowClose" />
+			</div>
+			<div id="windowBottom">
+			<div id="windowBottomContent">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut eget
+					lectus in diam iaculis tempor. Suspendisse consectetuer, justo nec
+					euismod sodales, augue nisi convallis diam, in posuere pede turpis
+					at massa. Donec mi nunc, iaculis eu, vehicula sed, malesuada eget,
+					ligula. In eu urna. Suspendisse pede quam, tempor id, tempor at,
+					placerat eget, massa. Maecenas porta elementum tellus. Ut nulla
+					diam, posuere non, consequat nec, fermentum vitae, turpis.
+					Pellentesque tempor metus at lorem. Donec nulla ipsum, euismod in,
+					pretium vitae, ornare nonummy, lectus. Aliquam ullamcorper.
+					Vestibulum eget leo. Proin pretium, enim vitae bibendum accumsan,
+					dolor urna feugiat felis, et ultrices ipsum odio et dui. Praesent
+					non eros sit amet nisi laoreet aliquet. Nulla diam. Maecenas et sem
+					eget lorem porttitor tincidunt. Donec sed dui.
+			<!-- 
+				
+					<div id="windowContent">
+				<p>
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut eget
+					lectus in diam iaculis tempor. Suspendisse consectetuer, justo nec
+					euismod sodales, augue nisi convallis diam, in posuere pede turpis
+					at massa. Donec mi nunc, iaculis eu, vehicula sed, malesuada eget,
+					ligula. In eu urna. Suspendisse pede quam, tempor id, tempor at,
+					placerat eget, massa. Maecenas porta elementum tellus. Ut nulla
+					diam, posuere non, consequat nec, fermentum vitae, turpis.
+					Pellentesque tempor metus at lorem. Donec nulla ipsum, euismod in,
+					pretium vitae, ornare nonummy, lectus. Aliquam ullamcorper.
+					Vestibulum eget leo. Proin pretium, enim vitae bibendum accumsan,
+					dolor urna feugiat felis, et ultrices ipsum odio et dui. Praesent
+					non eros sit amet nisi laoreet aliquet. Nulla diam. Maecenas et sem
+					eget lorem porttitor tincidunt. Donec sed dui.
+				</p>
+				<p>
+					Nam non dolor. Donec ultricies mattis libero. Donec ac eros.
+					Praesent id arcu. Phasellus odio massa, blandit nec, iaculis ac,
+					blandit nec, enim. Nunc rutrum. Mauris pretium mattis nunc. Integer
+					lectus. Suspendisse potenti. Ut dignissim enim eget ipsum.
+					Suspendisse eget nulla ac dolor volutpat pellentesque. Donec odio
+					diam, pulvinar sed, ornare a, semper in, nisi. Duis a odio id enim
+					lacinia fringilla. Integer rutrum erat in ante. Morbi eleifend
+					ipsum vel quam. Vestibulum in mauris. Donec vulputate hendrerit
+					nulla.
+				</p>
+				<p>
+					Phasellus nulla ipsum, dapibus et, laoreet quis, volutpat sed,
+					nibh. Nunc massa ipsum, vehicula et, ullamcorper fermentum,
+					imperdiet vitae, enim. Morbi non augue. Morbi vitae sapien. Nulla
+					at metus. Pellentesque a sem id arcu faucibus tincidunt.
+					Pellentesque sit amet urna quis arcu elementum volutpat. Sed sed
+					sapien. Suspendisse cursus. Nulla commodo libero ac tortor dictum
+					pulvinar. Mauris id leo non velit iaculis mollis. Fusce at augue ut
+					mi laoreet molestie. Quisque facilisis. Maecenas ornare mattis
+					justo. Vestibulum vel lorem in nisl venenatis semper. Aliquam erat
+					volutpat. Aliquam tellus turpis, posuere eu, commodo sed, fermentum
+					sit amet, mi.
+				</p>
+			</div>
+			-->
+				</div>
+			</div>
+
+			
+			<img src="images/window_resize.gif" id="windowResize" />
+		</div>
+		<div class="main">
+			<div class="infoPanel">
+				<div class="infoPanelb">
+					<div class="infoPanelt">
+						<div class="infoPanell">
+							<div class="infoPanelr">
+								<div class="infoPanelbr">
+									<div class="infoPaneltl">
+										<div class="infoPanelContent">
+
+											<a href="#"><span class="icoPatient">&nbsp;</span>Vasilij
+												Petrovich Pupkin</a>
+											<br>
+											09.12.78
+											<br>
+											Blood: I+
+											<br>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="topPanel">
+				<div class="navButtonCenter">
+					<div id="but" class="navButton"></div>
+					<div class="navButton"></div>
+				</div>
+			</div>
+
+			<div class="tabsPanel">
+				<div class="tabsPanelTop">
+
+					<div id="tabs">
+
+						<ul class="tabsPanelMiddle">
+							<li>
+								<a href="#tabs-1"><span class="recordButtonIcoMain"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#tabs-2"><span class="recordButtonIcoOperation"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#tabs-3"><span class="recordButtonIcoEpicris"></span>
+								</a>
+							</li>
+
+						</ul>
+
+						<div id="tabs-1">
+							<div class="contentb">
+								<div class="contentt">
+									<div class="contentl">
+										<div class="contentr">
+											<div class="contentbr">
+												<div class="contenttl">
+													<div class="contentContent">
+														<h1>
+															Top level
+														</h1>
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+														Etiam enim urna, varius at, scelerisque ut, auctor vitae,
+														tellus.
+														<h2>
+															Second level
+														</h2>
+														Cum sociis natoque penatibus et magnis dis parturient
+														montes, nascetur ridiculus mus. Maecenas nec purus ac orci
+														lacinia dignissim. Cras sem massa, porttitor ac,
+														vestibulum ac, accumsan in, quam. Vestibulum tempus massa
+														id nisi. Curabitur sit amet nisl et tortor lacinia rutrum.
+														Mauris nunc orci, tempor sit amet, accumsan sed, egestas
+														quis, est. Quisque a mi sed tellus rutrum tincidunt.
+														<h3>
+															Third level
+														</h3>
+														Fusce malesuada commodo libero. Sed ornare posuere enim.
+														Integer at ipsum. Duis ligula lorem, convallis at, luctus
+														id, venenatis sit amet, eros. Integer scelerisque diam a
+														velit. Curabitur dictum orci eget enim. Nulla hendrerit,
+														nunc eget commodo congue, tortor metus egestas massa, sit
+														amet faucibus urna nisl id elit. Cras vulputate dolor a
+														lacus.
+														<a href="#">Suspendisse porta</a> nisi a orci. Aliquam
+														erat volutpat. Etiam commodo nisl. Nam justo ipsum,
+														bibendum nec, consequat sed, hendrerit a, nulla. Lorem
+														ipsum dolor sit amet, consectetur adipiscing elit. Proin
+														eget felis id magna scelerisque elementum. Praesent purus
+														mauris, consequat non, elementum eget, placerat
+														ullamcorper, magna. In vulputate. Praesent tincidunt.
+														Nullam condimentum augue. Ut hendrerit lobortis augue.
+														Donec vehicula, mi vitae gravida pellentesque, massa lorem
+														egestas turpis, eu rutrum eros nulla ac nisi. Sed feugiat
+														porta mi. Donec nec magna. Suspendisse potenti. Duis at
+														nunc at dolor accumsan aliquet. Morbi risus tortor,
+														interdum consequat, vestibulum ut, suscipit ut, velit.
+														Pellentesque iaculis erat in tellus.
+														<a href="#">Aenean cursus purus in metus.</a> Maecenas et
+														nisl. Aliquam ullamcorper dui at ante. In hac habitasse
+														platea dictumst. Nulla semper. In facilisis. Etiam blandit
+														lectus quis est. Donec ut nulla mollis arcu viverra
+														vestibulum. Sed imperdiet. Pellentesque luctus nulla in
+														risus. Nullam ultrices nibh ac eros. Mauris accumsan
+														tincidunt nulla. Aliquam placerat. Curabitur lectus.
+														Nullam id nunc. Vestibulum volutpat erat eu quam. Donec
+														quam velit, auctor ut, consectetur a, laoreet ut, diam.
+														Mauris risus leo, volutpat non, ornare eget, sagittis
+														condimentum, est. Cras ac sem non elit tempus aliquet.
+														Curabitur condimentum egestas lorem. Aenean eu dolor.
+														Morbi lectus. Etiam sodales, felis quis molestie mollis,
+														arcu turpis ultrices est, sit amet malesuada ipsum orci in
+														sapien. Nullam lorem urna, suscipit eget, suscipit at,
+														facilisis et, justo.
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tabs-2">
+							<div class="contentb">
+								<div class="contentt">
+									<div class="contentl">
+										<div class="contentr">
+											<div class="contentbr">
+												<div class="contenttl">
+													<div class="contentContent">
+														Suspendisse porta nisi a orci. Aliquam erat volutpat.
+														Etiam commodo nisl. Nam justo ipsum, bibendum nec,
+														consequat sed, hendrerit a, nulla. Lorem ipsum dolor sit
+														amet, consectetur adipiscing elit. Proin eget felis id
+														magna scelerisque elementum. Praesent purus mauris,
+														consequat non, elementum eget, placerat ullamcorper,
+														magna. In vulputate. Praesent tincidunt. Nullam
+														condimentum augue. Ut hendrerit lobortis augue. Donec
+														vehicula, mi vitae gravida pellentesque, massa lorem
+														egestas turpis, eu rutrum eros nulla ac nisi. Sed feugiat
+														porta mi. Donec nec magna. Suspendisse potenti. Duis at
+														nunc at dolor accumsan aliquet. Morbi risus tortor,
+														interdum consequat, vestibulum ut, suscipit ut, velit.
+														Pellentesque iaculis erat in tellus. Aenean cursus purus
+														in metus. Maecenas et nisl. Aliquam ullamcorper dui at
+														ante. In hac habitasse platea dictumst. Nulla semper. In
+														facilisis. Etiam blandit lectus quis est. Donec ut nulla
+														mollis arcu viverra vestibulum. Sed imperdiet.
+														Pellentesque luctus nulla in risus. Nullam ultrices nibh
+														ac eros. Mauris accumsan tincidunt nulla. Aliquam
+														placerat. Curabitur lectus. Nullam id nunc. Vestibulum
+														volutpat erat eu quam. Donec quam velit, auctor ut,
+														consectetur a, laoreet ut, diam. Mauris risus leo,
+														volutpat non, ornare eget, sagittis condimentum, est. Cras
+														ac sem non elit tempus aliquet. Curabitur condimentum
+														egestas lorem. Aenean eu dolor. Morbi lectus. Etiam
+														sodales, felis quis molestie mollis, arcu turpis ultrices
+														est, sit amet malesuada ipsum orci in sapien. Nullam lorem
+														urna, suscipit eget, suscipit at, facilisis et, justo.
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tabs-3">
+							<div class="contentb">
+								<div class="contentt">
+									<div class="contentl">
+										<div class="contentr">
+											<div class="contentbr">
+												<div class="contenttl">
+													<div class="contentContent">
+														Suspendisse porta nisi a orci. Aliquam erat volutpat.
+														Etiam commodo nisl. Nam justo ipsum, bibendum nec,
+														consequat sed, hendrerit a, nulla. Lorem ipsum dolor sit
+														amet, consectetur adipiscing elit. Proin eget felis id
+														magna scelerisque elementum. Praesent purus mauris,
+														consequat non, elementum eget, placerat ullamcorper,
+														magna. In vulputate. Praesent tincidunt.
+														<br>
+														<table>
+															<thead>
+																<tr>
+																	<td>
+																		Name
+																	</td>
+																	<td>
+																		Genre
+																	</td>
+																	<td>
+																		Year
+																	</td>
+																</tr>
+															</thead>
+															<tr>
+																<td>
+																	As You Like It
+																</td>
+																<td>
+																	Comedy
+																</td>
+																<td></td>
+															</tr>
+															<tr>
+																<td>
+																	All's Well that Ends Well
+																</td>
+																<td>
+																	Comedy
+																</td>
+																<td>
+																	1601
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	Hamlet
+																</td>
+																<td>
+																	Tragedy
+																</td>
+																<td>
+																	1604
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	Macbeth
+																</td>
+																<td>
+																	Tragedy
+																</td>
+																<td>
+																	1606
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	Romeo and Juliet
+																</td>
+																<td>
+																	Tragedy
+																</td>
+																<td>
+																	1595
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	Henry IV, Part I
+																</td>
+																<td>
+																	History
+																</td>
+																<td>
+																	1596
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	Henry V
+																</td>
+																<td>
+																	History
+																</td>
+																<td>
+																	1599
+																</td>
+															</tr>
+														</table>
+														Nullam condimentum augue. Ut hendrerit lobortis augue.
+														Donec vehicula, mi vitae gravida pellentesque, massa lorem
+														egestas turpis, eu rutrum eros nulla ac nisi. Sed feugiat
+														porta mi. Donec nec magna. Suspendisse potenti. Duis at
+														nunc at dolor accumsan aliquet. Morbi risus tortor,
+														interdum consequat, vestibulum ut, suscipit ut, velit.
+														Pellentesque iaculis erat in tellus. Aenean cursus purus
+														in metus.
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div id="windowShade"></div>
+	</body>
+</html>

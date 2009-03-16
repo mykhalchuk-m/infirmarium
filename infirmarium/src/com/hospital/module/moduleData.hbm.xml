@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!--           *****         Module Data      ******          -->
+	<class name="com.hospital.module.ModuleData"
+		table="ModuleData_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+
+		<property name="name" column="name"/>
+		<property name="creationDate" column="creation_date"
+			type="date" />
+
+
+		<map name="parameters" table="parameters_module_data_tbl"
+			cascade="all">
+			<key column="id" />
+			<map-key column="parameter_name" type="string" />
+			<element type="string" column="parameter_value" />
+		</map>
+
+	</class>
+
+
+
+</hibernate-mapping>
