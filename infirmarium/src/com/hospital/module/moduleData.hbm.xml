@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!--           *****         Module Data      ******          -->
+	<class name="com.hospital.module.ModuleData"
+		table="ModuleData_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+
+		<property name="name" column="name" length="30" />
+		<property name="creationDate" column="creation_date"
+			type="date" />
+
+		<many-to-one name="abstractModule"
+			class="com.hospital.modulecreator.AbstractModule" cascade="merge">
+		</many-to-one>
+
+		<map name="parameters" table="parameters_module_data_tbl"
+			cascade="all">
+			<key column="id" />
+			<map-key column="parameter_name" type="string" length="30" />
+			<element type="string" column="parameter_value" length="30" />
+		</map>
+
+		<joined-subclass name="com.hospital.module.AnalysisData"
+			table="AnalysisData_tbl">
+			<key column="id" />
+			<map name="normParameters"
+				table="parameters_analysis_data_tbl" cascade="all">
+				<key column="id" />
+				<map-key column="norm_parameter_name" type="string"
+					length="30" />
+				<element column="norm_parameter_value" type="double" />
+
+			</map>
+		</joined-subclass>
+
+
+	</class>
+
+</hibernate-mapping>

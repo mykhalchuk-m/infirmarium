@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!--           *****           Health Worker        ******          -->
+	<class name="com.hospital.hr.HealthWorker"
+		table="HealthWorker_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+		<property name="firstName" column="first_Name" length="30"/>
+		<property name="lastName" column="last_Name"  length="30"/>
+		<property name="middleName" column="middle_Name"  length="30"/>
+		<property name="speciality" column="speciality"  length="30"/>
+
+	</class>
+
+	<!--           *****          Blood Group        ******          -->
+	<class name="com.hospital.hr.BloodGroup" table="BloodGroup_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+		<property name="bloodGroupValue" column="blood_Group_Value" />
+
+	</class>
+
+	<!--           *****          Patient      ******          -->
+	<class name="com.hospital.hr.Patient" table="Patients_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+
+		<property name="firstName" column="first_Name"  length="30"/>
+		<property name="middleName" column="middle_Name"  length="30"/>
+		<property name="lastName" column="last_Name"  length="30"/>
+		<property name="address" column="address"  length="50"/>
+		<property name="birthday" column="birthday" type="date" />
+		<property type="com.hospital.hr.SexTypesEnum" name="sex" />
+
+		<many-to-one name="bloodGroup"
+			class="com.hospital.hr.BloodGroup" column="bloodGroup_ID" />
+
+	</class>
+
+	<!--           *****         Department        ******          -->
+	<class name="com.hospital.hr.Department" table="Department_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+		<property name="name" column="name" unique="true"  length="30" type="string"/>
+
+		<set name="modules" cascade="all" table="modules_of_dep_tbl">
+			<key column="id_modules_of_dep" />
+			<many-to-many class="com.hospital.modulecreator.Module" />
+		</set>
+
+		<set name="analyses" cascade="all"
+			table="analyses_of_dep_tbl">
+			<key column="id_analyses_of_dep" />
+			<many-to-many class="com.hospital.modulecreator.Analysis" />
+		</set>
+
+		<set name="healthWorkers" cascade="all"
+			table="health_Workers_of_dep_tbl">
+			<key column="id_health_Workers_of_dep" />
+			<many-to-many class="com.hospital.hr.HealthWorker" />
+		</set>
+	</class>
+
+</hibernate-mapping>
