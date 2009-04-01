@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<!--           *****           MODULE        ******          -->
+
+	<class name="com.hospital.modulecreator.AbstractModule"
+		table="Abstract_Module_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+		<property name="moduleName" column="module_name" length="30" />
+		<map name="parameters" cascade="all">
+			<key column="id_module" />
+			<map-key type="string" column="field_name" length="30" />
+			<one-to-many class="com.hospital.modulecreator.field.Field" />
+		</map>
+
+		<joined-subclass name="com.hospital.modulecreator.Module"
+			table="module_tbl">
+			<key column="id" />
+		</joined-subclass>
+
+		<joined-subclass name="com.hospital.modulecreator.Analysis"
+			table="analysis_tbl">
+			<key column="id" />
+		</joined-subclass>
+
+
+	</class>
+
+	<!--           *****           FIELD          ******          -->
+	<class name="com.hospital.modulecreator.field.Field"
+		table="field_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+
+		<property type="com.hospital.modulecreator.field.FieldTypeEnum"
+			name="type" />
+
+
+		<list name="values" cascade="all"
+			table="List_Field_Values_tbl">
+			<key column="id_Fields_Values"></key>
+			<list-index column="list_order"></list-index>
+			<element type="string" column="value" length="30"></element>
+
+		</list>
+
+
+		<one-to-one name="sexNorm" cascade="all"
+			class="com.hospital.modulecreator.field.SexNorm" />
+
+		<one-to-one name="norm" cascade="all"
+			class="com.hospital.modulecreator.field.Norm" />
+
+
+
+
+	</class>
+
+
+	<!--           *****           NORM          ******          -->
+	<class name="com.hospital.modulecreator.field.Norm"
+		table="norm_field_tbl">
+		<id name="idNorm">
+			<generator class="foreign">
+				<param name="property">field</param>
+			</generator>
+		</id>
+		<property name="unit" column="unit" length="20" />
+		<property name="minValue" column="min_Value" />
+		<property name="maxValue" column="max_Value" />
+		<one-to-one name="field"
+			class="com.hospital.modulecreator.field.Field" constrained="true" />
+	</class>
+
+	<!--           *****           SEXNORM          ******          -->
+	<class name="com.hospital.modulecreator.field.SexNorm"
+		table="sex_norm_field_tbl">
+		<id name="idSexNorm">
+			<generator class="foreign">
+				<param name="property">field</param>
+			</generator>
+		</id>
+		<property name="unit" column="unit" length="20" />
+
+		<property name="minMaleValue" column="min_Male_Value" />
+		<property name="maxMaleValue" column="max_Male_Value" />
+
+		<property name="minFemaleValue" column="min_Female_Value" />
+		<property name="maxFemaleValue" column="max_Female_Value" />
+		<one-to-one name="field"
+			class="com.hospital.modulecreator.field.Field" constrained="true" />
+
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<!--           *****        Card      ******          -->
+	<class name="com.hospital.cards.Card" table="Card_tbl">
+		<id name="id">
+			<generator class="increment" />
+		</id>
+
+		<property name="start" column="start" type="date" />
+		<property name="end" column="end" type="date" />
+
+		<many-to-one name="patient" class="com.hospital.hr.Patient"
+			column="patient_ID" />
+
+		<many-to-one name="department"
+			class="com.hospital.hr.Department" column="department_ID" />
+
+		<many-to-one name="healthWorker"
+			class="com.hospital.hr.HealthWorker" column="healthWorker_ID" />
+
+		 <list name="modulesData" cascade="all">
+			<key column="id_Moule_Data"/>
+			<list-index  column="list_order"/>
+
+			<one-to-many class="com.hospital.module.ModuleData" />
+		</list>
+
+		<list name="analysesData" cascade="all">
+			<key column="id_Analysis_Data"/>
+			<list-index column="list_order"/>
+			<one-to-many class="com.hospital.module.AnalysisData" />
+		</list>
+		
+
+
+
+	</class>
+
+
+
+</hibernate-mapping>
