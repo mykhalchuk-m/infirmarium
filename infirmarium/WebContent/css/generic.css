@@ -2,7 +2,7 @@ body {
 	margin: none;
 	padding: none;
 	background-color: #CECECE;
-	font-family:arial,sans-serif;
+	font-family: tahoma, verdana, arial, sans-serif;
 	font-size:small;
 
 	margin: 0px;
@@ -27,37 +27,37 @@ a:hover {
 
 H1 {
 	color: #ff5a00;
-	margin-bottom: 0px;
+	margin: 0px;
 }
 
 H2 {
 	color: #ff5a00;
-margin-bottom: 0px;
+margin: 0px;
 }
 
 H3 {
 	color: #ff5a00;
-margin-bottom: 0px;
+margin: 0px;
 }
 
 H4 {
 	color: #ff5a00;
-margin-bottom: 0px;
+margin: 0px;
 }
 
 H5 {
 	color: #ff5a00;
-margin-bottom: 0px;
+margin: 0px;
 }
 
 H6 {
 	color: #ff5a00;
-margin-bottom: 0px;
+margin: 0px;
 }
 
 H7 {
 	color: #ff5a00;
-margin-bottom: 0px;
+margin: 0px;
 }
 
 .main {
@@ -102,50 +102,6 @@ margin-bottom: 0px;
 	padding-bottom: 40px !important;
 }
 
-.recordButton {
-	background-image: url("../images/departments/injury_not_selected.gif");
-	width: 75px;
-	height: 40px;
-	margin-bottom: 5px;
-	margin-left: 4px;
-	display: block;
-}
-
-.recordButtonIcoMain {
-	background-image: url("../images/departments/icons/first_page_ico.gif");
-	background-repeat: no-repeat;
-	width: 100%;
-	height: 100%;
-	display: block;
-	float: left;
-}
-
-.recordButtonIcoOperation {
-	background-image: url("../images/departments/icons/operation_ico.gif");
-	background-repeat: no-repeat;
-	width: 100%;
-	height: 100%;
-	display: block;
-	float: left;
-}
-
-.recordButtonIcoEpicris {
-	background-image: url("../images/departments/icons/epicris_ico.gif");
-	background-repeat: no-repeat;
-	width: 100%;
-	height: 100%;
-	display: block;
-	float: left;
-}
-
-.recordButtonSelected {
-	background-image: url("../images/departments/injury_selected.gif");
-	width: 75px;
-	height: 40px;
-	margin-bottom: 5px;
-	margin-left: 4px;
-	display: block;
-}
 
 .topPanel {
 	background: url(../images/interface_top_panel.gif) repeat-x;
@@ -154,15 +110,7 @@ margin-bottom: 0px;
 	float: left;
 }
 
-.navButton {
-	background: url(../images/navigation/tmp_nav_button.gif);
-	background-repeat: no-repeat;
-	width: 60px;
-	height: 74px;
-	margin: 6px auto;
-	float: left;
-	margin-left: 10px;
-}
+
 
 .navButtonCenter {
 	display: table;
@@ -224,6 +172,7 @@ margin-bottom: 0px;
 
 .contentContent {
 	padding: 22px 30px 22px 30px;
+	display: table;
 }
 
 .contentb {
@@ -297,9 +246,27 @@ THEAD TR {
 }
 
 .odd {
-	background-color: #fff; /* синий цвет дл€ четных €чеек */
+	background-color: #fff; 
 }
 
 .even {
-	background-color: #ffbf43; /* желтый цвет дл€ нечетных €чеек */
+	background-color: #FFE4AF;
+}
+.newPanel {
+	display: table;
+}
+
+.newParam {
+	width: 49%;
+	text-align: right;
+	float: left;
+	margin-top: 3px;
+	padding-right: 1%;
+}
+
+.newValue {
+	width: 50%;
+	text-align: left;
+	float: left;
+	margin-top: 3px;
 }
