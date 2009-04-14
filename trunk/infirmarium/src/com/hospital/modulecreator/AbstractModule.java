@@ -1,14 +1,15 @@
 package com.hospital.modulecreator;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import com.hospital.modulecreator.field.Field;
 
 public abstract class AbstractModule {
 
 	private long id;
-	private Map<String, Field> parameters = new HashMap<String, Field>();
+	private List<Field> parameters = new ArrayList<Field>();
 	private String moduleName;
 
 	public String getModuleName() {
@@ -19,18 +20,21 @@ public abstract class AbstractModule {
 		this.moduleName = moduleName;
 	}
 
-	public Map<String, Field> getParameters() {
-		return parameters;
-	}
-
-	public void setParameter(String name, Field value) {
-		if (name != null) {
-			parameters.put(name, value);
+	public void setParameter(Field field) {
+		if (field != null) {
+			parameters.add(field);
 		}
 	}
 
 	public Field getParameter(String name) {
-		return parameters.get(name);
+		for (Iterator<Field> iterator = parameters.iterator(); iterator
+				.hasNext();) {
+			Field field = iterator.next();
+			if (field.getName().equals(name)) {
+				return field;
+			}
+		}
+		return null;
 	}
 
 	public long getId() {
@@ -41,7 +45,11 @@ public abstract class AbstractModule {
 		this.id = id;
 	}
 
-	public void setParameters(Map<String, Field> parameters) {
+	public List<Field> getParameters() {
+		return parameters;
+	}
+
+	public void setParameters(List<Field> parameters) {
 		this.parameters = parameters;
 	}
 

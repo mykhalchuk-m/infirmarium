@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Field {
 	private long id;
+	private String name;
 	private FieldTypes type;
 	private List<String> values = new ArrayList<String>();
 	private Norm norm;
@@ -52,5 +53,13 @@ public class Field {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

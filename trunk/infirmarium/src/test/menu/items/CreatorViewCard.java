@@ -73,8 +73,19 @@ public class CreatorViewCard implements MenuItem {
 			System.out.println();
 			System.out.println("----->>>>  Імя аналіза : <" + analysisData.getName()
 					+ "> був створений " + analysisData.getCreationDate()+"  size="+analysesData.size());
+			
+			Map<String, String> mapParams2 = analysisData.getParameters();
+			for (Iterator<String> iterator2 = mapParams2.keySet().iterator(); iterator2
+					.hasNext();) {
+				String key = iterator2.next();
 
-			Map<String, String> mapParams = analysisData.getParameters();
+				System.out.println(" ----->>>>         параметр  <" + key + ">  =  "
+						+ mapParams2.get(key));
+
+			}
+			
+
+			Map<String, Double> mapParams = analysisData.getNormParameters();
 
 			for (Iterator<String> iterator2 = mapParams.keySet().iterator(); iterator2
 					.hasNext();) {
