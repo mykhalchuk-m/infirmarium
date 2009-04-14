@@ -1,10 +1,8 @@
 package test.menu.items;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Map;
 import java.util.Scanner;
 
 import com.hospital.hr.Department;
@@ -25,10 +23,11 @@ public class CreatorAnalysis implements MenuItem {
 		Analysis newAnalysis = new Analysis();
 		System.out.print("введ≥ть ≥м€ анал≥зу: ");
 		newAnalysis.setModuleName(scanner.nextLine());
-		Map<String, Field> parameters = new HashMap<String, Field>();
+		List<Field> parameters = new ArrayList<Field>();
 		do {
 			System.out.print("≥м€ параметра: ");
-			String pName = scanner.nextLine();
+			Field field = new Field();
+			field.setName(scanner.nextLine());
 			System.out.println("тип пол€: ");
 			for (int i = 0; i < FieldTypes.values().length; i++) {
 				System.out.println(i + ". " + FieldTypes.values()[i].name());
@@ -36,10 +35,9 @@ public class CreatorAnalysis implements MenuItem {
 			System.out.print("номер типу пол€: ");
 			int pType = Integer.parseInt(scanner.nextLine());
 			String type = FieldTypes.values()[pType].name();
-			Field field = null;
+
 			if (type.equals(FieldTypes.SELECTBOX.name())) {
 				String selectV = "";
-				field = new Field();
 				System.out.print("введ≥ть значенн€, (<x> - вийти): ");
 				while (!(selectV = scanner.nextLine()).equals("x")) {
 					field.addValue(selectV);
@@ -49,7 +47,6 @@ public class CreatorAnalysis implements MenuItem {
 				field.setType(FieldTypes.SELECTBOX);
 			} else if (type.equals(FieldTypes.TEXTBOX.name())) {
 
-				field = new Field();
 				field.setType(FieldTypes.TEXTBOX);
 			} else if (type.equals(FieldTypes.NORM.name())) {
 				Norm norm = new Norm();
@@ -59,7 +56,6 @@ public class CreatorAnalysis implements MenuItem {
 				norm.setMinValue(Double.parseDouble(scanner.nextLine()));
 				System.out.print("¬вед≥ть розм≥рн≥сть норми: ");
 				norm.setUnit(scanner.nextLine());
-				field = new Field();
 				field.setType(FieldTypes.NORM);
 				field.setNorm(norm);// one - to - one!!!!!!!!!!!!!!!!!!!!!!!!!!
 				norm.setField(field);
@@ -78,13 +74,12 @@ public class CreatorAnalysis implements MenuItem {
 						.parseDouble(scanner.nextLine()));
 				System.out.print("¬вед≥ть розм≥рн≥сть норми: ");
 				sexNorm.setUnit(scanner.nextLine());
-				field = new Field();
 				field.setType(FieldTypes.SEX_NORM);
 				field.setSexNorm(sexNorm);// one - to - one!!!!!!!!!!!!!!!
 				sexNorm.setField(field);
 			}
-			
-			parameters.put(pName, field);
+
+			parameters.add(field);
 			System.out.print("б≥льше параметр≥в не вводити? (<x> - вийти): ");
 		} while (!scanner.nextLine().equals("x"));
 

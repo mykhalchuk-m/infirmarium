@@ -1,10 +1,8 @@
 package test.menu.items;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.ListIterator;
-import java.util.Map;
 import java.util.Scanner;
 
 import com.hospital.hr.Department;
@@ -27,10 +25,11 @@ public class CreatorModule implements MenuItem {
 		Module newModule = new Module();
 		System.out.print("введіть імя модуля: ");
 		newModule.setModuleName(scanner.nextLine());
-		Map<String, Field> parameters = new HashMap<String, Field>();
+		List<Field> parameters = new ArrayList<Field>();
 		do {
 			System.out.print("імя параметра: ");
-			String pName = scanner.nextLine();
+			Field field = new Field();
+			field.setName(scanner.nextLine());
 			System.out.println("тип поля: ");
 			for (int i = 0; i < FieldTypes.values().length; i++) {
 				System.out.println(i + ". " + FieldTypes.values()[i].name());
@@ -38,10 +37,9 @@ public class CreatorModule implements MenuItem {
 			System.out.print("номер типу поля: ");
 			int pType = Integer.parseInt(scanner.nextLine());
 			String type = FieldTypes.values()[pType].name();
-			Field field = null;
+
 			if (type.equals(FieldTypes.SELECTBOX.name())) {
 				String selectV = "";
-				field = new Field();
 				System.out.print("введіть значення, (<x> - вийти): ");
 				while (!(selectV = scanner.nextLine()).equals("x")) {
 					field.addValue(selectV);
@@ -51,11 +49,10 @@ public class CreatorModule implements MenuItem {
 				field.setType(FieldTypes.SELECTBOX);
 
 			} else if (type.equals(FieldTypes.TEXTBOX.name())) {
-				field = new Field();
 				field.setType(FieldTypes.TEXTBOX);
 			}
 
-			parameters.put(pName, field);
+			parameters.add(field);
 			System.out.print("більше параметрів не вводити? (<x> - вийти): ");
 		} while (!scanner.nextLine().equals("x"));
 

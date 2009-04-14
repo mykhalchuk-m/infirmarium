@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 import com.hospital.cards.Card;
 import com.hospital.hr.Department;
@@ -104,24 +103,20 @@ public class CreatorCard implements MenuItem {
 				Map<String, String> data = new HashMap<String, String>();
 
 				do {
-					Set<String> paramNames = module.getParameters().keySet();
-					List<String> names = new LinkedList<String>(paramNames);
-					for (ListIterator<String> iterator = names.listIterator(); iterator
-							.hasNext();) {
-						String name = iterator.next();
+					List<Field> paramNames = module.getParameters();
+					for (ListIterator<Field> iterator = paramNames
+							.listIterator(); iterator.hasNext();) {
+						Field fieldFromList = iterator.next();
 						System.out.println((iterator.nextIndex() - 1) + ". "
-								+ name);
+								+ fieldFromList.getName());
 					}
 					System.out.print("виберіть параметр: ");
-					String paramName = names.get(Integer.parseInt(scanner
-							.nextLine()));
-					String type = module.getParameter(paramName).getType()
-							.name();
+					Field selectedField = paramNames.get(Integer
+							.parseInt(scanner.nextLine()));
+					String type = selectedField.getType().name();
 
 					if (type.equals(FieldTypes.SELECTBOX.name())) {
-						List<String> paramVal = module.getParameter(paramName)
-								.getValues();
-						List<String> values = new LinkedList<String>(paramVal);
+						List<String> values = selectedField.getValues();
 
 						for (ListIterator<String> iterator2 = values
 								.listIterator(); iterator2.hasNext();) {
@@ -130,11 +125,11 @@ public class CreatorCard implements MenuItem {
 									+ ". " + value);
 						}
 						System.out.print("виберіть значення: ");
-						data.put(paramName, values.get(Integer.parseInt(scanner
-								.nextLine())));
+						data.put(selectedField.getName(), values.get(Integer
+								.parseInt(scanner.nextLine())));
 					} else if (type.equals(FieldTypes.TEXTBOX.name())) {
 						System.out.print("введіть значення: ");
-						data.put(paramName, scanner.nextLine());
+						data.put(selectedField.getName(), scanner.nextLine());
 					}
 					System.out.print("ще параметри <x> - exit: ");
 				} while (!scanner.nextLine().equals("x"));
@@ -166,25 +161,22 @@ public class CreatorCard implements MenuItem {
 				analysisData.setAbstractModule(analysis);
 
 				do {
-					Set<String> paramNames = analysis.getParameters().keySet();
-					List<String> names = new LinkedList<String>(paramNames);
-					for (ListIterator<String> iterator = names.listIterator(); iterator
-							.hasNext();) {
-						String name = iterator.next();
+					List<Field> namesField = analysis.getParameters();
+
+					for (ListIterator<Field> iterator = namesField
+							.listIterator(); iterator.hasNext();) {
+						Field name = iterator.next();
 						System.out.println((iterator.nextIndex() - 1) + ". "
-								+ name);
+								+ name.getName());
 					}
 					System.out.print("виберіть параметр: ");
-					String paramName = names.get(Integer.parseInt(scanner
-							.nextLine()));
+					Field selectedField = namesField.get(Integer
+							.parseInt(scanner.nextLine()));
 
-					String type = analysis.getParameter(paramName).getType()
-							.name();
+					String type = selectedField.getType().name();
 
 					if (type.equals(FieldTypes.SELECTBOX.name())) {
-						List<String> paramVal = analysis
-								.getParameter(paramName).getValues();
-						List<String> values = new LinkedList<String>(paramVal);
+						List<String> values = selectedField.getValues();
 
 						for (ListIterator<String> iterator2 = values
 								.listIterator(); iterator2.hasNext();) {
@@ -193,44 +185,46 @@ public class CreatorCard implements MenuItem {
 									+ ". " + value);
 						}
 						System.out.print("виберіть значення: ");
-						analysisData.addParameter(paramName, values.get(Integer
-								.parseInt(scanner.nextLine())));
+						analysisData.addParameter(selectedField.getName(),
+								values
+										.get(Integer.parseInt(scanner
+												.nextLine())));
 
 					} else if (type.equals(FieldTypes.TEXTBOX.name())) {
 						System.out.print("введіть значення: ");
-						analysisData
-								.addParameter(paramName, scanner.nextLine());
+						analysisData.addParameter(selectedField.getName(),
+								scanner.nextLine());
 					} else if (type.equals(FieldTypes.NORM.name())) {
-						Field field = analysis.getParameter(paramName);
-						System.out.println("Norm = " + field.getNorm());
-						System.out.print("введіть значення:    ("
-								+ field.getNorm().getMinValue() + " - "
-								+ field.getNorm().getMaxValue() + ") "
-								+ field.getNorm().getUnit() + ": ");
-						analysisData.addParameter(paramName, Double
-								.valueOf(scanner.nextLine()));
-					} else if (type.equals(FieldTypes.SEX_NORM.name())) {
-						Field field = analysis.getParameter(paramName);
-						System.out.println("SexNorm = " + field.getSexNorm());
 
+						System.out.print("введіть значення:    ("
+								+ selectedField.getNorm().getMinValue() + " - "
+								+ selectedField.getNorm().getMaxValue() + ") "
+								+ selectedField.getNorm().getUnit() + ": ");
+						analysisData.addParameter(selectedField.getName(),
+								Double.valueOf(scanner.nextLine()));
+					} else if (type.equals(FieldTypes.SEX_NORM.name())) {
 						String sex = card.getPatient().getSex().name();
 						if (sex.equals(SexTypes.MALE.name())) {
 							System.out.print("введіть значення:    ("
-									+ field.getSexNorm().getMinMaleValue()
+									+ selectedField.getSexNorm()
+											.getMinMaleValue()
 									+ " - "
-									+ field.getSexNorm().getMaxMaleValue()
-									+ ") " + field.getSexNorm().getUnit()
+									+ selectedField.getSexNorm()
+											.getMaxMaleValue() + ") "
+									+ selectedField.getSexNorm().getUnit()
 									+ ": ");
 						} else if (sex.equals(SexTypes.FEMALE.name())) {
 							System.out.print("введіть значення:    ("
-									+ field.getSexNorm().getMinFemaleValue()
+									+ selectedField.getSexNorm()
+											.getMinFemaleValue()
 									+ " - "
-									+ field.getSexNorm().getMaxFemaleValue()
-									+ ") " + field.getSexNorm().getUnit()
+									+ selectedField.getSexNorm()
+											.getMaxFemaleValue() + ") "
+									+ selectedField.getSexNorm().getUnit()
 									+ ": ");
 						}
-						analysisData.addParameter(paramName, Double
-								.valueOf(scanner.nextLine()));
+						analysisData.addParameter(selectedField.getName(),
+								Double.valueOf(scanner.nextLine()));
 					}
 					System.out.print("ще параметри <x> - exit: ");
 				} while (!scanner.nextLine().equals("x"));

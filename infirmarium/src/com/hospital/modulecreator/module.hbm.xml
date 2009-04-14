@@ -10,11 +10,13 @@
 			<generator class="increment" />
 		</id>
 		<property name="moduleName" column="module_name" length="30" />
-		<map name="parameters" cascade="all">
-			<key column="id_module" />
-			<map-key type="string" column="field_name" length="30" />
+
+
+		<list name="parameters" cascade="all">
+			<key column="id_parameters" />
+			<list-index column="list_parameters_order" />
 			<one-to-many class="com.hospital.modulecreator.field.Field" />
-		</map>
+		</list>
 
 		<joined-subclass name="com.hospital.modulecreator.Module"
 			table="module_tbl">
@@ -29,12 +31,15 @@
 
 	</class>
 
+
 	<!--           *****           FIELD          ******          -->
 	<class name="com.hospital.modulecreator.field.Field"
 		table="field_tbl">
 		<id name="id">
 			<generator class="increment" />
 		</id>
+
+		<property name="name" column="field_name" length="40" />
 
 		<property type="com.hospital.modulecreator.field.FieldTypeEnum"
 			name="type" />
