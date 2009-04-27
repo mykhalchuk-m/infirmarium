@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="admin" namespace="/admin" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="authenticationInterceptor"
+				class="web.security.AuthenticationInterceptor" />
+
+			<interceptor name="adminRoleInterceptor"
+				class="web.security.AdminRoleInterceptor" />
+
+			<interceptor-stack name="securedStack">
+				<interceptor-ref name="authenticationInterceptor" />
+				<interceptor-ref name="adminRoleInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="securedStack" />
+
+		<global-results>
+			<result name="login" type="redirect">
+				/common/login.jsp
+			</result>
+		</global-results>
+
+		
+
+		
+		<action name="ViewHW" class="web.admin.ViewHealthWorkers">
+			<result>/admin/hworkers.jsp</result>
+		</action>
+		
+		<action name="AddHW" class="web.admin.AddHealthWorker">
+			<result	name="input">/admin/resultOfAddition.jsp</result> 
+			<result	name="success">/admin/resultOfAddition.jsp</result>
+		</action>
+		
+		<action name="DeleteHW" class="web.admin.DeleteHealthWorker">
+			<result	name="success" type="redirect">/admin/ViewHW.action</result>
+		</action>
+
+		<action name="ViewDepartments" class="web.admin.ViewDepartments">
+			<result>/admin/departments.jsp</result>
+		</action>
+		
+		<action name="AddDepartment" class="web.admin.AddDepartment">
+			<result	name="input">/admin/resultOfAddition.jsp</result> 
+			<result	name="success">/admin/resultOfAddition.jsp</result>
+		</action>
+
+
+	</package>
+
+</struts>
