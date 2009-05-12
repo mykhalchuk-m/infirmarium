@@ -27,18 +27,19 @@
 	padding: 0px;
 }
 
-.deleteIcon{
+.deleteIcon {
 	background: url(../images/delete_small.gif) no-repeat;
 	width: 16px;
 	height: 16px;
-	float:left;
+	float: left;
 	margin: 0 2px;
 }
-.modifyIcon{
+
+.modifyIcon {
 	background: url(../images/modify_small.gif) no-repeat;
 	width: 16px;
 	height: 16px;
-	float:left;
+	float: left;
 	margin: 0 2px;
 }
 
