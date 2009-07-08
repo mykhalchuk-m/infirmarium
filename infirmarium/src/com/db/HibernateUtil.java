@@ -1,18 +1,14 @@
 package com.db;
 
-import java.util.logging.Logger;
-
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import com.logger.LoggerService;
-
 public class HibernateUtil {
 	private static SessionFactory sessionFactory;
-	private static Logger log = LoggerService.getLogger("hibernateutil_log");
+	//private static Logger log = LoggerService.getLogger("hibernateutil_log");!!!!!!!!!!!!!!!!!!!!!!!!!
 
 	/**
 	 * Constructs a new Singleton SessionFactory
@@ -57,7 +53,7 @@ public class HibernateUtil {
 			try {
 				sessionFactory.close();
 			} catch (HibernateException ignored) {
-				log.info("Couldn't close SessionFactory. " + ignored);
+			//	log.info("Couldn't close SessionFactory. " + ignored); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			}
 		}
 	}
@@ -67,7 +63,7 @@ public class HibernateUtil {
 			try {
 				session.close();
 			} catch (HibernateException ignored) {
-				log.info("Couldn't close Session. " + ignored);
+				//log.info("Couldn't close Session. " + ignored);!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			}
 		}
 	}
@@ -78,7 +74,7 @@ public class HibernateUtil {
 				tx.rollback();
 			}
 		} catch (HibernateException ignored) {
-			log.info("Couldn't rollback Transaction. " + ignored);
+			//log.info("Couldn't rollback Transaction. " + ignored); !!!!!!!!!!!!!!!!!!!!!!
 		}
 	}
 

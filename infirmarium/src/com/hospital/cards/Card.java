@@ -62,8 +62,8 @@ public class Card {
 		this.healthWorker = healthWorker;
 	}
 
-	public void addModuleData(ModuleData moduleData) {
-		modulesData.add(moduleData);
+	public void addModuleData(ModuleData modulesData) {
+		this.modulesData.add(modulesData);
 	}
 
 	public List<String> getModuleDataNames() {
@@ -101,10 +101,6 @@ public class Card {
 
 	public void setModulesData(List<ModuleData> modulesData) {
 		this.modulesData = modulesData;
-	}
-
-	public void addModulesData(ModuleData modulesData) {
-		this.modulesData.add(modulesData);
 	}
 
 	public List<AnalysisData> getAnalysesData() {

@@ -18,7 +18,7 @@ import com.logger.LoggerService;
 public class DaoManager<T> {
 	private Session session;
 	private Transaction transaction;
-	private Logger logger = LoggerService.getLogger("daomanager");
+	//private Logger logger = LoggerService.getLogger("daomanager");!!!!!!!!!!!!!!!!!!!!!!!
 
 	public void newInstance(T t) {
 		try {
@@ -26,7 +26,7 @@ public class DaoManager<T> {
 			session.save(t);
 			endOperation();
 		} catch (HibernateException e) {
-			logger.info(e.getMessage());
+			//logger.info(e.getMessage());!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			System.out.println(e);
 		}
 	}
@@ -47,7 +47,7 @@ public class DaoManager<T> {
 			instances = criteria.list();
 			endOperation();
 		} catch (HibernateException e) {
-			logger.info(e.getMessage());
+			//logger.info(e.getMessage());!!!!!!!!!!!!!!!!!!!!!!!!!!
 			System.out.println(e);
 		}
 		return instances;
@@ -59,8 +59,9 @@ public class DaoManager<T> {
 			session.update(t);
 			endOperation();
 		} catch (HibernateException e) {
-			logger.info(e.getMessage());
+			//logger.info(e.getMessage());!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			System.out.println(e);
+			e.printStackTrace();
 		}
 	}
 

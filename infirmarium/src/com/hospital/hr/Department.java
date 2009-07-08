@@ -1,6 +1,7 @@
 package com.hospital.hr;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import com.hospital.modulecreator.Analysis;
@@ -33,6 +34,18 @@ public class Department {
 		return modules;
 	}
 
+	public Set<Module> getExistModule() {
+		Set<Module> existModules = new HashSet<Module>();
+		for (Iterator<Module> iterator = modules.iterator(); iterator.hasNext();) {
+			Module module = iterator.next();
+			if (module.getExist()) {
+				existModules.add(module);
+			}
+
+		}
+		return existModules;
+	}
+
 	public void setModules(Set<Module> modules) {
 		this.modules = modules;
 	}
@@ -45,6 +58,19 @@ public class Department {
 		return healthWorkers;
 	}
 
+	public Set<HealthWorker> getExistHealthWorkers() {
+		Set<HealthWorker> existHealthWorkers = new HashSet<HealthWorker>();
+		for (Iterator<HealthWorker> iterator = healthWorkers.iterator(); iterator
+				.hasNext();) {
+			HealthWorker healthWorker = iterator.next();
+			if (healthWorker.getExist()) {
+				existHealthWorkers.add(healthWorker);
+			}
+
+		}
+		return existHealthWorkers;
+	}
+
 	public void setHealthWorkers(Set<HealthWorker> healthWorkers) {
 		this.healthWorkers = healthWorkers;
 	}
@@ -55,6 +81,19 @@ public class Department {
 
 	public Set<Analysis> getAnalyses() {
 		return analyses;
+	}
+
+	public Set<Analysis> getExistAnalyses() {
+		Set<Analysis> existAnalyses = new HashSet<Analysis>();
+		for (Iterator<Analysis> iterator = analyses.iterator(); iterator
+				.hasNext();) {
+			Analysis analysis = iterator.next();
+			if (analysis.getExist()) {
+				existAnalyses.add(analysis);
+			}
+
+		}
+		return existAnalyses;
 	}
 
 	public void setAnalyses(Set<Analysis> analyses) {

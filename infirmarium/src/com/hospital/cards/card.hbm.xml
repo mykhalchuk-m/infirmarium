@@ -4,7 +4,8 @@
 <hibernate-mapping>
 
 	<!--           *****        Card      ******          -->
-	<class name="com.hospital.cards.Card" table="Card_tbl">
+	<class name="com.hospital.cards.Card" table="Card_tbl"
+		lazy="false">
 		<id name="id">
 			<generator class="increment" />
 		</id>
@@ -21,19 +22,19 @@
 		<many-to-one name="healthWorker"
 			class="com.hospital.hr.HealthWorker" column="healthWorker_ID" />
 
-		 <list name="modulesData" cascade="all">
-			<key column="id_Moule_Data"/>
-			<list-index  column="list_order"/>
+		<list name="modulesData" cascade="all" lazy="false">
+			<key column="id_Moule_Data" />
+			<list-index column="list_order" />
 
 			<one-to-many class="com.hospital.module.ModuleData" />
 		</list>
 
-		<list name="analysesData" cascade="all">
-			<key column="id_Analysis_Data"/>
-			<list-index column="list_order"/>
+		<list name="analysesData" cascade="all" lazy="false">
+			<key column="id_Analysis_Data" />
+			<list-index column="list_order" />
 			<one-to-many class="com.hospital.module.AnalysisData" />
 		</list>
-		
+
 
 
 

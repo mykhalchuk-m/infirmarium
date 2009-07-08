@@ -35,47 +35,32 @@ public class AddHealthWorker extends ActionSupport implements
 		dao.updateInstance(depart);
 		dao.close();
 
-		result ="\""+ hw.getFirstName() + " " + hw.getLastName()+"\"" + " доданий в базу мед.працівників";
+		result = "\"" + hw.getFirstName() + " " + hw.getLastName() + "\""
+				+ " доданий в базу мед.працівників";
 		return SUCCESS;
 	}
 
 	public void validate() {
 
 		if (hw.getFirstName().length() == 0) {
-			addFieldError("firstName", "firstName");
+			addFieldError("firstName", "введіть імя");
 		}
 		if (hw.getLastName().length() == 0) {
-			addFieldError("lastName", "lastName");
+			addFieldError("lastName", "введіть прізвище");
 		}
 		if (hw.getMiddleName().length() == 0) {
-			addFieldError("middleName", "middleName");
+			addFieldError("middleName", "введіть по-батькові");
 		}
 		if (hw.getLogin().length() == 0) {
-			addFieldError("login", "login");
+			addFieldError("login", "ввеіть логін");
 		} else {
-			DaoManager<HealthWorker> dao = new DaoManager<HealthWorker>();
-
-			List<Param> listParams = new ArrayList<Param>();
-
-			Param idParam = new Param();
-			idParam.setParamName("login");
-			idParam.setParamValue(hw.getLogin());
-
-			listParams.add(idParam);
-
-			List<HealthWorker> hwList = dao.getInstance(HealthWorker.class,
-					listParams);
-
-			Iterator<HealthWorker> iterator = hwList.iterator();
-			if (iterator.hasNext()) {
-				addActionError("change login");
-			}
+			checkDuplicationLogin();
 		}
 		if (hw.getPassword().length() == 0) {
-			addFieldError("password", "password");
+			addFieldError("password", "введіть пароль");
 		}
 		if (hw.getSpeciality().length() == 0) {
-			addFieldError("speciality", "Speciality");
+			addFieldError("speciality", "введіть спеціальність");
 		}
 
 	}
@@ -107,6 +92,26 @@ public class AddHealthWorker extends ActionSupport implements
 
 	public void setResult(String result) {
 		this.result = result;
+	}
+
+	private void checkDuplicationLogin() {
+		DaoManager<HealthWorker> dao = new DaoManager<HealthWorker>();
+
+		List<Param> listParams = new ArrayList<Param>();
+
+		Param idParam = new Param();
+		idParam.setParamName("login");
+		idParam.setParamValue(hw.getLogin());
+
+		listParams.add(idParam);
+
+		List<HealthWorker> hwList = dao.getInstance(HealthWorker.class,
+				listParams);
+
+		Iterator<HealthWorker> iterator = hwList.iterator();
+		if (iterator.hasNext()) {
+			addActionError("change login");
+		}
 	}
 
 }

@@ -3,20 +3,27 @@
 
 <hibernate-mapping>
 	<!--           *****           Health Worker        ******          -->
-	<class name="com.hospital.hr.HealthWorker"
-		table="HealthWorker_tbl">
+	<class name="com.hospital.hr.HealthWorker" table="HealthWorker_tbl"
+		lazy="false">
 		<id name="id">
 			<generator class="increment" />
 		</id>
-		<property name="firstName" column="first_Name" length="30"/>
-		<property name="lastName" column="last_Name"  length="30"/>
-		<property name="middleName" column="middle_Name"  length="30"/>
-		<property name="speciality" column="speciality"  length="30"/>
+		<property name="firstName" column="first_Name" length="30" />
+		<property name="lastName" column="last_Name" length="30" />
+		<property name="middleName" column="middle_Name" length="30" />
+		<property name="speciality" column="speciality" length="50" />
+		<property name="login" column="login" length="30" />
+		<property name="password" column="password" length="30" />
+		<property name="exist" column="exist" />
+		<property type="com.hospital.hr.RoleEnum" name="role"
+			length="10" />
+
 
 	</class>
 
 	<!--           *****          Blood Group        ******          -->
-	<class name="com.hospital.hr.BloodGroup" table="BloodGroup_tbl">
+	<class name="com.hospital.hr.BloodGroup" table="BloodGroup_tbl"
+		lazy="false">
 		<id name="id">
 			<generator class="increment" />
 		</id>
@@ -25,45 +32,53 @@
 	</class>
 
 	<!--           *****          Patient      ******          -->
-	<class name="com.hospital.hr.Patient" table="Patients_tbl">
+	<class name="com.hospital.hr.Patient" table="Patients_tbl"
+		lazy="false">
 		<id name="id">
 			<generator class="increment" />
 		</id>
 
-		<property name="firstName" column="first_Name"  length="30"/>
-		<property name="middleName" column="middle_Name"  length="30"/>
-		<property name="lastName" column="last_Name"  length="30"/>
-		<property name="address" column="address"  length="50"/>
+		<property name="firstName" column="first_Name" length="30" />
+		<property name="middleName" column="middle_Name" length="30" />
+		<property name="lastName" column="last_Name" length="30" />
+		<property name="address" column="address" length="50" />
 		<property name="birthday" column="birthday" type="date" />
 		<property type="com.hospital.hr.SexTypesEnum" name="sex" />
 
 		<many-to-one name="bloodGroup"
-			class="com.hospital.hr.BloodGroup" column="bloodGroup_ID" />
+			class="com.hospital.hr.BloodGroup" column="bloodGroup_ID"
+			lazy="false" />
 
 	</class>
 
 	<!--           *****         Department        ******          -->
-	<class name="com.hospital.hr.Department" table="Department_tbl">
+	<class name="com.hospital.hr.Department" table="Department_tbl"
+		lazy="false">
 		<id name="id">
 			<generator class="increment" />
 		</id>
-		<property name="name" column="name" unique="true"  length="30" type="string"/>
+		<property name="name" column="name" unique="true" length="40"
+			type="string" />
 
-		<set name="modules" cascade="all" table="modules_of_dep_tbl">
+		<set name="modules" cascade="save-update" table="modules_of_dep_tbl"
+			lazy="false">
 			<key column="id_modules_of_dep" />
-			<many-to-many class="com.hospital.modulecreator.Module" />
+			<many-to-many class="com.hospital.modulecreator.Module"
+				lazy="false" />
 		</set>
 
-		<set name="analyses" cascade="all"
-			table="analyses_of_dep_tbl">
+		<set name="analyses" cascade="save-update" table="analyses_of_dep_tbl"
+			lazy="false">
 			<key column="id_analyses_of_dep" />
-			<many-to-many class="com.hospital.modulecreator.Analysis" />
+			<many-to-many class="com.hospital.modulecreator.Analysis"
+				lazy="false" />
 		</set>
 
 		<set name="healthWorkers" cascade="all"
-			table="health_Workers_of_dep_tbl">
+			table="health_Workers_of_dep_tbl" lazy="false">
 			<key column="id_health_Workers_of_dep" />
-			<many-to-many class="com.hospital.hr.HealthWorker" />
+			<many-to-many class="com.hospital.hr.HealthWorker"
+				lazy="false" />
 		</set>
 	</class>
 

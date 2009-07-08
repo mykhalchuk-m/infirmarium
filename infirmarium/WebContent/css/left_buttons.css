@@ -42,6 +42,9 @@
 	display: block;
 	float: left;
 }
+ em{
+	visibility: hidden;
+	}
 
 .recordButtonSelected {
 	background-image: url("../images/departments/injury_selected.gif");
