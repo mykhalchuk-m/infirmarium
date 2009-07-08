@@ -8,7 +8,7 @@
 			jdbc:mysql://localhost/test
 		</property>
 		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.password">21397</property>
 
 		<property name="hibernate.c3p0.min_size">0</property>
 		<property name="hibernate.c3p0.max_size">20</property>
@@ -17,7 +17,7 @@
 		<property name="hibernate.c3p0.idle_test_period">3000</property>
 
 		<property name="use_sql_comments">true</property>
-		
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		<!--  Show and print nice SQL on stdout -->

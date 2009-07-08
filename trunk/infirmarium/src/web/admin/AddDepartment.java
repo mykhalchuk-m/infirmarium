@@ -31,20 +31,22 @@ public class AddDepartment extends ActionSupport implements
 	public void validate() {
 
 		if (department.getName().length() == 0) {
-			addFieldError("department.name", "department name required");
+			addFieldError("department.name", "введіть назву відділа");
 		} else {
-			List<String> names = DbService.getDepartmentsNames();
-			for (Iterator<String> iterator = names.iterator(); iterator
-					.hasNext();) {
-				String depName = iterator.next();
-				if (depName.equalsIgnoreCase(department.getName())) {
-					addActionError("duplicating dapartment's name");
-				}
+			checkDuplicationLogin();
+		}
 
+	}
+
+	private void checkDuplicationLogin() {
+		List<String> names = DbService.getDepartmentsNames();
+		for (Iterator<String> iterator = names.iterator(); iterator.hasNext();) {
+			String depName = iterator.next();
+			if (depName.equalsIgnoreCase(department.getName())) {
+				addActionError("відділ з таким іменем вже існує");
 			}
 
 		}
-
 	}
 
 	public Department getModel() {

@@ -4,8 +4,9 @@
 <%@ tag display-name="templatePage"%>
 <%@ taglib prefix="s"	uri="/struts-tags"%>
 <%@ attribute name="head" fragment="true"%>
-<%@ attribute name="listBox" fragment="true"%>
-<%@ attribute name="addBox" fragment="true"%>
+<%@ attribute name="urlTab1"  fragment="true" %>
+<%@ attribute name="logo"  fragment="true" %>
+<%@ attribute name="urlTab2"  fragment="true"%>
 <%@ attribute	name="title" required="true"%>
 <%@ attribute name="description"%>
 <%@ attribute	name="keywords"%>
@@ -20,11 +21,11 @@
 	</title>
 		<link rel="stylesheet" type="text/css" href="../css/generic.css" />
 		<link rel="stylesheet" type="text/css" href="../css/common.css" />
-		<link rel="stylesheet" type="text/css" href="../css/hworker.css" />
 		<link type="text/css" href="../css/left_buttons.css"	rel="Stylesheet" />	
     	<link rel="stylesheet" type="text/css" href="../css/navbuttons.css" />
 		<link type="text/css" href="../js/jquery/theme/ui.all.css"	rel="Stylesheet" />
 		<link type="text/css" href="../css/select_window.css"	rel="Stylesheet" />
+		<link type="text/css" href="../css/module_building.css"	rel="Stylesheet" />
 		<script type="text/javascript" src="../js/jquery/jquery-1.3.2.min.js"></script>
 
 		<script type="text/javascript"
@@ -34,6 +35,7 @@
 		
 			
 <script type="text/javascript">
+
 	$(document)
 			.ready( function() {
 				$('tr:odd').addClass('odd');
@@ -88,8 +90,8 @@
 								<div class="infoPanelbr">
 									<div class="infoPaneltl">
 										<div class="infoPanelContent">
-
-											<img src="../images/logo_large.gif" alt="Logo">
+													<jsp:invoke fragment='logo'/>
+											
 								</div>
 									</div>
 								</div>
@@ -102,12 +104,13 @@
 
 			<div class="topPanel">
 				<div class="navButtonCenter">
-					<a href="cards.jsp"><div class="navButton"><div class="navCard"></div></div></a>
-					<a href="patients.jsp"><div class="navButton" ><div class="navPatient"></div></div></a>
-					<a href='<s:url action="ViewHW"/>'><div class="navButton"><div class="navDoctor"></div></div></a>
-					<a href="analysis.jsp"><div class="navButton"><div class="navAnlysis"></div></div></a>
-					<a href='<s:url action="ViewDepartments"/>'><div class="navButton"><div class="navDep"></div></div></a>
-					<a href="modules.jsp"><div class="navButton"><div class="navModule"></div></div></a>
+					<a href='<s:url action="card"/>'><div class="navButton"><div class="navCard"></div></div></a>
+					<a href='<s:url action="patient"/>'><div class="navButton" ><div class="navPatient"></div></div></a>
+					<a href='<s:url action="hw"/>'><div class="navButton"><div class="navDoctor"></div></div></a>
+					<a href='<s:url action="department"/>'><div class="navButton"><div class="navDep"></div></div></a>
+					<a href='<s:url action="module"/>'><div class="navButton"><div class="navModule"></div></div></a>
+					<a href='<s:url action="analysis"/>'><div class="navButton"><div class="navAnlysis"></div></div></a>
+					
 				</div>
 			</div>
 
@@ -118,52 +121,20 @@
 
 						<ul class="tabsPanelMiddle">
 							<li>
-								<a href="#tabs-1"><span class="recordButtonIcoMain"></span>
+								<a href="<%=application.getContextPath()%><jsp:invoke fragment='urlTab1'/>"><span class="recordButtonIcoMain"></span>
 								</a>
 							</li>
 							<li>
-								<a href="#tabs-2"><span class="recordButtonIcoAdd"></span>
+								<a href="<%=application.getContextPath()%><jsp:invoke fragment='urlTab2'/>"><span class="recordButtonIcoAdd"></span>
 								</a>
 							</li>
 						</ul>
 
 						<div id="tabs-1">
-							<div class="contentb">
-								<div class="contentt">
-									<div class="contentl">
-										<div class="contentr">
-											<div class="contentbr">
-												<div class="contenttl">
-													<div class="contentContent">
-														
-														<jsp:invoke fragment="listBox"/>
-														
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+
 						</div>
 						<div id="tabs-2">
-							<div class="contentb">
-								<div class="contentt">
-									<div class="contentl">
-										<div class="contentr">
-											<div class="contentbr">
-												<div class="contenttl">
-													<div class="contentContent">
-														
-														<jsp:invoke fragment="addBox"/>
-														
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+			
 						</div>
 						
 					</div>

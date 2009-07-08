@@ -11,6 +11,7 @@ public abstract class AbstractModule {
 	private long id;
 	private List<Field> parameters = new ArrayList<Field>();
 	private String moduleName;
+	private Boolean exist = Boolean.TRUE;
 
 	public String getModuleName() {
 		return moduleName;
@@ -51,6 +52,22 @@ public abstract class AbstractModule {
 
 	public void setParameters(List<Field> parameters) {
 		this.parameters = parameters;
+	}
+
+	public Boolean getExist() {
+		return exist;
+	}
+
+	public void setExist(Boolean exist) {
+		this.exist = exist;
+	}
+
+	public int hashCode() {
+		return (int) (moduleName.hashCode() * id);
+	}
+
+	public boolean equals(Object o) {
+		return hashCode() == ((AbstractModule) o).hashCode();
 	}
 
 }

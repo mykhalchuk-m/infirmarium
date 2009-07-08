@@ -3,7 +3,8 @@ body {
 	padding: none;
 	background-color: #CECECE;
 	font-family: tahoma, verdana, arial, sans-serif;
-	font-size: small;
+	font-size:small;
+
 	margin: 0px;
 	padding: 0px;
 	font-style: normal;
@@ -31,32 +32,32 @@ H1 {
 
 H2 {
 	color: #ff5a00;
-	margin: 0px;
+margin: 0px;
 }
 
 H3 {
 	color: #ff5a00;
-	margin: 0px;
+margin: 0px;
 }
 
 H4 {
 	color: #ff5a00;
-	margin: 0px;
+margin: 0px;
 }
 
 H5 {
 	color: #ff5a00;
-	margin: 0px;
+margin: 0px;
 }
 
 H6 {
 	color: #ff5a00;
-	margin: 0px;
+margin: 0px;
 }
 
 H7 {
 	color: #ff5a00;
-	margin: 0px;
+margin: 0px;
 }
 
 .main {
@@ -101,12 +102,15 @@ H7 {
 	padding-bottom: 40px !important;
 }
 
+
 .topPanel {
 	background: url(../images/interface_top_panel.gif) repeat-x;
 	width: 75%;
 	height: 30px;
 	float: left;
 }
+
+
 
 .navButtonCenter {
 	display: table;
@@ -210,30 +214,28 @@ H7 {
 	width: 100%;
 }
 
-.icoPatient {
+.icoPatient{
 	background-image: url("../images/icons/patient.gif");
 	display: block;
 	width: 16px;
 	height: 16px;
-	float: left;
+	float:left;
 	margin-top: 3px;
 }
-
 /*tables*/
-TABLE {
+TABLE{
 	border: 3px solid;
 	border-color: #ff5a00;
 	color: #222;
 	margin: 3px;
 	width: 100%;
-	border-collapse: collapse;
+	border-collapse: collapse; 
 }
-
-t
 TABLE TR,TD,TT {
 	margin: 0px;
 	padding: 2px;
 	border-right: 1px;
+	text-align: left;
 }
 
 THEAD TR {
@@ -244,13 +246,12 @@ THEAD TR {
 }
 
 .odd {
-	background-color: #fff;
+	background-color: #fff; 
 }
 
 .even {
 	background-color: #FFE4AF;
 }
-
 .newPanel {
 	display: table;
 }
@@ -268,22 +269,4 @@ THEAD TR {
 	text-align: left;
 	float: left;
 	margin-top: 3px;
-}
-
-.formTable {
-	width: 845px;
-	border: none;
-	margin: 0xp auto;
-}
-.formTable tr:hover{
-	background-color: none;
-}
-.param{
-	background-color: none !important;
-	text-align: right;
-	width:30%;
-}
-.value{
-	background-color: none !important;
-	width:70%;
 }

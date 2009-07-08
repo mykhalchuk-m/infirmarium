@@ -1,5 +1,6 @@
-var valuesAmounts=new Array();
 var paramsAmount = 0;
+var valuesAmounts = new Array();
+
 function reinitDeleteSmall(){
 	$('.deleteParametr, .deleteButtonSmall').click( function() {
 		$(this).parent().css('display', 'block').hide(500, function() {
@@ -10,19 +11,19 @@ function reinitDeleteSmall(){
 function reinitAdd(paramId){
 	$('#paramBlock_'+paramId+' .addButtonSmall').click(function(){		
 		valueId=valuesAmounts[paramId];
-		$(this).parent().prev().append('<div class="parametrVariant"><input name="value_'+paramId+'_'+valueId+'"><span class="deleteButtonSmall"></div>');
+		$(this).parent().prev().append('<div class="parametrVariant"><input name="module.parameters['+paramId+'].values['+valueId+']"><span class="deleteButtonSmall"></div>');
 		reinitDeleteSmall();
 		valuesAmounts[paramId]++;
 	});
 }
 function enableVariants(paramId){
-	$('#paramBlock_'+paramId+' input[name=type_'+paramId+']:radio').change(function(){
+	$('#paramBlock_'+paramId+' input[name=types['+paramId+']]:radio').change(function(){
 		
 		switch ($(this).val()){
-			case 'field':				
+			case 'TEXTBOX':				
 				$("#paramEdit_"+paramId).hide();
 				break;
-			case 'variants':
+			case 'SELECTBOX':
 				$("#paramEdit_"+paramId).show();
 				break;
 		}
@@ -34,7 +35,7 @@ $(document).ready( function() {
 	
 	$('.addButtonParam').click(function(){
 		newParamBlock =$(this).parent().prev(); 
-		newParamBlock.append('<div class="parametr" id="paramBlock_'+paramsAmount+'"><div class="deleteParametr"></div><div class="parametrName">Name <input name="param_'+paramsAmount+'"></div><div class="parametrType"><input type="radio" name="type_'+paramsAmount+'" value="field">Field<input type="radio" name="type_'+paramsAmount+'" value="variants" checked="checked" >Variants</div><div id="paramEdit_'+paramsAmount+'">	<div class="parametrVariants"></div><div><span class="addButtonSmall"></div></div></div>');
+		newParamBlock.append('<div class="parametr" id="paramBlock_'+paramsAmount+'"><div class="deleteParametr"></div><div class="parametrName">Назва параметра <input name="module.parameters['+paramsAmount+'].name"></div><div class="parametrType"><input type="radio" name="types['+paramsAmount+']" value="TEXTBOX">TEXTBOX<input type="radio" name="types['+paramsAmount+']" value="SELECTBOX" checked="checked" >SELECTBOX</div><div id="paramEdit_'+paramsAmount+'">	<div class="parametrVariants"></div><div><span class="addButtonSmall"></div></div></div>');
 		reinitAdd(paramsAmount);
 		valuesAmounts[paramsAmount]=0;
 		enableVariants(paramsAmount);

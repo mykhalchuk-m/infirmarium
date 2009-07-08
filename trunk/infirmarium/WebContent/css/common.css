@@ -27,19 +27,36 @@
 	padding: 0px;
 }
 
-.deleteIcon {
+.deleteIcon{
 	background: url(../images/delete_small.gif) no-repeat;
 	width: 16px;
 	height: 16px;
-	float: left;
+	float:left;
 	margin: 0 2px;
+	cursor: pointer;
 }
-
-.modifyIcon {
+.modifyIcon{
 	background: url(../images/modify_small.gif) no-repeat;
 	width: 16px;
 	height: 16px;
-	float: left;
+	float:left;
 	margin: 0 2px;
+	cursor: pointer;
+}
+.updateDepModIcon {
+	background: url(../images/update_dep_mod.gif) no-repeat;
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin: 1px 2px;
+	cursor: pointer;
 }
 
+.updateDepAnIcon {
+	background: url(../images/update_dep_an.gif) no-repeat;
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin: 1px 2px;
+	cursor: pointer;
+}

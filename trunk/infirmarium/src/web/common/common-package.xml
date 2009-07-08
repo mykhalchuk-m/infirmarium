@@ -9,7 +9,7 @@
 
 		<action name="Login" class="web.common.LoginAction">
 			<result name="input">/common/login.jsp</result>
-			<result name="success"  type="redirect">/index.jsp</result>
+			<result name="success"  type="redirect">/admin/card.action</result>
 		</action>
 	</package>
 </struts>

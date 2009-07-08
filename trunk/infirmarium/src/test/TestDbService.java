@@ -34,14 +34,14 @@ public class TestDbService {
 			System.out.println((iterator.nextIndex() - 1) + ". "
 					+ patient.getName() );
 		}
-		System.out.println("Âèáåğ³òü ïàö³ºíòà: ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ");
 		Department patientSet = pats.get(Integer.parseInt(scanner.nextLine()));
 		
 		
 		
 		///////////////////////////////////////////
 		
-		List<Card> list = DbService.getÑardsByDepartment(patientSet);
+		List<Card> list = DbService.getCardsByDepartment(patientSet);
 
 		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
 			Card card = (Card) iterator.next();
