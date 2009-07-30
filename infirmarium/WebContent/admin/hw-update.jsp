@@ -7,7 +7,7 @@
 			var listRole = document.getElementById("roleString");
 			
 
-			$("div.result").load("<%=application.getContextPath()%>/admin/updatehw.action",
+			$("div.result").load("<%=application.getContextPath()%>/admin/addressupdate.action",
 			{
 				id: "<s:property value='hwData.id' />",
     			lastName: document.getElementById("lastName").value,
@@ -53,12 +53,12 @@
 		id="password" value="<s:property value='hwData.password' />"/></div>
 	<div class="newParam">Роль</div>
 
-	<div class="newValue"><s:select list="{'WORKER','ADMIN'}"
-		name="roleString" id="roleString" /></div>
+	<div class="newValue">
+		<s:select list="{'WORKER','ADMIN'}" name="roleString" id="roleString" /></div>
 
 	<div class="newParam"></div>
-	<div class="newValue"><input type="submit"
-		value="Додати працівника" /></div>
+	<div class="newValue">
+		<input type="submit" value="Обновити дані" /></div>
 	</div>
 
 	<div class="result" style="text-align: center;"></div>

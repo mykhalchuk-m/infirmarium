@@ -11,14 +11,14 @@
 <script type="text/javascript">
 $(document).ready(function(){
 
-   var options = { 
-              success:       showResponse  // post-submit callback 
-     }; 
-  $('#moduleDataForm').ajaxForm(options); 
+   	var options = { 
+   		success:showResponse  // post-submit callback 
+   	}; 
+ 	 $('#moduleDataForm').ajaxForm(options); 
   
-  function showResponse(responseText, statusText)  { 
-    $("#resultmoduleDataForm").html(responseText);
-}
+  	function showResponse(responseText, statusText){ 
+   		$("#resultmoduleDataForm").html(responseText);
+	}
 });
 	
 	

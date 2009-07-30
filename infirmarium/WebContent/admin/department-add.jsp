@@ -4,11 +4,11 @@
 <script type="text/javascript">
 	function sendDataToAction(){
 					
-			$("div.result").load("<%=application.getContextPath()%>/admin/adddepartment.action",
-			{
-    			name: document.getElementById("departmentName").value
-    					});
-    		return false;
+		$("div.result").load("<%=application.getContextPath()%>/admin/adddepartment.action",
+		{
+			name: document.getElementById("departmentName").value
+		});
+		return false;
 	}
 </script>
 <div class="contentb">

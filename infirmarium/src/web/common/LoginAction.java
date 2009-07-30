@@ -28,7 +28,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			session.put(Constants.ENTERED_HEALTH_WORKER, hw);
 			return SUCCESS;
 		}else {
-			addActionError(getText("невірний пароль або логін"));
+			addActionError(getText("Р»РѕРіС–РЅ Р°Р±Рѕ РїР°СЂРѕР»СЊ Р±СѓР»Рё РІРІРµРґРµРЅС– РЅРµ РїСЂР°РІРёР»СЊРЅС–"));
 			return INPUT;
 		}
 		
@@ -51,11 +51,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 	public void validate() {
 
 		if (login.length() == 0) {
-			addFieldError("login", "введіть логін");
+			addFieldError("login", "РІРІРµРґС–С‚СЊ, Р±СѓРґСЊ-Р»Р°СЃРєР°, Р»РѕРіС–РЅ");
 		}
 
 		if (password.length() == 0) {
-			addFieldError("password", "введіть пароль");
+			addFieldError("password", "РІРІРµРґС–С‚СЊ, Р±СѓРґСЊ-Р»Р°СЃРєР°, РїР°СЂРѕР»СЊ");
 		}
 
 	}

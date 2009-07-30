@@ -2,6 +2,7 @@ package web.admin;
 
 import java.util.Date;
 
+import com.hospital.hr.Address;
 import com.hospital.hr.BloodGroup;
 import com.hospital.hr.Patient;
 import com.hospital.hr.SexTypes;
@@ -10,11 +11,22 @@ import com.hospital.service.DbService;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class AddPatient extends ActionSupport implements ModelDriven<Patient> {
+public class AddPatient extends ActionSupport {
 
 	private static final long serialVersionUID = 9154861277722836537L;
 
 	private Patient patient = new Patient();
+	private Address address = new Address();
+	private String lastName;
+	private String firstName;
+	private String middleName;
+	private String country;
+	private String region;
+	private String district;
+	private String city;
+	private String street;
+	private String home;
+	private String flatNumber;
 	private String bloodGroupString;
 	private String sexString;
 	private String birthdayString;
@@ -22,6 +34,18 @@ public class AddPatient extends ActionSupport implements ModelDriven<Patient> {
 
 	public String execute() throws Exception {
 
+		patient.setFirstName(getFirstName());
+		patient.setMiddleName(getMiddleName());
+		patient.setLastName(getLastName());
+		
+		address.setCountry(getCountry());
+		address.setRegion(getRegion());
+		address.setDistrict(getDistrict());
+		address.setCity(getCity());
+		address.setStreet(getStreet());
+		 
+		patient.setAddress(address);
+		
 		BloodGroup bloodGroup = DbService
 				.getBloodGroupByName(getBloodGroupString());
 		patient.setBloodGroup(bloodGroup);
@@ -33,36 +57,43 @@ public class AddPatient extends ActionSupport implements ModelDriven<Patient> {
 		dao.newInstance(patient);
 		dao.close();
 
-		result = "пацієнт \"" + patient.getFirstName() + " "
-				+ patient.getLastName() + "\"" + " доданий в базу лікані";
+		result = "РџР°С†С–С”РЅС‚ \"" + patient.getFirstName() + " "
+				+ patient.getLastName() + "\"" + " Р±СѓРІ СѓСЃРїС–С€РЅРѕ РґРѕРґР°РЅРёР№";
 		return SUCCESS;
 	}
 
 	public void validate() {
 
-		if (patient.getFirstName().length() == 0) {
-			addFieldError("firstName", "введіть імя");
+		if (getFirstName().length() == 0) {
+			addFieldError("firstName", "РІРІРµРґС–С‚СЊ С–Рј'СЏ");
 		}
-		if (patient.getLastName().length() == 0) {
-			addFieldError("lastName", "введіть прізвище");
+		if (getLastName().length() == 0) {
+			addFieldError("lastName", "РІРІРµРґС–С‚СЊ С„Р°РјС–Р»С–СЋ");
 		}
-		if (patient.getMiddleName().length() == 0) {
-			addFieldError("middleName", "введіть по-батькові");
+		if (getMiddleName().length() == 0) {
+			addFieldError("middleName", "РІРІРµРґС–С‚СЊ РїРѕ-Р±Р°С‚СЊРєРѕРІС–");
 		}
-		if (patient.getAddress().length() == 0) {
-			addFieldError("address", "введіть адрес");
+		if (getCountry().length() == 0 || getRegion().length() == 0 || getDistrict().length() == 0 ||
+				getCity().length() == 0 || getStreet().length() == 0) {
+			addFieldError("address", "РІРІРµРґС–С‚СЊ Р°РґСЂРµСЃ");
 		}
 		if (getBirthdayString().length() == 0) {
-			addFieldError("birthday", "введіть дату народження");
+			addFieldError("birthday", "РІРІРµРґС–С‚СЊ РґР°С‚Сѓ РЅР°СЂРѕРґР¶РµРЅРЅСЏ");
+		}
+		if (getHome().length() == 0){
+			addFieldError("home", "РІРІРµРґС–С‚СЊ РЅРѕРјРµСЂ Р±СѓРґРёРЅРєСѓ");
+		}
+		if (getFlatNumber().length() == 0) {
+			addFieldError("flatNumber", "РІРІРµРґС–С‚СЊ РЅРѕРјРµСЂ РєРІР°СЂС‚РёСЂРё");
 		}
 		validateData();
-
+		
 	}
 
-	public Patient getModel() {
-
-		return patient;
-	}
+//	public Patient getModel() {
+//
+//		return patient;
+//	}
 
 	public String getResult() {
 		return result;
@@ -111,13 +142,98 @@ public class AddPatient extends ActionSupport implements ModelDriven<Patient> {
 			Date date = new Date();
 			date.setDate(Integer.valueOf(dd));
 			date.setMonth(Integer.valueOf(mm) - 1);
-			date.setYear(Integer.valueOf(yyyy) - 1900);
+			date.setYear(Integer.valueOf(yyyy) - 1900);//TODO not valid year
 
 			patient.setBirthday(date);
 
 		} catch (Exception e) {
-			addFieldError("birthday", "введіть коректно дату народження");
+			addFieldError("birthday", "РґР°С‚Р° РЅР°СЂРѕРґР¶РµРЅРЅСЏ Р±СѓР»Р° РІРІРµРґРµРЅР° РЅРµ РєРѕСЂРµРєС‚РЅРѕ");
 		}
+	}
+
+//	public Patient getPatient() {
+//		return patient;
+//	}
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getRegion() {
+		return region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getHome() {
+		return home;
+	}
+
+	public void setHome(String home) {
+		this.home = home;
+	}
+
+	public String getFlatNumber() {
+		return flatNumber;
+	}
+
+	public void setFlatNumber(String flatNumber) {
+		this.flatNumber = flatNumber;
+	}
+
+	public String getDistrict() {
+		return district;
+	}
+
+	public void setDistrict(String district) {
+		this.district = district;
 	}
 
 }

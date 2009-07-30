@@ -41,8 +41,8 @@ public class AddAnalysis extends ActionSupport implements Action,
 		dao.updateInstance(depart);
 		dao.close();
 
-		result = "����� \"" + analysis.getModuleName() + "\""
-				+ " ������� � ���� �����";
+		result = "Аналіз \"" + analysis.getModuleName() + "\""
+				+ " був успішно доданий";
 		return SUCCESS;
 
 	}
@@ -88,44 +88,44 @@ public class AddAnalysis extends ActionSupport implements Action,
 		setEnumFieldType();
 
 		if (analysis.getModuleName().length() == 0) {
-			addFieldError("module.moduleName", "укцеуцкецуке ук ецуке");
+			addFieldError("module.moduleName", "введіть, будь-ласка, назву аналізу");
 		} else if (isDuplicatedModuleNameInDB()) {
 			addFieldError("module.moduleName",
-					"����� � ����� ������ ��� ����");
+					"модуль з такою назвою вже існує");
 		}
 
 		if (analysis.getParameters().size() == 0) {
-			addFieldError("module.moduleName", "������ ������� ���� ����");
+			addFieldError("module.moduleName", "введіть, будь-ласка, хоча б один параметер");
 		} else {
 
 			if (isDuplicatedFieldsNames()) {
 				addFieldError("module.parameters.name",
-						"����� ���� ����������");
+						"поле з такою назвою вже існує");
 			}
 			if (!isValidFieldsValues()) {
 				addFieldError("module.parameters.values",
-						"������� ������� ������ �������� ��������� ������� ���� ����� ������");
+						"було введено менше двох параметрів для вибору");
 			}
 
 			if (!isValidFieldsNames()) {
 				addFieldError("module.parameters.name",
-						"������ ����� ���������");
+						"введіть, будь-ласка, назву поля");
 			}
 
 			if (isEmptyFieldsValues()) {
 				addFieldError("module.parameters.values",
-						"������ ������� ������ �������� ���������");
+						"введіть, будь-ласка, значення поля");
 			} else if (isDuplicatedFieldsValues()) {
 				addFieldError("module.parameters.values",
-						"������� ������ �������� ��������� ����������");
+						"таке значення поля вже існує");
 			}
 			if (!isValidNormValues()) {
 				addFieldError("module.parameters.norm",
-						"������ ���� ����� ���� ������� ���� ������ �� ����� ����");
+						"мінімальне значення було введене більшим ніж максимальне, поправте, будь-ліска");
 			}
 			if (!isValidUnitValue()) {
 				addFieldError("module.parameters.norm.unit",
-						"������ ������� ���������� ����");
+						"введіть, будь-ласка, розмірну величину");
 			}
 
 		}

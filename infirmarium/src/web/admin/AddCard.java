@@ -47,7 +47,7 @@ public class AddCard extends ActionSupport implements SessionAware {
 
 		session.put(Constants.CURRENT_VIEW_CARD, card);
 		
-		result = "медична карта доданий в базу лікарні";
+		result = "РЅРѕРІСѓ РєР°СЂС‚РєСѓ Р±СѓР»Рѕ СѓСЃРїС–С€РЅРѕ СЃС‚РІРѕСЂРµРЅРѕ";
 
 		return SUCCESS;
 	}
@@ -55,13 +55,13 @@ public class AddCard extends ActionSupport implements SessionAware {
 	public void validate() {
 
 		if (getDepartmentId() == -1) {
-			addFieldError("departmentId", "введіть відділ");
+			addFieldError("departmentId", "РІРёР±РµСЂС–С‚СЊ РІС–РґРґС–Р»РµРЅРЅСЏ");
 		}
 		if (getPatientId() == -1) {
-			addFieldError("patientId", "введіть відділ");
+			addFieldError("patientId", "РІРёР±РµСЂС–С‚СЊ РїС–С†С–С”РЅС‚Р°");
 		}
 		if (!isHwInDepartment()) {
-			addFieldError("departmentId", "виберіть ваш відділ ");
+			addFieldError("departmentId", "С‚Р°РєРёР№ РїСЂР°С†С–РІРЅРёРє РІС–РґСЃСѓС‚РЅС–Р№ Сѓ РІРёР±СЂР°РЅРѕРјСѓ РІС–РґРґС–Р»РµРЅС–");
 		}
 
 	}

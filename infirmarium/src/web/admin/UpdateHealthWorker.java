@@ -54,7 +54,7 @@ public class UpdateHealthWorker extends ActionSupport implements
 
 		dao.close();
 
-		result = "зміни збережено в базу мед.працівників";
+		result = "Р”Р°РЅС– Р±СѓР»Рё СѓСЃРїС–С€РЅРѕ Р·РјС–РЅРµРЅС–";
 		return SUCCESS;
 	}
 
