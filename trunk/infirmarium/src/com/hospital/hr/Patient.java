@@ -7,7 +7,7 @@ public class Patient {
 	private String firstName;
 	private String middleName;
 	private String lastName;
-	private String address;
+	private Address address;
 	private Date birthday;
 	private SexTypes sex;
 	private BloodGroup bloodGroup;
@@ -36,11 +36,11 @@ public class Patient {
 		this.lastName = lastName;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 

@@ -10,7 +10,7 @@
 		<interceptors>
 			<interceptor name="authenticationInterceptor"
 				class="web.security.AuthenticationInterceptor" />
-
+ 
 			<interceptor name="adminRoleInterceptor"
 				class="web.security.AdminRoleInterceptor" />
 
@@ -88,7 +88,6 @@
 			<result name="input">/admin/result-addition.jsp</result>
 			<result name="success">/admin/result-addition.jsp</result>
 		</action>
-
 
 		<action name="updatedepartmentmodules"
 			class="web.admin.UpdateDepartmentModules">

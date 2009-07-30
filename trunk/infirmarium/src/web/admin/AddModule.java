@@ -37,8 +37,8 @@ public class AddModule extends ActionSupport implements Action, ParameterAware {
 		dao.updateInstance(depart);
 		dao.close();
 
-		result = "модуль \"" + module.getModuleName() + "\""
-				+ " доданий в базу даних";
+		result = "РњРѕРґСѓР»СЊ \"" + module.getModuleName() + "\""
+				+ " Р±СѓРІ СѓСЃРїС–С€РЅРѕ РґРѕРґР°РЅРёР№";
 		return SUCCESS;
 
 	}
@@ -69,37 +69,37 @@ public class AddModule extends ActionSupport implements Action, ParameterAware {
 		setEnumFieldType();
 
 		if (module.getModuleName().length() == 0) {
-			addFieldError("module.moduleName", "введіть назву модуля");
+			addFieldError("module.moduleName", "РІРІРµРґС–С‚СЊ, Р±СѓРґСЊ-Р»Р°СЃРєР°, С–Рј'СЏ РјРѕРґСѓР»СЏ");
 		} else if (isDuplicatedModuleNameInDB()) {
-			addFieldError("module.moduleName", "модуль з такою назвою вже існує");
+			addFieldError("module.moduleName", "С‚Р°РєРёР№ РјРѕРґСѓР»СЊ РІР¶Рµ С–СЃРЅСѓС”");
 		}
 
 		if (module.getParameters().size() == 0) {
-			addFieldError("module.moduleName", "введіть принаймі одне поле");
+			addFieldError("module.moduleName", "РІРІРµРґС–С‚СЊ, Р±СѓРґСЊ-Р»Р°СЃРєР°, РїР°СЂР°РјРµС‚СЂРё РјРѕРґСѓР»СЏ");
 		} else {
 
 			if (isDuplicatedFieldsNames()) {
 				addFieldError("module.parameters.name",
-						"назви полів дуюлюються");
+						"С‚Р°РєРёР№ РїР°СЂР°РјРµС‚РµСЂ РІР¶Рµ С–СЃРЅСѓС”");
 			}
 			if (!isValidFieldsValues()) {
 				addFieldError("module.parameters.values",
-						"кількість варіантів вибору значення параметра повинна бути більше одного");
+						"Р±СѓР»Рѕ РІРІРµРґРµРЅРѕ РјРµРЅС€Рµ РґРІРѕС… Р·РЅР°С‡РµРЅСЊ");
 			}
 
 			if (!isValidFieldsNames()) {
 				addFieldError("module.parameters.name",
-						"введіть назву параметра");
+						"РІРІРµРґС–С‚СЊ, Р±СѓРґСЊ-Р»Р°СЃРєР°, С–Рј'СЏ РїРѕР»СЏ");
 			}
 
 			if (isEmptyFieldsValues()) {
 				addFieldError("module.parameters.values",
-						"введіть варіанти вибору значення параметра");
+						"РІРІРµРґС–С‚СЊ, Р±СѓРґСЊ-Р»Р°СЃРєР°, Р·РЅР°С‡РµРЅРЅСЏ РїРѕР»СЏ");
 			}
 
 			if (isDuplicatedFieldsValues()) {
 				addFieldError("module.parameters.values",
-						"варіанти вибору значення параметра дублюються");
+						"С‚Р°РєРµ Р·РЅР°С‡РµРЅРЅСЏ РІР¶Рµ Р±СѓР»Рѕ РІРІРµРґРµРЅРѕ");
 			}
 		}
 	}

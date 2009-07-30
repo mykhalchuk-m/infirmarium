@@ -23,15 +23,15 @@ public class AddDepartment extends ActionSupport implements
 		dao.newInstance(department);
 		dao.close();
 
-		result = "відділ \"" + department.getName() + "\""
-				+ " доданий в базу лікарні";
+		result = "Р’С–РґРґС–Р»РµРЅРЅСЏ \"" + department.getName() + "\""
+				+ " Р±СѓР»Рѕ СѓСЃРїС–С€РЅРѕ РґРѕРґР°РЅРѕ";
 		return SUCCESS;
 	}
 
 	public void validate() {
 
 		if (department.getName().length() == 0) {
-			addFieldError("department.name", "введіть назву відділа");
+			addFieldError("department.name", "РІРІРµРґС–С‚СЊ РЅР°Р·РІСѓ РІС–РґРґС–Р»РµРЅРЅСЏ");
 		} else {
 			checkDuplicationLogin();
 		}
@@ -43,7 +43,7 @@ public class AddDepartment extends ActionSupport implements
 		for (Iterator<String> iterator = names.iterator(); iterator.hasNext();) {
 			String depName = iterator.next();
 			if (depName.equalsIgnoreCase(department.getName())) {
-				addActionError("відділ з таким іменем вже існує");
+				addActionError("С‚Р°РєРµ РІС–РґРґС–Р»РµРЅРЅСЏ РІР¶Рµ С–СЃРЅСѓС”");
 			}
 
 		}

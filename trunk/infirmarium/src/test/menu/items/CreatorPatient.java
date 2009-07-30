@@ -35,8 +35,8 @@ public class CreatorPatient implements MenuItem {
 		System.out.print("middle name: ");
 		p.setMiddleName(scanner.nextLine());
 
-		System.out.print("address: ");
-		p.setAddress(scanner.nextLine());
+//		System.out.print("address: ");
+//		p.setAddress(scanner.nextLine());
 
 		p.setBirthday(new Date(System.currentTimeMillis()));
 

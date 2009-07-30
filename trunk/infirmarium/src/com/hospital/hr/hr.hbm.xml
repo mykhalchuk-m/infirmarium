@@ -18,7 +18,6 @@
 		<property type="com.hospital.hr.RoleEnum" name="role"
 			length="10" />
 
-
 	</class>
 
 	<!--           *****          Blood Group        ******          -->
@@ -41,7 +40,7 @@
 		<property name="firstName" column="first_Name" length="30" />
 		<property name="middleName" column="middle_Name" length="30" />
 		<property name="lastName" column="last_Name" length="30" />
-		<property name="address" column="address" length="50" />
+        <one-to-one name="address" class="com.hospital.hr.Address" cascade="all" constrained="true" />
 		<property name="birthday" column="birthday" type="date" />
 		<property type="com.hospital.hr.SexTypesEnum" name="sex" />
 
@@ -50,6 +49,21 @@
 			lazy="false" />
 
 	</class>
+
+    <!--           *****         Address           ******          -->
+    <class name="com.hospital.hr.Address" table="Address_tbl" lazy="false">
+        <id name="id">
+            <generator class="increment" />
+        </id>
+        <property name="country" column="country" length="50"/>
+        <property name="region" column="region" length="50"/>
+        <property name="district" column="district" length="50"/>
+        <property name="city" column="city" length="50"/>
+        <property name="street" column="street" length="50"/>
+        <property name="home" column="home" length="50"/>
+        <property name="fletNumber" column="fletNumber" length="50"/>
+        
+    </class>
 
 	<!--           *****         Department        ******          -->
 	<class name="com.hospital.hr.Department" table="Department_tbl"

@@ -36,31 +36,31 @@ public class AddHealthWorker extends ActionSupport implements
 		dao.close();
 
 		result = "\"" + hw.getFirstName() + " " + hw.getLastName() + "\""
-				+ " доданий в базу мед.працівників";
+				+ " Р±СѓРІ СѓСЃРїС–С€РЅРѕ РґРѕРґР°РЅРёР№";
 		return SUCCESS;
 	}
 
 	public void validate() {
 
 		if (hw.getFirstName().length() == 0) {
-			addFieldError("firstName", "введіть імя");
+			addFieldError("firstName", "РІРІРµС–РґС‚СЊ С–Рј'СЏ");
 		}
 		if (hw.getLastName().length() == 0) {
-			addFieldError("lastName", "введіть прізвище");
+			addFieldError("lastName", "РІРІРµРґС–С‚СЊ С„Р°РјС–Р»С–СЋ");
 		}
 		if (hw.getMiddleName().length() == 0) {
-			addFieldError("middleName", "введіть по-батькові");
+			addFieldError("middleName", "РІРІРµРґС–С‚СЊ РїРѕ-Р±Р°С‚СЊРєРѕРІС–");
 		}
 		if (hw.getLogin().length() == 0) {
-			addFieldError("login", "ввеіть логін");
+			addFieldError("login", "РІРІРµРґС–С‚СЊ Р»РѕРіС–РЅ");
 		} else {
 			checkDuplicationLogin();
 		}
 		if (hw.getPassword().length() == 0) {
-			addFieldError("password", "введіть пароль");
+			addFieldError("password", "РІРІРµРґС–С‚СЊ РїР°СЂРѕР»СЊ");
 		}
 		if (hw.getSpeciality().length() == 0) {
-			addFieldError("speciality", "введіть спеціальність");
+			addFieldError("speciality", "РІРІРµРґС–С‚СЊ СЃРїРµС†С–Р°Р»СЊРЅС–СЃС‚СЊ");
 		}
 
 	}

@@ -18,7 +18,7 @@
     			password: document.getElementById("password").value,
     			roleString: listRole.options[listRole.selectedIndex].value,
     			department: listDep.options[listDep.selectedIndex].value
-    					});
+    		});
 		
 			return false;
 			
