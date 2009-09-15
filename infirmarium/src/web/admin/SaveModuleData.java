@@ -45,7 +45,7 @@ public class SaveModuleData extends ActionSupport implements SessionAware,
 
 		session.put(Constants.CURRENT_VIEW_CARD, card);
 
-		setResult("Модуль занесено в медичну карту");
+		setResult("С„РѕСЂРјР° Р±СѓР»Р° СѓСЃРїС–С€РЅРѕ РґРѕРґР°РЅР°");
 		return SUCCESS;
 	}
 

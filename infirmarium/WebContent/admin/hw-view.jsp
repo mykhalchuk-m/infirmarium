@@ -11,12 +11,13 @@
 	src="../js/table.js"></script> <script type="text/javascript">
 
 	function deleteHw(hw_id){
-
-		$.post("<%=application.getContextPath()%>/admin/deletehw.action",
-		{
-			id: ""+hw_id
-		});
-		location.reload();
+		if(confirm("видалити?")){
+			$.post("<%=application.getContextPath()%>/admin/deletehw.action",
+			{
+				id: ""+hw_id
+			});
+			location.reload();
+		}
 	}
 	function addUpdateHwPanel(hw_id){
 		$(document.getElementById("idUpdatePanel")).load("<%=application.getContextPath()%>/admin/updatehwdata.action",

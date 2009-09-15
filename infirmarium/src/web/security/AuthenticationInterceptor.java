@@ -27,9 +27,7 @@ public class AuthenticationInterceptor implements Interceptor {
 		if (hw == null) {
 			return Action.LOGIN;
 		} else {
-
 			return actionInvocation.invoke();
 		}
-
 	}
 }

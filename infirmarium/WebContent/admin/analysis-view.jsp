@@ -7,7 +7,13 @@ function modifyModule(id_module){
 alert(id_module);
 }
 function deleteModule(id_module){
-alert(id_module);
+	if (confirm("видалити?")){
+		$.post("<%=application.getContextPath()%>/admin/deletemodule.action",
+		{
+			id: ""+id_module
+		});
+		location.reload();
+	}
 }
 </script>
 
@@ -26,7 +32,6 @@ alert(id_module);
 			<td>№</td>
 			<td>аналіз</td>
 			<td>опції</td>
-			
 		</tr>
 	</thead>
 
@@ -35,7 +40,7 @@ alert(id_module);
 			<td><s:property value="#iterator.count" /></td>
 			<td><s:property value="#analysis.moduleName" /></td>
 			<td>
-				<div class="modifyIcon" onclick='modifyModule("<s:property value="#analysis.id" />")'> </div>
+				<!-- <div class="modifyIcon" onclick='modifyModule("<s:property value="#analysis.id" />")'> </div> -->
 				<div class="deleteIcon" onclick='deleteModule("<s:property value="#analysis.id" />")'> </div>
 			</td>
 					

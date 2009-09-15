@@ -26,27 +26,25 @@
 			<td>закритий</td>
 			<td>Відділ</td>
 			<td>Лікар</td>
-			<td>Опції</td>
+	<!--		<td>Опції</td> -->
 		</tr>
 	</thead>
+		
 	
 	<s:iterator value="cards" id="card" status="iterator">
 	<tr>
 		<td><s:property value="#card.id" /></td>
 		<td>
-		
-		
 		<a href='<s:url action="cardexplorer"/>?cardId=<s:property value="#card.id" />' title="перейти на медичну картку"> <s:property value="#card.patient.firstName" /> <s:property value="#card.patient.middleName" /> <s:property value="#card.patient.lastName" /> </a>
 		</td>
 		<td><s:property value="#card.start" /></td>
 		<td><s:property value="#card.end" /></td>
 		<td><s:property value="#card.department.name" /></td>
 		<td><b><s:property value="#card.healthWorker.firstName" /> <s:property value="#card.healthWorker.middleName" /> <s:property value="#card.healthWorker.lastName" /></b></td>
-		<td><a href="cardExplorer.html">
-		<div class="modifyIcon"></div>
-		</a>
-		<div class="deleteIcon"></div>
-		</td>
+<!--		<td>
+ 			<div class="modifyIcon"></div>
+			<div class="deleteIcon"></div>  
+		</td>-->
 	</tr>
 	</s:iterator>
 	</table>

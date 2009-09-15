@@ -1,6 +1,5 @@
 package com.hospital.hr;
 
-
 public class HealthWorker {
 	private long id;
 	private String firstName;
@@ -85,9 +84,7 @@ public class HealthWorker {
 	}
 
 	public int hashCode() {
-		return (int) (firstName.hashCode() + lastName.hashCode() + middleName
-				.hashCode()
-				* id);
+		return (int) ((firstName.hashCode() + lastName.hashCode())* id);
 	}
 
 	public boolean equals(Object o) {

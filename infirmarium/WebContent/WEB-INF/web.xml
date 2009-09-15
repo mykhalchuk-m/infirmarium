@@ -17,6 +17,12 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+    <listener>
+        <listener-class>
+            web.listeners.StartUpListener
+        </listener-class>
+    </listener>
+
 	<welcome-file-list>
 			<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

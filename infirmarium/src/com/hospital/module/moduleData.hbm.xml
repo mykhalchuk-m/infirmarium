@@ -12,7 +12,7 @@
 
 		<property name="name" column="name" length="150" />
 		<property name="creationDate" column="creation_date"
-			type="date" />
+			type="timestamp" />
 
 		<many-to-one name="abstractModule"
 			class="com.hospital.modulecreator.AbstractModule" cascade="merge"

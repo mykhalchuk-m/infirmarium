@@ -22,7 +22,7 @@
 <div class="contentContent">
 
 <s:iterator value="#session['CURRENT_VIEW_CARD'].modulesData" id="moduleData">
-<h3>Модуль: <b>"<s:property value="#moduleData.name"/>"</b></h3> (заповнений: <s:property value="#moduleData.creationDate"/> ) 
+<h3>Модуль: <b>"<s:property value="#moduleData.name"/>"</b></h3> (заповнений: <s:date name="#moduleData.creationDate" format="dd/MM/yyyy hh:mm:ss"/>  ) 
  <table>
 	<thead>
 		<tr>
@@ -49,7 +49,7 @@
 
 
 <s:iterator value="#session['CURRENT_VIEW_CARD'].analysesData" id="analysesData">
-<h3>Аналіз: <b>"<s:property value="#analysesData.name"/>"</b></h3> (заповнений: <s:property value="#analysesData.creationDate"/> ) 
+<h3>Аналіз: <b>"<s:property value="#analysesData.name"/>"</b></h3> (заповнений: <s:date name="#analysesData.creationDate" format="dd/MM/yyyy hh:mm:ss"/> ) 
  <table>
 	<thead>
 		<tr>

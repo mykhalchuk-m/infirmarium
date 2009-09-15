@@ -29,7 +29,6 @@
 			</result>
 		</global-results>
 
-
 		<action name="hw">
 			<result>/admin/hw.jsp</result>
 		</action>
@@ -202,7 +201,12 @@
 			<result name="input">/admin/result-addition.jsp</result>
 			<result name="success">/admin/result-addition.jsp</result>
 		</action>
-
+		
+		<action name="deletemodule" class="web.admin.DeleteModule">
+			<result name="success" type="redirect">
+				/admin/module.action
+			</result>
+		</action>
 	</package>
 
 </struts>

@@ -75,7 +75,7 @@ public class AddPatient extends ActionSupport {
 		}
 		if (getCountry().length() == 0 || getRegion().length() == 0 || getDistrict().length() == 0 ||
 				getCity().length() == 0 || getStreet().length() == 0) {
-			addFieldError("address", "введіть адрес");
+			addFieldError("address", "введіть повний адрес");
 		}
 		if (getBirthdayString().length() == 0) {
 			addFieldError("birthday", "введіть дату народження");

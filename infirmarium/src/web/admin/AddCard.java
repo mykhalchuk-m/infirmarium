@@ -98,7 +98,6 @@ public class AddCard extends ActionSupport implements SessionAware {
 			if (hw.getId() == hwSession.getId()) {
 				return true;
 			}
-
 		}
 
 		return false;
