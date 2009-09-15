@@ -1,4 +1,4 @@
-
+﻿
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
 
 <%@ tag display-name="templatePage"%>
@@ -11,10 +11,9 @@
 <%@ attribute name="description"%>
 <%@ attribute	name="keywords"%>
 
+
 <html>
 <head>
-
-	
 	
 	<title>
 		${title}
@@ -51,21 +50,10 @@
 			} ]
 		});
 
-		$(".navButton").click( function() {
-			//$(this).effect("highlight", {}, 1000);
-				$(this).effect("pulsate", {
-					times :0
-				}, 200);
-			});
-
 		$(".ui-tabs .ui-tabs-nav li a").mouseover( function() {
 			$(this).animate( {
-				opacity :"1"
-			}, {
-				duration :0
-			}).animate( {
 				opacity :"0.6"
-			}, "slow");
+			}, "fast");
 		});
 		$(".ui-tabs .ui-tabs-nav li a").mouseout( function() {
 			$(this).animate( {
@@ -90,19 +78,21 @@
 								<div class="infoPanelbr">
 									<div class="infoPaneltl">
 										<div class="infoPanelContent">
-													<jsp:invoke fragment='logo'/>
-											
-								</div>
+											<jsp:invoke fragment='logo'/>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
 
 			<div class="topPanel">
+				<span><s:property value="#session['ENTERED_HEALTH_WORKER'].firstName"/>&nbsp;
+					<s:property value="#session['ENTERED_HEALTH_WORKER'].lastName"/>&nbsp; 
+					<s:a href="/infirmarium/common/Logout.action" title="вилогінитися">вийти</s:a>
+				</span>
 				<div class="navButtonCenter">
 					<a href='<s:url action="card"/>'><div class="navButton"><div class="navCard"></div></div></a>
 					<a href='<s:url action="patient"/>'><div class="navButton" ><div class="navPatient"></div></div></a>
@@ -110,7 +100,6 @@
 					<a href='<s:url action="department"/>'><div class="navButton"><div class="navDep"></div></div></a>
 					<a href='<s:url action="module"/>'><div class="navButton"><div class="navModule"></div></div></a>
 					<a href='<s:url action="analysis"/>'><div class="navButton"><div class="navAnlysis"></div></div></a>
-					
 				</div>
 			</div>
 

@@ -3,7 +3,6 @@ package com.hospital.manageres;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Logger;
 
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
@@ -13,7 +12,6 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
 import com.db.HibernateUtil;
-import com.logger.LoggerService;
 
 public class DaoManager<T> {
 	private Session session;

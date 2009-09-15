@@ -64,10 +64,7 @@ public class AddAnalysis extends ActionSupport implements Action,
 		for (Iterator<Field> iterator = analysis.getParameters().iterator(); iterator
 				.hasNext();) {
 			Field field = iterator.next();
-			
-		
-			
-			
+				
 			if (field.getType().name().equals(FieldTypes.NORM.name())) {
 				field.getNorm().setField(field);
 				field.setSexNorm(null); // update jsp form
@@ -91,7 +88,7 @@ public class AddAnalysis extends ActionSupport implements Action,
 			addFieldError("module.moduleName", "введіть, будь-ласка, назву аналізу");
 		} else if (isDuplicatedModuleNameInDB()) {
 			addFieldError("module.moduleName",
-					"модуль з такою назвою вже існує");
+					"такий аналіз вже існує");
 		}
 
 		if (analysis.getParameters().size() == 0) {

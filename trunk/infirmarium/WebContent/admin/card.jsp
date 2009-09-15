@@ -6,6 +6,7 @@
 
 
 <template:templatepage title="Медичні карти">
+ 
 	<jsp:attribute name="urlTab1">/admin/viewcard.action</jsp:attribute>
 	<jsp:attribute name="urlTab2">/admin/viewcardform.action</jsp:attribute>
 	

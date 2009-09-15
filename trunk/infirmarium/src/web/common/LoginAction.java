@@ -16,7 +16,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	private String login;
 	private String password;
-	@SuppressWarnings( { "unchecked", "unused" })
+	@SuppressWarnings( { "unchecked"} )
 	private Map session;
 
 	@SuppressWarnings("unchecked")
@@ -31,7 +31,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			addActionError(getText("логін або пароль були введені не правильні"));
 			return INPUT;
 		}
-		
 	}
 
 	public void setLogin(String login) {

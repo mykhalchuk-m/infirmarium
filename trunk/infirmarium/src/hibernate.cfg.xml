@@ -5,7 +5,7 @@
 			org.gjt.mm.mysql.Driver
 		</property>
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost/test
+			jdbc:mysql://localhost/infirmarium
 		</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">21397</property>
@@ -18,7 +18,7 @@
 
 		<property name="use_sql_comments">true</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.hbm2ddl.auto">createorupdate</property>
 		
 		<!--  Show and print nice SQL on stdout -->
 		<property name="show_sql">false</property>

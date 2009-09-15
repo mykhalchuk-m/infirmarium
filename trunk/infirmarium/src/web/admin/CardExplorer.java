@@ -24,7 +24,6 @@ public class CardExplorer implements SessionAware, Action {
 		if ((getCardId() == -1)) {
 
 			if (cardSession == null) {
-				System.out.println(NONE);
 				return NONE;
 			} else {
 				return SUCCESS;
