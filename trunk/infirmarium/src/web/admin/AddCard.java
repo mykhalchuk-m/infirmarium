@@ -43,7 +43,7 @@ public class AddCard extends ActionSupport implements SessionAware {
 
 		DaoManager<Card> daoManager = new DaoManager<Card>();
 		daoManager.newInstance(card);
-		daoManager.close();
+//		daoManager.close();
 
 		session.put(Constants.CURRENT_VIEW_CARD, card);
 		

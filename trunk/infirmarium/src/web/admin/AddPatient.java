@@ -9,7 +9,6 @@ import com.hospital.hr.SexTypes;
 import com.hospital.manageres.DaoManager;
 import com.hospital.service.DbService;
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 public class AddPatient extends ActionSupport {
 
@@ -55,7 +54,7 @@ public class AddPatient extends ActionSupport {
 
 		DaoManager<Patient> dao = new DaoManager<Patient>();
 		dao.newInstance(patient);
-		dao.close();
+//		dao.close();
 
 		result = "Пацієнт \"" + patient.getFirstName() + " "
 				+ patient.getLastName() + "\"" + " був успішно доданий";

@@ -47,35 +47,35 @@
 	<s:iterator value="departments" id="department" status="iterator">
 		<tr>
 			<td><s:property value="#iterator.count" /></td>
-			
+
 			<td><s:property value="#department.name" /></td>
 
 			<td>
-				<ul>
-	
-					<s:iterator value="#department.modules" id="module">
-						<li style="float: right; width: 100%; list-style: none"><s:property
-							value="#module.moduleName" /></li>
-					</s:iterator>
-				</ul>
+			<ul>
+
+				<s:iterator value="#department.modules" id="module">
+					<li style="float: right; width: 100%; list-style: none"><s:property
+						value="#module.moduleName" /></li>
+				</s:iterator>
+			</ul>
 			</td>
-			
+
 			<td>
-				<ul>
-					<s:iterator value="#department.analyses" id="analysis">
-						<li style="float: right; width: 100%; list-style: none;"><s:property
-							value="#analysis.moduleName" /></li>
-					</s:iterator>
-				</ul>
+			<ul>
+				<s:iterator value="#department.analyses" id="analysis">
+					<li style="float: right; width: 100%; list-style: none;"><s:property
+						value="#analysis.moduleName" /></li>
+				</s:iterator>
+			</ul>
 			</td>
-			
+
 			<td>
-				<div class="updateDepModIcon" title="додати модуль"
-					onclick='addModulPanel("<s:property value="#department.id" />")'></div>
-				<div class="updateDepAnIcon" title="додати аналіз"
-					onclick='addAnalysisPanel("<s:property value="#department.id" />")'></div>
+			<div class="updateDepModIcon" title="додати модуль"
+				onclick='addModulPanel("<s:property value="#department.id" />")'></div>
+			<div class="updateDepAnIcon" title="додати аналіз"
+				onclick='addAnalysisPanel("<s:property value="#department.id" />")'></div>
 			</td>
-			
+
 			<td id='<s:property value="#department.id" />'></td>
 		</tr>
 	</s:iterator>

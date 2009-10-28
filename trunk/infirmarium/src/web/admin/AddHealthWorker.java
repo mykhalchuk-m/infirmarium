@@ -33,7 +33,7 @@ public class AddHealthWorker extends ActionSupport implements
 
 		DaoManager<Department> dao = new DaoManager<Department>();
 		dao.updateInstance(depart);
-		dao.close();
+//		dao.close();
 
 		result = "\"" + hw.getFirstName() + " " + hw.getLastName() + "\""
 				+ " був успішно доданий";

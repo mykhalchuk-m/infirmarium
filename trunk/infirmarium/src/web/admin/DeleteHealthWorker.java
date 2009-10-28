@@ -41,7 +41,7 @@ public class DeleteHealthWorker implements Action, ServletRequestAware {
 				hw.setExist(Boolean.FALSE);// banned
 				dao.updateInstance(hw);
 			}
-			dao.close();
+//			dao.close();
 		}
 
 		return SUCCESS;

@@ -42,7 +42,7 @@ public class DeleteModule implements Action, ServletRequestAware {
 				module.setExist(Boolean.FALSE);// banned
 				dao.updateInstance(module);
 			}
-			dao.close();
+//			dao.close();
 		}
 
 		return SUCCESS;

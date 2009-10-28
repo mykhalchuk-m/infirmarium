@@ -26,7 +26,7 @@ public class UpdateDepartmentAnalyses implements Action {
 		paramsAn.add(paramAnId);
 		Analysis analysis = daoAnalysis.getInstance(Analysis.class, paramsAn)
 				.get(0);
-		daoAnalysis.close();
+//		daoAnalysis.close();
 
 		// department loading
 		DaoManager<Department> daoDepartment = new DaoManager<Department>();
@@ -41,7 +41,7 @@ public class UpdateDepartmentAnalyses implements Action {
 				paramsDep).get(0);
 		department.addAnalysis(analysis);
 		daoDepartment.updateInstance(department);
-		daoDepartment.close();
+//		daoDepartment.close();
 
 		return SUCCESS;
 	}

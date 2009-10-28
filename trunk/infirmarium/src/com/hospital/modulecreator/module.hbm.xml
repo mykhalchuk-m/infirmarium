@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-	<!--           *****           MODULE        ******          -->
+	<!--           *****           MODULE        ******          --><!--
 
 	<class name="com.hospital.modulecreator.AbstractModule"
 		table="Abstract_Module_tbl" lazy="false">
@@ -33,7 +33,7 @@
 	</class>
 
 
-	<!--           *****           FIELD          ******          -->
+	--><!--           *****           FIELD          ******          --><!--
 	<class name="com.hospital.modulecreator.field.Field"
 		table="field_tbl" lazy="false">
 		<id name="id">
@@ -67,13 +67,11 @@
 	</class>
 
 
-	<!--           *****           NORM          ******          -->
+	--><!--           *****           NORM          ******          --><!--
 	<class name="com.hospital.modulecreator.field.Norm"
 		table="norm_field_tbl" lazy="false">
 		<id name="idNorm">
-			<generator class="foreign">
-				<param name="property">field</param>
-			</generator>
+			<generator class="increment" />
 		</id>
 		<property name="unit" column="unit" length="30" />
 		<property name="minValue" column="min_Value" />
@@ -83,13 +81,11 @@
 			lazy="false" />
 	</class>
 
-	<!--           *****           SEXNORM          ******          -->
+	           *****           SEXNORM          ******          
 	<class name="com.hospital.modulecreator.field.SexNorm"
 		table="sex_norm_field_tbl" lazy="false">
 		<id name="idSexNorm">
-			<generator class="foreign">
-				<param name="property">field</param>
-			</generator>
+			<generator class="increment" />
 		</id>
 		<property name="unit" column="unit" length="30" />
 
@@ -104,4 +100,4 @@
 
 	</class>
 
-</hibernate-mapping>
+--></hibernate-mapping>
