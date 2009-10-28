@@ -35,7 +35,7 @@ public class AddModule extends ActionSupport implements Action, ParameterAware {
 
 		DaoManager<Department> dao = new DaoManager<Department>();
 		dao.updateInstance(depart);
-		dao.close();
+//		dao.close();
 
 		result = "Модуль \"" + module.getModuleName() + "\""
 				+ " був успішно доданий";

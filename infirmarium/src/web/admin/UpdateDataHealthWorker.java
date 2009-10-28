@@ -28,7 +28,7 @@ public class UpdateDataHealthWorker implements Action  {
 		params.add(paramId);
 		HealthWorker hw = dao.getInstance(HealthWorker.class, params).get(0);
 		setHwData(hw);
-		dao.close();
+//		dao.close();
 		
 
 		return SUCCESS;

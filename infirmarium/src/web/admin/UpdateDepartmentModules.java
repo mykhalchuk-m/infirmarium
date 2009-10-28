@@ -23,7 +23,7 @@ public class UpdateDepartmentModules implements Action {
 		paramModId.setParamValue(moduleId);
 		paramsMod.add(paramModId);
 		Module module = daoModule.getInstance(Module.class, paramsMod).get(0);
-		daoModule.close();
+//		daoModule.close();
 
 		// department loading
 		DaoManager<Department> daoDepartment = new DaoManager<Department>();
@@ -38,7 +38,7 @@ public class UpdateDepartmentModules implements Action {
 				paramsDep).get(0);
 		department.addModule(module);
 		daoDepartment.updateInstance(department);
-		daoDepartment.close();
+//		daoDepartment.close();
 
 		return SUCCESS;
 	}

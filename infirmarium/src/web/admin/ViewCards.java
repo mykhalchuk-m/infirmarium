@@ -1,14 +1,11 @@
 package web.admin;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 import com.hospital.cards.Card;
-import com.hospital.hr.Department;
 import com.hospital.manageres.DaoManager;
 import com.hospital.manageres.Param;
-import com.hospital.service.DbService;
 import com.opensymphony.xwork2.Action;
 
 public class ViewCards implements Action {
@@ -23,7 +20,7 @@ public class ViewCards implements Action {
 				new ArrayList<Param>());
 		setCards(cardsDao);
 
-		dao.close();
+//		dao.close();
 		return SUCCESS;
 	}
 

@@ -18,7 +18,6 @@ import com.hospital.service.DbService;
 public class StartUpListener implements ServletContextListener {
 
 	public void contextDestroyed(ServletContextEvent arg0) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -55,8 +54,6 @@ public class StartUpListener implements ServletContextListener {
 
 		List<HealthWorker> healthWorkers = daoManager.getInstance(
 				HealthWorker.class, params);
-
-		daoManager.close();
 
 		Iterator<HealthWorker> iterator = healthWorkers.iterator();
 		if (iterator.hasNext()) {

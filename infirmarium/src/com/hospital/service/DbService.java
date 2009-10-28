@@ -24,7 +24,7 @@ public class DbService {
 		List<BloodGroup> bloodGroups = daoManager.getInstance(BloodGroup.class,
 				new ArrayList<Param>());
 
-		daoManager.close();
+//		daoManager.close();
 
 		List<String> bloodGroupsName = new ArrayList<String>();
 		for (Iterator<BloodGroup> iterator = bloodGroups.iterator(); iterator
@@ -49,7 +49,7 @@ public class DbService {
 		List<BloodGroup> bloodGroups = daoManager.getInstance(BloodGroup.class,
 				params);
 
-		daoManager.close();
+//		daoManager.close();
 
 		Iterator<BloodGroup> iterator = bloodGroups.iterator();
 		if (iterator.hasNext()) {
@@ -67,7 +67,7 @@ public class DbService {
 		List<BloodGroup> bloodGroups = daoManager.getInstance(BloodGroup.class,
 				new ArrayList<Param>());
 
-		daoManager.close();
+//		daoManager.close();
 
 		return bloodGroups;
 
@@ -80,7 +80,7 @@ public class DbService {
 		List<Patient> patients = daoManager.getInstance(Patient.class,
 				new ArrayList<Param>());
 
-		daoManager.close();
+//		daoManager.close();
 
 		return patients;
 
@@ -93,7 +93,7 @@ public class DbService {
 		List<Department> departments = daoManager.getInstance(Department.class,
 				new ArrayList<Param>());
 
-		daoManager.close();
+//		daoManager.close();
 
 		return departments;
 
@@ -119,7 +119,7 @@ public class DbService {
 		List<Department> departments = daoManager.getInstance(Department.class,
 				params);
 
-		daoManager.close();
+//		//daoManager.close();
 
 		Iterator<Department> iterator = departments.iterator();
 		if (iterator.hasNext()) {
@@ -143,7 +143,7 @@ public class DbService {
 		List<Department> departments = daoManager.getInstance(Department.class,
 				params);
 
-		daoManager.close();
+//		//daoManager.close();
 
 		Iterator<Department> iterator = departments.iterator();
 		if (iterator.hasNext()) {
@@ -166,7 +166,7 @@ public class DbService {
 
 		List<Module> modules = daoManager.getInstance(Module.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		Iterator<Module> iterator = modules.iterator();
 		if (iterator.hasNext()) {
@@ -188,7 +188,7 @@ public class DbService {
 
 		List<Analysis> modules = daoManager.getInstance(Analysis.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		Iterator<Analysis> iterator = modules.iterator();
 		if (iterator.hasNext()) {
@@ -211,7 +211,7 @@ public class DbService {
 
 		List<Card> cards = daoManager.getInstance(Card.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		Iterator<Card> iterator = cards.iterator();
 		if (iterator.hasNext()) {
@@ -235,7 +235,7 @@ public class DbService {
 		List<Patient> departments = daoManager.getInstance(Patient.class,
 				params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		Iterator<Patient> iterator = departments.iterator();
 		if (iterator.hasNext()) {
@@ -266,7 +266,7 @@ public class DbService {
 		List<HealthWorker> healthWorkers = daoManager.getInstance(
 				HealthWorker.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		Iterator<HealthWorker> iterator = healthWorkers.iterator();
 		if (iterator.hasNext()) {
@@ -289,7 +289,7 @@ public class DbService {
 		addNotNullParam("department", department, params);
 
 		List<Card> cards = daoManager.getInstance(Card.class, params);
-		daoManager.close();
+		//daoManager.close();
 
 		return cards;
 	}
@@ -304,7 +304,7 @@ public class DbService {
 
 		List<Card> cards = daoManager.getInstance(Card.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return cards;
 	}
@@ -319,7 +319,7 @@ public class DbService {
 
 		List<Card> cards = daoManager.getInstance(Card.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return cards;
 	}
@@ -334,7 +334,7 @@ public class DbService {
 
 		List<Card> cards = daoManager.getInstance(Card.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return cards;
 	}
@@ -350,7 +350,7 @@ public class DbService {
 
 		List<Card> cards = daoManager.getInstance(Card.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return cards;
 	}
@@ -369,7 +369,7 @@ public class DbService {
 		List<HealthWorker> healthWorkers = daoManager.getInstance(
 				HealthWorker.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return healthWorkers;
 	}
@@ -387,7 +387,7 @@ public class DbService {
 
 		List<Module> modules = daoManager.getInstance(Module.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return modules;
 	}
@@ -399,7 +399,7 @@ public class DbService {
 		List<Module> modules = daoManager.getInstance(Module.class,
 				new ArrayList<Param>());
 
-		daoManager.close();
+		//daoManager.close();
 
 		return modules;
 	}
@@ -418,7 +418,7 @@ public class DbService {
 		List<Analysis> analyses = daoManager
 				.getInstance(Analysis.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return analyses;
 	}
@@ -439,7 +439,7 @@ public class DbService {
 		List<HealthWorker> healthWorkers = daoManager.getInstance(
 				HealthWorker.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return healthWorkers;
 	}
@@ -454,7 +454,7 @@ public class DbService {
 
 		List<Patient> patients = daoManager.getInstance(Patient.class, params);
 
-		daoManager.close();
+		//daoManager.close();
 
 		return patients;
 	}

@@ -38,7 +38,7 @@ public class UpdateHealthWorker extends ActionSupport implements
 				.get(0);
 
 		if (isDuplicationLogin(updatedHw.getLogin(), hw.getLogin())) {
-			dao.close();
+//			dao.close();
 			return INPUT;
 		}
 
@@ -52,7 +52,7 @@ public class UpdateHealthWorker extends ActionSupport implements
 
 		dao.updateInstance(updatedHw);
 
-		dao.close();
+//		dao.close();
 
 		result = "Дані були успішно змінені";
 		return SUCCESS;

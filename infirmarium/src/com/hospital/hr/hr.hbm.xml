@@ -3,24 +3,18 @@
 
 <hibernate-mapping>
 	<!--           *****           Health Worker        ******          -->
-	<class name="com.hospital.hr.HealthWorker" table="HealthWorker_tbl"
-		lazy="false">
-		<id name="id">
-			<generator class="increment" />
-		</id>
+	<!--
+		<class name="com.hospital.hr.HealthWorker" table="HealthWorker_tbl"
+		lazy="false"> <id name="id"> <generator class="increment" /> </id>
 		<property name="firstName" column="first_Name" length="30" />
-		<property name="lastName" column="last_Name" length="30" />
-		<property name="middleName" column="middle_Name" length="30" />
-		<property name="speciality" column="speciality" length="50" />
-		<property name="login" column="login" length="30" />
-		<property name="password" column="password" length="30" />
-		<property name="exist" column="exist" />
-		<property type="com.hospital.hr.RoleEnum" name="role"
-			length="10" />
-
-	</class>
-
-	<!--           *****          Blood Group        ******          -->
+		<property name="lastName" column="last_Name" length="30" /> <property
+		name="middleName" column="middle_Name" length="30" /> <property
+		name="speciality" column="speciality" length="50" /> <property
+		name="login" column="login" length="30" /> <property name="password"
+		column="password" length="30" /> <property name="exist" column="exist"
+		/> <property type="com.hospital.hr.RoleEnum" name="role" length="10"
+		/> </class>
+	--><!--           *****          Blood Group        ******          --><!--
 	<class name="com.hospital.hr.BloodGroup" table="BloodGroup_tbl"
 		lazy="false">
 		<id name="id">
@@ -30,7 +24,7 @@
 
 	</class>
 
-	<!--           *****          Patient      ******          -->
+	--><!--           *****          Patient      ******          --><!--
 	<class name="com.hospital.hr.Patient" table="Patients_tbl"
 		lazy="false">
 		<id name="id">
@@ -50,8 +44,8 @@
 
 	</class>
 
-    <!--           *****         Address           ******          -->
-    <class name="com.hospital.hr.Address" table="Address_tbl" lazy="false">
+    --><!--           *****         Address           ******          -->
+    <!--<class name="com.hospital.hr.Address" table="Address_tbl" lazy="false">
         <id name="id">
             <generator class="increment" />
         </id>
@@ -65,7 +59,7 @@
         
     </class>
 
-	<!--           *****         Department        ******          -->
+	--><!--           *****         Department        ******          --><!--
 	<class name="com.hospital.hr.Department" table="Department_tbl"
 		lazy="false">
 		<id name="id">
@@ -96,4 +90,4 @@
 		</set>
 	</class>
 
-</hibernate-mapping>
+--></hibernate-mapping>

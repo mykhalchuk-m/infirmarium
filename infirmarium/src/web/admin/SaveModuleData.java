@@ -41,7 +41,7 @@ public class SaveModuleData extends ActionSupport implements SessionAware,
 
 		daoManager.updateInstance(card);
 
-		daoManager.close();
+//		daoManager.close();
 
 		session.put(Constants.CURRENT_VIEW_CARD, card);
 

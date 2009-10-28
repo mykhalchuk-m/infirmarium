@@ -3,7 +3,7 @@
 
 <hibernate-mapping>
 
-	<!--           *****         Module Data      ******          -->
+	<!--           *****         Module Data      ******          --><!--
 	<class name="com.hospital.module.ModuleData" table="ModuleData_tbl"
 		lazy="false">
 		<id name="id">
@@ -42,4 +42,4 @@
 
 	</class>
 
-</hibernate-mapping>
+--></hibernate-mapping>

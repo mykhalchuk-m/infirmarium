@@ -6,20 +6,67 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.IndexColumn;
+import org.hibernate.search.annotations.DocumentId;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.FieldBridge;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.IndexedEmbedded;
+import org.hibernate.search.bridge.builtin.StringBridge;
+
 import com.hospital.hr.Department;
 import com.hospital.hr.HealthWorker;
 import com.hospital.hr.Patient;
 import com.hospital.module.AnalysisData;
 import com.hospital.module.ModuleData;
 
+@Entity
+@Indexed(index="indexes/card")
+@Table(name = "Card_tbl")
 public class Card {
+	@Id
+	@DocumentId
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date start;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date end;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "patient_ID")
+	@Field(index=Index.TOKENIZED)
+	@FieldBridge(impl=StringBridge.class)
 	private Patient patient;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "department_ID")
 	private Department department;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "healthWorker_ID")
+//	@Field(index=Index.TOKENIZED)
+//	@FieldBridge(impl=StringBridge.class)
+	@IndexedEmbedded
 	private HealthWorker healthWorker;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_Moule_Data")	
+	@IndexColumn(name = "list_order")
 	private List<ModuleData> modulesData = new ArrayList<ModuleData>();
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_Analysis_Data")
+	@IndexColumn(name = "list_order")
 	private List<AnalysisData> analysesData = new ArrayList<AnalysisData>();
 
 	public int getId() {

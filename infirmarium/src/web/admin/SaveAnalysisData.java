@@ -35,7 +35,7 @@ public class SaveAnalysisData extends ActionSupport implements SessionAware, Act
 
 		DaoManager<Card> daoManager = new DaoManager<Card>();
 		daoManager.updateInstance(card);
-		daoManager.close();
+//		daoManager.close();
 
 		session.put(Constants.CURRENT_VIEW_CARD, card);
 

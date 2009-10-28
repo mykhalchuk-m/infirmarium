@@ -39,7 +39,7 @@ public class AddAnalysis extends ActionSupport implements Action,
 
 		DaoManager<Department> dao = new DaoManager<Department>();
 		dao.updateInstance(depart);
-		dao.close();
+		//dao.close();
 
 		result = "Аналіз \"" + analysis.getModuleName() + "\""
 				+ " був успішно доданий";

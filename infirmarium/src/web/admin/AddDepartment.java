@@ -21,7 +21,7 @@ public class AddDepartment extends ActionSupport implements
 
 		DaoManager<Department> dao = new DaoManager<Department>();
 		dao.newInstance(department);
-		dao.close();
+//		dao.close();
 
 		result = "Відділення \"" + department.getName() + "\""
 				+ " було успішно додано";

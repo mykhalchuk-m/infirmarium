@@ -1,13 +1,34 @@
 package com.hospital.hr;
 
-public class Address {
+import java.io.Serializable;
+
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Address_tbl")
+public class Address implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue
 	private long id;
+	@Basic
 	private String country;
+	@Basic
 	private String region;
+	@Basic
 	private String district;
+	@Basic
 	private String city;
+	@Basic
 	private String street;
+	@Basic
 	private int home;
+	@Basic
 	private int fletNumber;
 
 	public long getId() {
@@ -73,9 +94,8 @@ public class Address {
 	public void setFletNumber(int fletNumber) {
 		this.fletNumber = fletNumber;
 	}
-	
-	public String toString()
-	{
+
+	public String toString() {
 		return getCity();
 	}
 

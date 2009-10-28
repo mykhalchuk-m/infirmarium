@@ -3,7 +3,7 @@
 
 <hibernate-mapping>
 
-	<!--           *****        Card      ******          -->
+	<!--           *****        Card      ******          --><!--
 	<class name="com.hospital.cards.Card" table="Card_tbl"
 		lazy="false">
 		<id name="id">
@@ -14,7 +14,7 @@
 		<property name="end" column="end" type="date" />
 
 		<many-to-one name="patient" class="com.hospital.hr.Patient"
-			column="patient_ID" />
+			column="patient_ID" lazy="false" />
 
 		<many-to-one name="department"
 			class="com.hospital.hr.Department" column="department_ID" />
@@ -25,7 +25,6 @@
 		<list name="modulesData" cascade="all" lazy="false">
 			<key column="id_Moule_Data" />
 			<list-index column="list_order" />
-
 			<one-to-many class="com.hospital.module.ModuleData" />
 		</list>
 
@@ -42,4 +41,4 @@
 
 
 
-</hibernate-mapping>
+--></hibernate-mapping>
