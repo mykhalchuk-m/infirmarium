@@ -6,7 +6,7 @@
   # [http://java.sun.com/javase/downloads/index.jsp JDK 6 Update xx]
   # [http://tomcat.apache.org/download-60.cgi Tomcat 6.x zipeed core]
   # [http://dev.mysql.com/downloads/mysql/5.1.html#downloads MySQL Server 5.1]
-  # [Eclipse 3.4]
+  # [http://www.eclipse.org/downloads/packages/release/ganymede/sr2 Eclipse 3.4 IDE for Java EE Developers]
   # Optional. [http://subclipse.tigris.org/ Subclipse plugin]
   # Optional. [http://dev.mysql.com/downloads/gui-tools/5.0.html MySQL GUI Tools]
 
