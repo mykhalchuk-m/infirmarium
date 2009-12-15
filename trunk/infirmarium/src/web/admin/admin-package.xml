@@ -16,7 +16,9 @@
 
 			<interceptor-stack name="securedStack">
 				<interceptor-ref name="authenticationInterceptor" />
-				<interceptor-ref name="adminRoleInterceptor" />
+				<!--Next line commented for solving issue #3. We don't care about user roles at this time -->
+				<!--<interceptor-ref name="adminRoleInterceptor" />
+				-->
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
