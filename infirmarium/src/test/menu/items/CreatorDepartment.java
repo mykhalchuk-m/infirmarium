@@ -46,7 +46,7 @@ public class CreatorDepartment implements MenuItem {
 			d.addModule(listM.get(Integer.valueOf(scanner.nextLine())));
 
 			System.out.print("add module (y/n): ");
-			m.close();
+			//m.close();
 		}
 		// ////////////////////////
 
@@ -69,7 +69,7 @@ public class CreatorDepartment implements MenuItem {
 					.nextLine())));
 
 			System.out.print("add HealthWorker (y/n):");
-			hw.close();
+			//hw.close();
 		}
 
 		// ////////////////////////////////////////
@@ -90,7 +90,7 @@ public class CreatorDepartment implements MenuItem {
 					.addAnalysis(analysisList.get(Integer.valueOf(scanner
 							.nextLine())));
 			System.out.println("add analyses (y/n): ");
-			an.close();
+			//an.close();
 		}
 		new DaoManager<Department>().newInstance(d);
 	}
