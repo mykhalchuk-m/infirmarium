@@ -14,7 +14,7 @@
 <h3>Пацієнти</h3>
 
 
-<table>
+<table class="items-table">
 	<thead>
 		<tr>
 			<td>№</td>

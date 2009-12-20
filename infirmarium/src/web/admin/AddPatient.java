@@ -1,5 +1,8 @@
 package web.admin;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.hospital.hr.Address;
@@ -36,15 +39,15 @@ public class AddPatient extends ActionSupport {
 		patient.setFirstName(getFirstName());
 		patient.setMiddleName(getMiddleName());
 		patient.setLastName(getLastName());
-		
+
 		address.setCountry(getCountry());
 		address.setRegion(getRegion());
 		address.setDistrict(getDistrict());
 		address.setCity(getCity());
 		address.setStreet(getStreet());
-		 
+
 		patient.setAddress(address);
-		
+
 		BloodGroup bloodGroup = DbService
 				.getBloodGroupByName(getBloodGroupString());
 		patient.setBloodGroup(bloodGroup);
@@ -54,45 +57,36 @@ public class AddPatient extends ActionSupport {
 
 		DaoManager<Patient> dao = new DaoManager<Patient>();
 		dao.newInstance(patient);
-//		dao.close();
+		// dao.close();
 
 		result = "Пацієнт \"" + patient.getFirstName() + " "
 				+ patient.getLastName() + "\"" + " був успішно доданий";
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+result);
 		return SUCCESS;
 	}
 
 	public void validate() {
 
 		if (getFirstName().length() == 0) {
-			addFieldError("firstName", "введіть ім'я");
+			addFieldError("firstName", "Ім'я не введене.");
 		}
 		if (getLastName().length() == 0) {
-			addFieldError("lastName", "введіть фамілію");
+			addFieldError("lastName", "Прізвище не введене.");
 		}
 		if (getMiddleName().length() == 0) {
-			addFieldError("middleName", "введіть по-батькові");
-		}
-		if (getCountry().length() == 0 || getRegion().length() == 0 || getDistrict().length() == 0 ||
-				getCity().length() == 0 || getStreet().length() == 0) {
-			addFieldError("address", "введіть повний адрес");
-		}
+			addFieldError("middleName", "По-батькові не введені.");
+		}		
 		if (getBirthdayString().length() == 0) {
-			addFieldError("birthday", "введіть дату народження");
-		}
-		if (getHome().length() == 0){
-			addFieldError("home", "введіть номер будинку");
-		}
-		if (getFlatNumber().length() == 0) {
-			addFieldError("flatNumber", "введіть номер квартири");
+			addFieldError("birthday", "Дата народження не введена.");
 		}
 		validateData();
-		
+
 	}
 
-//	public Patient getModel() {
-//
-//		return patient;
-//	}
+	// public Patient getModel() {
+	//
+	// return patient;
+	// }
 
 	public String getResult() {
 		return result;
@@ -126,34 +120,16 @@ public class AddPatient extends ActionSupport {
 		this.birthdayString = birthdayString;
 	}
 
-	@SuppressWarnings("deprecation")
 	private void validateData() {
 		try {
-			String dd = getBirthdayString().substring(0,
-					getBirthdayString().indexOf("-"));
-			String mm = getBirthdayString().substring(
-					getBirthdayString().indexOf("-") + 1,
-					getBirthdayString().lastIndexOf("-"));
-			String yyyy = getBirthdayString().substring(
-					getBirthdayString().lastIndexOf("-") + 1,
-					getBirthdayString().length());
-
-			Date date = new Date();
-			date.setDate(Integer.valueOf(dd));
-			date.setMonth(Integer.valueOf(mm) - 1);
-			date.setYear(Integer.valueOf(yyyy) - 1900);//TODO not valid year
-
+			DateFormat formatter = new SimpleDateFormat("dd/mm/yy");
+			Date date = (Date) formatter.parse(birthdayString);
 			patient.setBirthday(date);
-
-		} catch (Exception e) {
-			addFieldError("birthday", "дата народження була введена не коректно");
+		} catch (ParseException e) {
+			addFieldError("birthday",
+					"дата народження була введена не коректно");
 		}
 	}
-
-//	public Patient getPatient() {
-//		return patient;
-//	}
-
 
 	public String getLastName() {
 		return lastName;

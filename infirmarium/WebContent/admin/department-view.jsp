@@ -32,7 +32,7 @@
 <div class="contentContent">
 
 <h3>Відділи</h3>
-<table>
+<table  class="items-table">
 	<thead>
 		<tr>
 			<td>№</td>

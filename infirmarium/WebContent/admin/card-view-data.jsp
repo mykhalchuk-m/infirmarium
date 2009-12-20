@@ -23,7 +23,7 @@
 
 <s:iterator value="#session['CURRENT_VIEW_CARD'].modulesData" id="moduleData">
 <h3>Модуль: <b>"<s:property value="#moduleData.name"/>"</b></h3> (заповнений: <s:date name="#moduleData.creationDate" format="dd/MM/yyyy hh:mm:ss"/>  ) 
- <table>
+ <table  class="items-table">
 	<thead>
 		<tr>
 			<td>№</td>

@@ -1,37 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script type="text/javascript"
+	src='<c:url value="../js/jquery/jquery.validate.js"/>'></script>
 <script type="text/javascript">
-	function sendDataToAction(){
+	$(document).ready(function() {
+		//	$("#birthday").datepicker();
+		   
+	var validator = $("#addUser").validate({
+		rules: {		
+			firstName: {
+				required: true					
+			},
+			lastName: {
+				required: true				
+			},
+			middleName: {
+				required: true
+			},
+			birthday: {
+				required: true,
+				date: true
+			}
+		},
+		messages: {
+			
+			firstName: {
+				required: "Це поле обов'язкове до заповнення."
+			},
+			lastName: {
+				required: "Це поле обов'язкове до заповнення."
+			},
+			middleName: {
+				required: "Це поле обов'язкове до заповнення."			
+			},
+			birthday: {
+				required: "Це поле обов'язкове до заповнення.",
+				date: "Формат дати має бути наступним дд-мм-рррр."				
+			}
+		},
+		// the errorPlacement has to take the table layout into account
+		errorPlacement: function(error, element) {		
+				$("#validation_"+element.attr("id")).append(error);
+				
+				// element.addClass("validationInputError");
+				// error.appendTo( element.next() );
+		},
+		// specifying a submitHandler prevents the default submit, good for the
+		// demo
+				// set this class to error-labels to indicate valid fields
+		submitHandler: function(form) {
+			submitData();
+ 		},
+				
+		success: function(label) {
+			// set &nbsp; as text for IE
+			//sendDataToAction();
+			label.html("&nbsp;").addClass("validationHelp");
+		}
+	});
+	});
+	
+	function submitData(){
 	
 		var listbloodGroups = document.getElementById("bloodGroups");
 			var listSex = document.getElementById("sexString");
 			
 			//alert("start request");
 			$("div.result").load("<%=application.getContextPath()%>/admin/addpatient.action",
-			{
-    			lastName: document.getElementById("lastName").value,
-    			firstName: document.getElementById("firstName").value,
-    			middleName:	document.getElementById("middleName").value,
-				country: document.getElementById("country").value,
-				region: document.getElementById("region").value,
-				district:	document.getElementById("district").value,
-				city: document.getElementById("city").value,
-				street: document.getElementById("street").value,
-				home: document.getElementById("home").value,
-				flatNumber: document.getElementById("flatNumber").value,
-    			birthdayString: document.getElementById("birthdayStringdd").value+"-"+
-    							document.getElementById("birthdayStringmm").value+"-"+
-    							document.getElementById("birthdayStringyyyy").value,
-    			bloodGroupString: listbloodGroups.options[listbloodGroups.selectedIndex].value,
-    			sexString: listSex.options[listSex.selectedIndex].value
-    		});
-			//alert("end request");
-			return false;
-			
+						{
+							lastName : document.getElementById("lastName").value,
+							firstName : document.getElementById("firstName").value,
+							middleName : document.getElementById("middleName").value,
+							country : document.getElementById("country").value,
+							region : document.getElementById("region").value,
+							district : document.getElementById("district").value,
+							city : document.getElementById("city").value,
+							street : document.getElementById("street").value,
+							home : document.getElementById("home").value,
+							flatNumber : document.getElementById("flatNumber").value,
+							birthdayString : document.getElementById("birthday").value,
+							bloodGroupString : listbloodGroups.options[listbloodGroups.selectedIndex].value,
+							sexString : listSex.options[listSex.selectedIndex].value
+						});
+		//alert("end request");
+		return false;
 	}
-
 </script>
+
 <div class="contentb">
 <div class="contentt">
 <div class="contentl">
@@ -40,65 +97,106 @@
 <div class="contenttl">
 <div class="contentContent">
 <h3>Новий пацієнт</h3>
-<form method="post" onsubmit="return sendDataToAction();"><!-- action="AddHW" method="post" -->
-<div class="newPanel">
-<div class="newParam">Прізвище</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="lastName" id="lastName" /></div>
-<div class="newParam">Ім'я</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="firstName" id="firstName" /></div>
-<div class="newParam">По-батькові</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="middleName" id="middleName" /></div>
-<div class="newParam">Країна</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="country" id="country" /></div>
-<div class="newParam">Область</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="region" id="region" /></div>
-<div class="newParam">Район</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="district" id="district" /></div>
-<div class="newParam">Населений путкт</div>
-<div class="newValue"><input type="text" maxlength="50"
-	name="city" id="city" /></div>
-<div class="newParam">Вулиця</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="street" id="street" /></div>
-<div class="newParam">Будинок</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="home" id="home" /></div>
-<div class="newParam">Квартира</div>
-<div class="newValue"><input type="text" maxlength="30"
-	name="flatNumber" id="flatNumber" /></div>
-<div class="newParam">Дата народження</div>
-<div class="newValue"><!-- <input type="text" name="birthdayString"	id="birthdayString" value="дд-мм-рррр" size=""/> -->
-<input type="text" value="mm" id="birthdayStringdd" size="2"
-	maxlength="2" /> - <input type="text" value="mm" id="birthdayStringmm"
-	size="2" maxlength="2" /> - <input type="text" value="yyyy"
-	id="birthdayStringyyyy" size="4" maxlength="4" />(дд-мм-рррр)</div>
-
-<div class="newParam">Група крові</div>
-<div class="newValue"><s:bean
-	name="com.hospital.service.DbService" id="DbService">
-</s:bean> <s:select list="#DbService.bloodGroupsName" name="bloodGroups"
-	id="bloodGroups" /></div>
-
-<div class="newParam">Стать</div>
-<div class="newValue"><select name="sexString" id="sexString">
-	<option value="MALE">чоловіча</option>
-	<option value="FEMALE">жіноча</option>
-</select></div>
-
-
-<div class="newParam"></div>
-<div class="newValue"><input type="submit" value="Додати пацієнта" /></div>
-</div>
-
-
 <div class="result" style="text-align: center;"></div>
-</form>
+<form id="addUser" method="post"><!-- action="AddHW" method="post" -->
+
+<table class="form">
+	<tr>
+		<td class="form-name">Прізвище</td>
+		<td><input type="text" maxlength="30" name="lastName"
+			id="lastName" /></td>
+		<td>*</td>
+		<td id="validation_lastName"></td>
+	</tr>
+	<tr>
+		<td class="form-name">Ім'я</td>
+		<td><input type="text" maxlength="30" name="firstName"
+			id="firstName" /></td>
+		<td>*</td>
+		<td id="validation_firstName"></td>
+	</tr>
+	<tr>
+		<td class="form-name">По-батькові</td>
+		<td><input type="text" maxlength="30" name="middleName"
+			id="middleName" /></td>
+		<td>*</td>
+		<td id="validation_middleName"></td>
+	</tr>
+	<tr>
+		<td class="form-name">Дата народження</td>
+		<td><input title="Дата у форматі дд-мм-рррр." type="text"
+			value="" name="birthday" id="birthday" maxlength="10" /></td>
+		<td>*</td>
+		<td id="validation_birthday"></td>
+	</tr>
+	<tr>
+		<td class="form-name">Стать</td>
+		<td><select name="sexString" id="sexString">
+			<option value="MALE">чоловіча</option>
+			<option value="FEMALE">жіноча</option>
+		</select></td>
+		<td></td>
+		<td id="validation_sexString"></td>
+	</tr>
+	<tr>
+		<td class="form-name">Група крові</td>
+		<td><s:bean name="com.hospital.service.DbService" id="DbService"></s:bean>
+		<s:select list="#DbService.bloodGroupsName" name="bloodGroups"
+			id="bloodGroups" /></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="form-name">Країна</td>
+		<td><input type="text" maxlength="30" name="country" id="country" />
+		</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="form-name">Область</td>
+		<td><input type="text" maxlength="30" name="region" id="region" />
+		</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="form-name">Район</td>
+		<td><input type="text" maxlength="30" name="district"
+			id="district" /></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="form-name">Населений пункт</td>
+		<td><input type="text" maxlength="50" name="city" id="city" /></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="form-name">Вулиця</td>
+		<td><input type="text" maxlength="30" name="street" id="street" />
+		</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="form-name">Будинок</td>
+		<td><input type="text" maxlength="30" name="home" id="home" /></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="form-name">Квартира</td>
+		<td><input type="text" maxlength="30" name="flatNumber"
+			id="flatNumber" /></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+
+<input type="submit" value="Додати пацієнта" /></form>
+</div>
 </div>
 </div>
 </div>
