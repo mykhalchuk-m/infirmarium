@@ -26,7 +26,7 @@ function deleteModule(id_module){
 <div class="contentContent">
 
 <h3>Аналізи</h3>
-<table>
+<table  class="items-table">
 	<thead>
 		<tr>
 			<td>№</td>

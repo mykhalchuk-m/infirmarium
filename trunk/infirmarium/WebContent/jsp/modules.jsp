@@ -4,10 +4,11 @@
 <template:templatepage title="Модулі">
 
 	<jsp:attribute name="head">
-		<link type="text/css" href="../css/module_building.css" rel="Stylesheet" />
+		<link type="text/css" href="../css/module_building.css"
+			rel="Stylesheet" />
 		<script type="text/javascript" src="../js/module_building.js"></script>
 	</jsp:attribute>
-	
+
 	<jsp:attribute name="listBox">
 															<h3>
 															Modules

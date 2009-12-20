@@ -29,7 +29,7 @@
 </script>
 
 <h3>Медичні працівники</h3>
-<table>
+<table  class="items-table">
 
 	<thead>
 		<tr>

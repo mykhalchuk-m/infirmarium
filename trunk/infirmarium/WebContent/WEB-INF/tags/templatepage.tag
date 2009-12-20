@@ -25,6 +25,8 @@
 		<link type="text/css" href="../js/jquery/theme/ui.all.css"	rel="Stylesheet" />
 		<link type="text/css" href="../css/select_window.css"	rel="Stylesheet" />
 		<link type="text/css" href="../css/module_building.css"	rel="Stylesheet" />
+		<link type="text/css" href="../css/ui.datepicker.css""	rel="Stylesheet" />
+			<link type="text/css" href="../css/validation.css""	rel="Stylesheet" />
 		<script type="text/javascript" src="../js/jquery/jquery-1.3.2.min.js"></script>
 
 		<script type="text/javascript"

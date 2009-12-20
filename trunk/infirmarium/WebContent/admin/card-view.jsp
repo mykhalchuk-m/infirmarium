@@ -17,7 +17,7 @@
 
 <h3>Медичні картки</h3>
 Фільтр <input>
-<table>
+<table  class="items-table">
 	<thead>
 		<tr>
 			<td>№</td>
