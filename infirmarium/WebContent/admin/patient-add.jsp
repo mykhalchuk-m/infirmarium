@@ -37,7 +37,7 @@
 			},
 			birthday: {
 				required: "Це поле обов'язкове до заповнення.",
-				date: "Формат дати має бути наступним дд-мм-рррр."				
+				date: "Формат дати має бути таким дд/мм/рррр."				
 			}
 		},
 		// the errorPlacement has to take the table layout into account
@@ -63,7 +63,6 @@
 	});
 	
 	function submitData(){
-	
 		var listbloodGroups = document.getElementById("bloodGroups");
 			var listSex = document.getElementById("sexString");
 			
@@ -85,6 +84,19 @@
 							sexString : listSex.options[listSex.selectedIndex].value
 						});
 		//alert("end request");
+		document.getElementById("lastName").value="";
+		document.getElementById("firstName").value="";
+		document.getElementById("middleName").value="";
+		document.getElementById("country").value="";
+		document.getElementById("region").value="";
+		document.getElementById("district").value="";
+		document.getElementById("city").value="";
+		document.getElementById("street").value="";
+		document.getElementById("home").value="";
+		document.getElementById("flatNumber").value="";
+		document.getElementById("birthday").value="";
+		listSex.selectedIndex=0;
+		listbloodGroups.selectedIndex=0;
 		return false;
 	}
 </script>
