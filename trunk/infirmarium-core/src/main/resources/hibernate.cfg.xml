@@ -1,0 +1,16 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<mapping class="com.infirmarium.core.persistance.domain.Address" />
+		<mapping class="com.infirmarium.core.persistance.domain.Card" />
+		<mapping class="com.infirmarium.core.persistance.domain.Department" />
+		<mapping class="com.infirmarium.core.persistance.domain.field.FieldDef" />
+		<mapping class="com.infirmarium.core.persistance.domain.field.FieldValue" />
+		<mapping class="com.infirmarium.core.persistance.domain.module.ModuleDef" />
+		<mapping class="com.infirmarium.core.persistance.domain.module.ModuleValue" />
+		<mapping class="com.infirmarium.core.persistance.domain.Person" />
+	</session-factory>
+</hibernate-configuration>
