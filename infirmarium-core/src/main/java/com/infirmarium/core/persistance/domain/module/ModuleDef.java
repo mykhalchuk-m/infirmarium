@@ -7,7 +7,9 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +19,7 @@ import lombok.ToString;
 
 import com.infirmarium.core.persistance.core.BaseLongEntity;
 import com.infirmarium.core.persistance.domain.Department;
+import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.core.persistance.domain.field.FieldDef;
 
 @Entity
@@ -35,14 +38,15 @@ public class ModuleDef extends BaseLongEntity {
 	private String description;
 	@Column(name = ModuleDef.Columns.CREATION_DATE)
 	private Date creationDate;
+	@ManyToOne(targetEntity = Person.class)
+	@JoinColumn(name = Columns.CREATOR_ID)
+	private Person creator;
 	@Column(name = ModuleDef.Columns.IS_DELETED)
 	private boolean isDeleted;
 	@OneToMany(mappedBy = FieldDef.Fields.MODULE_DEF)
 	private List<FieldDef> fieldDefs = new ArrayList<FieldDef>();
 	@ManyToMany(targetEntity = Department.class, mappedBy = Department.Fields.MODULE_DEFS)
 	private List<Department> assignedDepartments = new LinkedList<Department>();
-
-	private Department department;
 
 	public static class Constants extends BaseLongEntity.Constants {
 		public static final String TABLE_NAME = "module_defs";
@@ -53,6 +57,7 @@ public class ModuleDef extends BaseLongEntity {
 		public static final String NAME = "name";
 		public static final String DESCRIPTION = "description";
 		public static final String CREATION_DATE = "creation_date";
+		public static final String CREATOR_ID = "creator_id";
 		public static final String IS_DELETED = "is_deleted";
 
 	}
@@ -61,6 +66,7 @@ public class ModuleDef extends BaseLongEntity {
 		public static final String NAME = "name";
 		public static final String DESCRIPTION = "description";
 		public static final String CREATION_DATE = "creationDate";
+		public static final String CREATOR = "creator";
 		public static final String IS_DELETED = "isDeleted";
 		public static final String FIELD_DEFS = "fieldDefs";
 		public static final String ASSIGNED_DEPARTMENTS = "assignedDepartments";
