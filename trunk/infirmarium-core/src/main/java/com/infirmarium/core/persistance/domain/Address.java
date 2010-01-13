@@ -46,22 +46,22 @@ public class Address extends BaseLongEntity {
 
 	public static class Columns extends BaseLongEntity.Columns {
 		public static final String COUNTRY = "country";
-		public static final String REGION = "doctor_id";
-		public static final String DISTRICT = "department_id";
-		public static final String CITY = "start_date";
-		public static final String STREET = "end_date";
-		public static final String HOUSE = "end_date";
-		public static final String FLAT = "end_date";
+		public static final String REGION = "region";
+		public static final String DISTRICT = "district";
+		public static final String CITY = "city";
+		public static final String STREET = "street";
+		public static final String HOUSE = "house";
+		public static final String FLAT = "flat";
 	}
 
 	public static class Fields extends BaseLongEntity.Fields {
-		public static final String COUNTRY = "patient_id";
-		public static final String REGION = "doctor_id";
-		public static final String DISTRICT = "department_id";
-		public static final String CITY = "start_date";
-		public static final String STREET = "end_date";
-		public static final String HOUSE = "end_date";
-		public static final String FLAT = "end_date";
-		public static final String OWNERS = "end_date";
+		public static final String COUNTRY = "country";
+		public static final String REGION = "region";
+		public static final String DISTRICT = "district";
+		public static final String CITY = "city";
+		public static final String STREET = "street";
+		public static final String HOUSE = "house";
+		public static final String FLAT = "flat";
+		public static final String OWNERS = "owners";
 	}
 }
