@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="../css/generic.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/hworker.css" />
+		<link type="text/css" href="../css/left_buttons.css"	rel="Stylesheet" />	
+    	<link rel="stylesheet" type="text/css" href="../css/navbuttons.css" />
+		<link type="text/css" href="../js/jquery/theme/ui.all.css"	rel="Stylesheet" />
+		<link type="text/css" href="../css/select_window.css"	rel="Stylesheet" />
+		<link type="text/css" href="../css/module_building.css"	rel="Stylesheet" />
+		<script type="text/javascript" src="../js/jquery/jquery-1.3.2.min.js"></script>
+	
+		<script type="text/javascript"
+			src="../js/jquery/jquery-ui-1.7.custom.min.js"></script>
+		<script type="text/javascript" src="../js/interface.js"></script>
+		<script type="text/javascript" src="../js/select_window.js"></script>
+		<script type="text/javascript">
+	$(document)
+			.ready( function() {
+				$('tr:odd').addClass('odd');
+				$('tr:even').addClass('even');
+				
+				});
+
+	$( function() {
+		$('#tabs').tabs( {
+			fx : [ null, {
+				height :'show',
+				opacity :'show'
+			} ]
+		});
+
+		$(".ui-tabs .ui-tabs-nav li a").mouseover( function() {
+			$(this).animate( {
+				opacity :"1"
+			}, {
+				duration :0
+			}).animate( {
+				opacity :"0.6"
+			}, "slow");
+		});
+		$(".ui-tabs .ui-tabs-nav li a").mouseout( function() {
+			$(this).animate( {
+				opacity :"1"
+			}, "fast");
+		});
+
+	});
+</script>
+<script type="text/javascript" src="../js/module_building.js"></script>
+
+
+		<title>Insert title here</title>
+	</head>
+	<body>		
+		<div class="main">
+			<div class="infoPanel">
+				<div class="infoPanelb">
+					<div class="infoPanelt">
+						<div class="infoPanell">
+							<div class="infoPanelr">
+								<div class="infoPanelbr">
+									<div class="infoPaneltl">
+										<div class="infoPanelContent">
+
+											<img src="../images/logo_large.gif" alt="Logo">
+								</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="topPanel">
+				<div class="navButtonCenter">
+					<a href="cards.html"><div class="navButton"><div class="navCard"></div></div></a>
+					<a href="patients.html"><div class="navButton" ><div class="navPatient"></div></div></a>
+					<a href="hworkers.html"><div class="navButton"><div class="navDoctor"></div></div></a>
+					<a href="analysis.html"><div class="navButton"><div class="navAnlysis"></div></div></a>
+					<a href="departments.html"><div class="navButton" ><div class="navDep"></div></div></a>
+					<div class="navButton" style="margin-top: 26px;"><div class="navModule"></div></div>
+				</div>
+			</div>
+
+			<div class="tabsPanel">
+				<div class="tabsPanelTop">
+
+					<div id="tabs">
+
+						<ul class="tabsPanelMiddle">
+							<li>
+								<a href="#tabs-1"><span class="recordButtonIcoMain"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#tabs-2"><span class="recordButtonIcoAdd"></span>
+								</a>
+							</li>
+						</ul>
+
+						<div id="tabs-1">
+							<div class="contentb">
+								<div class="contentt">
+									<div class="contentl">
+										<div class="contentr">
+											<div class="contentbr">
+												<div class="contenttl">
+													<div class="contentContent">
+														<h3>
+															Modules
+														</h3>
+														Filter <input>
+														<table>
+															<thead>
+																<tr>
+																	<td>
+																		ID
+																	</td>
+																	<td>
+																		Module
+																	</td>
+																	<td>
+																		Mod
+																	</td>																
+																</tr>
+															</thead>
+															<tr>
+																<td>
+																	0001
+																</td>
+																<td>
+																	Common
+																</td>
+																<td><div class="modifyIcon"> </div><div class="deleteIcon"> </div></td>
+														</tr>
+															<tr>
+																<td>0002</td>
+																<td>Operation result</td>
+															    <td><div class="modifyIcon"> </div><div class="deleteIcon"> </div></td>
+													
+															</tr>
+															<tr>
+																<td>0003</td>
+																<td>Diagnos</td>
+																<td><div class="modifyIcon"> </div><div class="deleteIcon"> </div></td>
+													
+															</tr>
+																													
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="tabs-2">
+							<div class="contentb">
+								<div class="contentt">
+									<div class="contentl">
+										<div class="contentr">
+											<div class="contentbr">
+												<div class="contenttl">
+													<div class="contentContent">
+													
+														<form>
+														<div class="parametr" id="param_1">
+															<div class="deleteParametr" id="delParam_1"></div>
+															<div class="parametrName">
+																Назва <input>
+															</div>
+															<div class="parametrType" id="varType_1">
+																<input type="radio" checked="checked" name="type_1" value="field">Поле
+																<input type="radio" name="type_1" value="variants" id="varId_1">Варіанти	
+																<input type="radio" name="type_1" value="checkbox">Відмітка																
+															</div>
+																<div>														
+															<div class="parametrVariants" id="varPanel_1">
+																<div class="parametrVariant"><input><span class="deleteButtonSmall"></div>
+																<div class="parametrVariant"><input><span class="deleteButtonSmall"></div>
+																<div class="parametrVariant"><input><span class="deleteButtonSmall"></div>
+																<div class="parametrVariant"><input><span class="deleteButtonSmall"></div>
+																<div class="parametrVariant"><input><span class="deleteButtonSmall"></div>
+																<div class="parametrVariant"><input><span class="deleteButtonSmall"></div>
+																<div class="parametrVariant"><input><span class="deleteButtonSmall"></div>
+																			
+															</div>	
+															<div><span class="addButtonSmall"></span></div>
+														</div>																
+														</div>		
+																									
+														</form>
+														<div><span class="addButtonParam"></span></div>
+														
+														
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div id="windowShade"></div>
+	</body>
+</html>

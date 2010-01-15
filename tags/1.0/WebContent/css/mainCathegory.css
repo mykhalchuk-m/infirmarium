@@ -1,0 +1,63 @@
+.mainCategory {
+	background: url(../images/main/upper_corner.gif) no-repeat;
+	background-color: #cecece;
+	background-position: 0px 0px;
+	padding: 15px;	
+	display: table;
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	float: left;
+	margin-right: 16px;
+	text-align: center;
+	color: white;
+}
+
+.mainCategoryButton {
+	background: url(../images/navigation/tmp_nav_button.gif) no-repeat;
+	float: left;
+	display: block;
+	width: 60px;
+	height: 74px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.mainCategoryIcon {
+	background: url(../images/main/icons.gif) no-repeat;
+	width: 60px;
+	height: 74px;
+	margin: auto;
+}
+
+.mainIconCrdAdd {
+	background-position: 0px 0px;
+}
+
+.mainIconCrdRem {
+	background-position: -60px 0px;
+}
+
+.mainIconCrdView {
+	background-position: -120px 0px;
+}
+
+.mainIconCrdEdit {
+	background-position: -180px 0px;
+}
+
+.mainIconDocAdd {
+	background-position: 0px -74px;
+}
+
+.mainIconDocRem {
+	background-position: -60px -74px;
+}
+
+.mainIconDocView {
+	background-position: -120px -74px;
+}
+
+.mainIconDocEdit {
+	background-position: -180px -74x;
+}
