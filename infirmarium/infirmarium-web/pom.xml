@@ -100,7 +100,7 @@
 				<configuration>
 					<output>${basedir}/war</output>
 					<runTarget>
-						com.company.Application/Application.html
+						com.infirmarium.Application/Application.html
 					</runTarget>
 					<webXml>${basedir}/war/WEB-INF/web.xml</webXml>
 					<hostedWebapp>${basedir}/war</hostedWebapp>
