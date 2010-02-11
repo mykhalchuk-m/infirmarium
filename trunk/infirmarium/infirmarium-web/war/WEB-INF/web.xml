@@ -3,47 +3,25 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-	<display-name>Brodkin's sample</display-name>	
+	<display-name>Brodkin's sample</display-name>
+	<!--
+		inserted manually (used to be inserted by gwt-maven plugin, but
+		codehaus plugin doesn't seem to do it)
+	-->
+	<!-- TODO find out what's up with this -->
 
-  <!--inserted manually (used to be inserted by gwt-maven plugin, but codehaus plugin doesn't seem to do it) -->
-  <!-- TODO find out what's up with this -->
-  <servlet>
-    <servlet-name>com.company.server.TestServiceImpl/com.company.Application/testService</servlet-name>
-    <servlet-class>com.company.server.TestServiceImpl</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>com.company.server.SampleRemoteServiceImpl/com.company.Application/sampleRemoteService</servlet-name>
-    <servlet-class>com.company.server.SampleRemoteServiceImpl</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>com.company.server.security.SecurityServiceInMemoryImpl/com.company.Application/securityService</servlet-name>
-    <servlet-class>com.company.server.security.SecurityServiceInMemoryImpl</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>com.google.gwt.libideas.logging.server.RemoteLoggingServiceImpl/com.company.Application/logging</servlet-name>
-    <servlet-class>com.google.gwt.libideas.logging.server.RemoteLoggingServiceImpl</servlet-class>
-  </servlet>
+	<servlet>
+		<servlet-name>com.company.server.SampleRemoteServiceImpl/com.company.Application/sampleRemoteService</servlet-name>
+		<servlet-class>com.company.server.SampleRemoteServiceImpl</servlet-class>
+	</servlet>
 
-  <!--inserted manually (used to be inserted by gwt-maven plugin -->
-  <servlet-mapping>
-    <servlet-name>com.company.server.TestServiceImpl/com.company.Application/testService</servlet-name>
-    <url-pattern>/com.company.Application/testService</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>com.company.server.SampleRemoteServiceImpl/com.company.Application/sampleRemoteService</servlet-name>
-    <url-pattern>/com.company.Application/sampleRemoteService</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>com.company.server.security.SecurityServiceInMemoryImpl/com.company.Application/securityService</servlet-name>
-    <url-pattern>/com.company.Application/securityService</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>com.google.gwt.libideas.logging.server.RemoteLoggingServiceImpl/com.company.Application/logging</servlet-name>
-    <url-pattern>/com.company.Application/logging</url-pattern>
-  </servlet-mapping>
-	
-	
-	
+	<!--inserted manually (used to be inserted by gwt-maven plugin -->
+
+	<servlet-mapping>
+		<servlet-name>com.company.server.SampleRemoteServiceImpl/com.company.Application/sampleRemoteService</servlet-name>
+		<url-pattern>/com.company.Application/sampleRemoteService</url-pattern>
+	</servlet-mapping>
+
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
