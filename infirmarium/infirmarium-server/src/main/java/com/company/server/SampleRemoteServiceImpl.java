@@ -7,6 +7,6 @@ public class SampleRemoteServiceImpl extends RemoteServiceServlet implements
 		SampleRemoteService {
 
 	public String doComplimentMe() {
-		return RandomCompliment.get();
+		return "Hi!";
 	}	
 }
