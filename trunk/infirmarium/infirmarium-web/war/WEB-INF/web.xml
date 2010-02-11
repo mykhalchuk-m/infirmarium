@@ -3,7 +3,7 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-	<display-name>Brodkin's sample</display-name>
+	<display-name>Infirmarium</display-name>
 	<!--
 		inserted manually (used to be inserted by gwt-maven plugin, but
 		codehaus plugin doesn't seem to do it)
@@ -11,15 +11,15 @@
 	<!-- TODO find out what's up with this -->
 
 	<servlet>
-		<servlet-name>com.company.server.SampleRemoteServiceImpl/com.company.Application/sampleRemoteService</servlet-name>
-		<servlet-class>com.company.server.SampleRemoteServiceImpl</servlet-class>
+		<servlet-name>com.infirmarium.server.SampleRemoteServiceImpl/com.infirmarium.Application/sampleRemoteService</servlet-name>
+		<servlet-class>com.infirmarium.server.SampleRemoteServiceImpl</servlet-class>
 	</servlet>
 
 	<!--inserted manually (used to be inserted by gwt-maven plugin -->
 
 	<servlet-mapping>
-		<servlet-name>com.company.server.SampleRemoteServiceImpl/com.company.Application/sampleRemoteService</servlet-name>
-		<url-pattern>/com.company.Application/sampleRemoteService</url-pattern>
+		<servlet-name>com.infirmarium.server.SampleRemoteServiceImpl/com.infirmarium.Application/sampleRemoteService</servlet-name>
+		<url-pattern>/com.infirmarium.Application/sampleRemoteService</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

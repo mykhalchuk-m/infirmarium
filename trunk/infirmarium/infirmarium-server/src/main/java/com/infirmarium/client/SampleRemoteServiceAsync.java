@@ -1,4 +1,4 @@
-package com.company.client;
+package com.infirmarium.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
