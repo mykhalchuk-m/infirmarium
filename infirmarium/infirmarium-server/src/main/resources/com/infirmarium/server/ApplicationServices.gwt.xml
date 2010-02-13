@@ -1,10 +1,8 @@
 <module>
 	<inherits name='com.google.gwt.user.User' />
-      
-      <!-- our services -->
-	
-	  
-	<servlet path='/sampleRemoteService' class='com.infirmarium.server.SampleRemoteServiceImpl' />
-	
-	
+
+	<!-- our services -->
+
+
+
 </module>

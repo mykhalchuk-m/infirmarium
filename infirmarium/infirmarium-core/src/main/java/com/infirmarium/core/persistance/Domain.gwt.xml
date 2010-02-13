@@ -1,0 +1,4 @@
+<module rename-to='domain'>
+	<source path="domain" />
+	<source path="client" />
+</module>
