@@ -9,25 +9,31 @@
 		codehaus plugin doesn't seem to do it)
 	-->
 	<!-- TODO find out what's up with this -->
+	<filter>
+		<filter-name>guiceFilter</filter-name>
+		<filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+	</filter>
 
-	<servlet>
-		<servlet-name>com.infirmarium.server.SampleRemoteServiceImpl/com.infirmarium.Application/sampleRemoteService</servlet-name>
-		<servlet-class>com.infirmarium.server.SampleRemoteServiceImpl</servlet-class>
-	</servlet>
+	<filter-mapping>
+		<filter-name>guiceFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>com.infirmarium.server.guice.InfiramriumGuiceServletConfig</listener-class>
+	</listener>
 	<servlet>
 		<servlet-name>remoteLoggingServiceImpl</servlet-name>
 		<servlet-class>com.google.gwt.libideas.logging.server.RemoteLoggingServiceImpl</servlet-class>
 	</servlet>
 	<!--inserted manually (used to be inserted by gwt-maven plugin -->
 
-	<servlet-mapping>
-		<servlet-name>com.infirmarium.server.SampleRemoteServiceImpl/com.infirmarium.Application/sampleRemoteService</servlet-name>
-		<url-pattern>/com.infirmarium.Application/sampleRemoteService</url-pattern>
-	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>remoteLoggingServiceImpl</servlet-name>
 		<url-pattern>/com.infirmarium.Application/logging</url-pattern>
 	</servlet-mapping>
+
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

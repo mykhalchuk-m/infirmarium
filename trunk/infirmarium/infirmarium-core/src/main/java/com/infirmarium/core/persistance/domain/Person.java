@@ -64,7 +64,7 @@ public class Person extends BaseLongEntity {
 	@Column(name = Person.Columns.SPECIALITY)
 	private String speciality;
 	@Column(name = Person.Columns.IS_DELETED)
-	private Boolean isDeleted;
+	private Boolean deleted;
 	// TODO move this field into additional table
 	@ManyToOne(targetEntity = Department.class, fetch = FetchType.LAZY)
 	@JoinColumn(name = Columns.DEPARTMENT_ID)

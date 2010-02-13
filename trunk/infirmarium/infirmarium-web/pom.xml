@@ -32,11 +32,39 @@
 			</snapshots>
 		</repository>
 
+		<repository>
+			<id>guice</id>
+			<url>http://dist.codehaus.org/mule/dependencies/maven2</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+
+
+		<repository>
+			<id>gwt-dispatch</id>
+			<name>GWT Dispatch repository at googlecode</name>
+			<url>http://gwt-dispatch.googlecode.com/svn/maven2</url>
+		</repository>
+		<repository>
+			<id>gwt-presenter</id>
+			<name>GWT Presenter repository at googlecode</name>
+			<url>http://gwt-presenter.googlecode.com/svn/maven2</url>
+		</repository>
 	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>com.infirmarium</groupId>
 			<artifactId>infirmarium-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.infirmarium</groupId>
+			<artifactId>infirmarium-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>0.9.2</version>
 		</dependency>
 
 		<dependency>
@@ -64,6 +92,27 @@
 			<artifactId>gwt-incubator</artifactId>
 			<version>march-02-2009</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.gwt.inject</groupId>
+			<artifactId>gin</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.customware.gwt.presenter</groupId>
+			<artifactId>gwt-presenter</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>net.customware.gwt.dispatch</groupId>
+			<artifactId>gwt-dispatch</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.code.gwt-log</groupId>
+			<artifactId>gwt-log</artifactId>
+			<version>2.6.2</version>
+		</dependency>
+
 
 	</dependencies>
 
