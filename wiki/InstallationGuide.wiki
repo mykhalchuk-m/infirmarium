@@ -1,25 +1,25 @@
-#summary Installation guide
-#labels Featured,Phase-Deploy
+#summary One-sentence summary of this page.
+#labels Phase-Deploy
 
-= Dependencies =
+= Pre-requirements =
 
   # [http://java.sun.com/javase/downloads/index.jsp JDK 6 Update xx]
   # [http://tomcat.apache.org/download-60.cgi Tomcat 6.x zipeed core]
-  # [http://dev.mysql.com/downloads/mysql/5.1.html#downloads MySQL Server 5.1]
+  # [http://dev.mysql.com/downloads/mysql/5.1.html#downloads MySQL Server 5.1] (Notice, that you can actually use any db you want but you must fix all necessary configuration files and pom.xml to do so. We will add a guide about this later.)
   # [http://www.eclipse.org/downloads/packages/release/ganymede/sr2 Eclipse 3.4 IDE for Java EE Developers]
-  # Optional. [http://subclipse.tigris.org/ Subclipse plugin]
+  # [http://m2eclipse.sonatype.org/ m2eclipse plugin for eclipse]
+  # [http://projectlombok.org/ Lombok plugin for elclipse]
+  # Optional. [http://subclipse.tigris.org/ Subclipse plugin for eclipse]
   # Optional. [http://dev.mysql.com/downloads/gui-tools/5.0.html MySQL GUI Tools]
 
-= Installation =
+= Setting up environment =
+
   # Download, unpack/install all dependencies
     * Use UTF8 as default character set for MySql server
   # MySql server configuration:
     * Create new database 'infirmarium'
-    * Add new DB user. Username: trunk; Password: trunk.
-    * Assign all privileges for user 'trunk' in database 'infirmarium'
-  # Checkout project [http://code.google.com/p/infirmarium/source/checkout sources] from svn
-  # Add new Tomcat v.6.0 server to Eclipse workspace
-  # Import project to Eclipse workspace
-  # Configure build path. If needed.
-  # Run project on server
-  # Goto http://localhost:8080/infirmarium/ and login as admin/admin
+    * Add new DB user. Username: root; Password: root.
+    * Assign all privileges for user 'root' in database 'infirmarium' (Not checked. All must work even without this step)
+  # Checkout project from svn.
+  # Run *clean install* goal on infirmarium project.
+  # Run mvn *gwt:run* on infiramrium-client project to run.
