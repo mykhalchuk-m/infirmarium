@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Installation guide for Infrmarium
 #labels Phase-Deploy
 
 = Pre-requirements =
