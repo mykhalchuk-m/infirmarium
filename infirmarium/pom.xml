@@ -9,9 +9,9 @@
 	<url>http://maven.apache.org</url>
 
 	<modules>
-		<module>infirmarium-core</module>
-		<module>infirmarium-web</module>
-		<module>infirmarium-server</module>
+		<module>../infirmarium-core</module>
+		<module>../infirmarium-web</module>
+		<module>../infirmarium-server</module>
 	</modules>
 
 	<properties>
