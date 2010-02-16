@@ -12,7 +12,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import com.infirmarium.core.persistance.core.BaseLongEntity;
+import com.infirmarium.core.persistance.coredomain.BaseLongEntity;
 
 @Entity
 @Table(name = Address.Constants.TABLE_NAME)

@@ -17,11 +17,10 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import com.infirmarium.core.persistance.core.BaseLongEntity;
+import com.infirmarium.core.persistance.coredomain.BaseLongEntity;
 import com.infirmarium.core.persistance.domain.Department;
 import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.core.persistance.domain.field.FieldDef;
-
 
 @Entity
 @Table(name = ModuleDef.Constants.TABLE_NAME)

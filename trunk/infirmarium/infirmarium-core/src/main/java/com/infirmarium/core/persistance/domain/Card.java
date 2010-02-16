@@ -16,7 +16,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import com.infirmarium.core.persistance.core.BaseLongEntity;
+import com.infirmarium.core.persistance.coredomain.BaseLongEntity;
 import com.infirmarium.core.persistance.domain.module.ModuleValue;
 
 @Entity

@@ -13,6 +13,8 @@ import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.infirmarium.core.persistance.coredomain.BaseEntity;
+
 @Repository
 public abstract class BaseDAO<E extends BaseEntity<PK>, PK extends Serializable> {
 

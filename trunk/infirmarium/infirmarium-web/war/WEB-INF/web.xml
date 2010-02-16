@@ -28,12 +28,20 @@
 	</servlet>
 	<!--inserted manually (used to be inserted by gwt-maven plugin -->
 
+	<servlet>
+		<servlet-name>remoteLoggerServiceImpl</servlet-name>
+		<servlet-class>com.allen_sauer.gwt.log.server.RemoteLoggerServiceImpl</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>remoteLoggerServiceImpl</servlet-name>
+		<url-pattern>/infirmarium/gwt-log</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>remoteLoggingServiceImpl</servlet-name>
-		<url-pattern>/com.infirmarium.Application/logging</url-pattern>
+		<url-pattern>/infirmarium/logging</url-pattern>
 	</servlet-mapping>
-
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
