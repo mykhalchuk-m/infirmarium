@@ -1,4 +1,4 @@
-package com.infirmarium.core.persistance.core;
+package com.infirmarium.core.persistance.coredomain;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

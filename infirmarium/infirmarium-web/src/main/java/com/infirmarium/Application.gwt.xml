@@ -9,7 +9,6 @@
 	<!--
 		Inherit the server project, which defines a service servlet endpoint
 	-->
-	<inherits name='com.infirmarium.server.ApplicationServices' />
 	<inherits name='com.infirmarium.core.persistance.Domain' />
 
 

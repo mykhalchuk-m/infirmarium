@@ -1,4 +1,4 @@
-package com.infirmarium.core.persistance.core;
+package com.infirmarium.core.persistance.coredomain;
 
 import java.io.Serializable;
 

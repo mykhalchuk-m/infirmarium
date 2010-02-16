@@ -1,4 +1,4 @@
 <module rename-to='domain'>
+	<source path="coredomain" />
 	<source path="domain" />
-	<source path="client" />
 </module>

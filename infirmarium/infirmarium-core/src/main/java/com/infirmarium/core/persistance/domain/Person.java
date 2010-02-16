@@ -19,7 +19,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-import com.infirmarium.core.persistance.core.BaseLongEntity;
+import com.infirmarium.core.persistance.coredomain.BaseLongEntity;
 import com.infirmarium.core.persistance.domain.enums.BloodGroup;
 import com.infirmarium.core.persistance.domain.enums.Gender;
 import com.infirmarium.core.persistance.domain.enums.Role;

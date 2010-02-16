@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.infirmarium.core.persistance.coredomain.BaseEntity;
+
 @SuppressWarnings("unchecked")
 @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public abstract class BaseServiceImpl<E extends BaseEntity, DAO extends BaseDAO> implements IBaseService<E, DAO> {
