@@ -1,8 +1,8 @@
-package com.infirmarium.shared;
+package com.infirmarium.server.shared;
 
 import net.customware.gwt.dispatch.shared.Action;
 
-import com.infirmarium.shared.results.GetPersonsCommandResult;
+import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 
 public class GetPersonsCommand implements Action<GetPersonsCommandResult> {
 

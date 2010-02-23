@@ -16,8 +16,8 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.inject.Inject;
 import com.infirmarium.client.components.events.GetPersonsEvent;
-import com.infirmarium.shared.GetPersonsCommand;
-import com.infirmarium.shared.results.GetPersonsCommandResult;
+import com.infirmarium.server.shared.GetPersonsCommand;
+import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 
 public class AbstractTablePresenter<D extends AbstractTablePresenter.Display>
 		extends WidgetPresenter<D> {

@@ -16,16 +16,18 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.inject.Inject;
 import com.infirmarium.client.components.events.GetPersonsEvent;
-import com.infirmarium.shared.GetPersonsCommand;
-import com.infirmarium.shared.results.GetPersonsCommandResult;
+import com.infirmarium.server.shared.GetPersonsCommand;
+import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 
 public class PatientsTablePresenter extends
 		WidgetPresenter<PatientsTablePresenter.Display> {
 
 	public interface Display extends WidgetDisplay {
+
 		public HasValue<String> getName();
 
 		public HasClickHandlers getSend();
+
 	}
 
 	/**
@@ -51,7 +53,6 @@ public class PatientsTablePresenter extends
 		super(display, eventBus);
 		this.patientsTablePresenter = patientsTablePresenter;
 		this.dispatcher = dispatcher;
-
 		bind();
 	}
 
