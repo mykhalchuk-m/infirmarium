@@ -14,9 +14,9 @@ public class ClientMain implements EntryPoint {
 			.create(InfirmariumGinjector.class);
 
 	public void onModuleLoad() {
-		//final AppPresenter appPresenter = injector.getAppPresenter();
-		//appPresenter.go(RootPanel.get());
-		//injector.getPlaceManager().fireCurrentPlace();
+		final AppPresenter appPresenter = injector.getAppPresenter();
+		appPresenter.go(RootPanel.get());
+		injector.getPlaceManager().fireCurrentPlace();
 	}
 
 }

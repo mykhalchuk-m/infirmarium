@@ -2,7 +2,7 @@ package com.infirmarium.client.components.events;
 
 import com.infirmarium.client.components.events.handlers.PersonsEventHandler;
 import com.infirmarium.client.core.components.events.AbstractCommandResultInvokedEvent;
-import com.infirmarium.shared.results.GetPersonsCommandResult;
+import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 
 public class GetPersonsEvent
 		extends

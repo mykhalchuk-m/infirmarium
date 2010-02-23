@@ -8,8 +8,8 @@ import org.apache.commons.logging.Log;
 
 import com.google.inject.Inject;
 import com.infirmarium.core.services.IPersonService;
-import com.infirmarium.shared.GetPersonsCommand;
-import com.infirmarium.shared.results.GetPersonsCommandResult;
+import com.infirmarium.server.shared.GetPersonsCommand;
+import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 
 public class GetPersonsHandler implements
 		ActionHandler<GetPersonsCommand, GetPersonsCommandResult> {

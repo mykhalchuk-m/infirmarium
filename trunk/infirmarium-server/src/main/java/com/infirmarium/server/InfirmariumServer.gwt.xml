@@ -1,0 +1,6 @@
+<module rename-to='InfirmariumServer'>
+	
+	<inherits name='com.infirmarium.core.persistance.InfirmariumDomain' />
+	<source path="shared" />
+
+</module>

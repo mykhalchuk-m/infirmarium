@@ -1,4 +1,4 @@
-<module rename-to='domain'>
+<module rename-to='InfirmariumDomain'>
 	<source path="coredomain" />
 	<source path="domain" />
 </module>

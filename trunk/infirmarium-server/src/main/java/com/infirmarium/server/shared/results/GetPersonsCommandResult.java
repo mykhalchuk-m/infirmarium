@@ -1,4 +1,4 @@
-package com.infirmarium.shared.results;
+package com.infirmarium.server.shared.results;
 
 import java.util.List;
 

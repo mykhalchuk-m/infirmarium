@@ -9,8 +9,8 @@
 	<!--
 		Inherit the server project, which defines a service servlet endpoint
 	-->
-	<inherits name='com.infirmarium.core.persistance.Domain' />
-
+	<inherits name='com.infirmarium.core.persistance.InfirmariumDomain' />
+	<inherits name='com.infirmarium.server.InfirmariumServer' />
 
 	<!-- For webservice calls -->
 	<inherits name="com.google.gwt.json.JSON" />
