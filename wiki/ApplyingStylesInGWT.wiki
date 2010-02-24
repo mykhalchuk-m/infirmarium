@@ -16,7 +16,7 @@ For example:
 	HorizontalPanel addPanel = new HorizontalPanel();
 results in html code:
 	'<'table cellspacing="0" cellpadding="0" class="addPanel"> ...
-
+-
 *Setting primary style* for an HTML element:
 	* widget.setStylePrimaryName("primaryStyle");
 For example:
@@ -66,3 +66,10 @@ For example:
 	addPanel.setStyleName("style");
 results in html code:
 	'<'table cellspacing="0" cellpadding="0" class="style addPanel">...
+
+----
+
+*To set the id for a GWT widget, retrieve its DOM Element and then set the id attribute as follows:
+
+  Button b = new Button();
+  DOM.setElementAttribute(b.getElement(), "id", "my-button-id")
