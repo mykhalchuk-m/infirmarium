@@ -1,5 +1,8 @@
 package com.infirmarium.server.commandhandlers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.customware.gwt.dispatch.server.ActionHandler;
 import net.customware.gwt.dispatch.server.ExecutionContext;
 import net.customware.gwt.dispatch.shared.ActionException;
@@ -7,6 +10,7 @@ import net.customware.gwt.dispatch.shared.ActionException;
 import org.apache.commons.logging.Log;
 
 import com.google.inject.Inject;
+import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.core.services.IPersonService;
 import com.infirmarium.server.shared.GetPersonsCommand;
 import com.infirmarium.server.shared.results.GetPersonsCommandResult;
@@ -21,6 +25,7 @@ public class GetPersonsHandler implements
 	public GetPersonsHandler(IPersonService personService, Log logger) {
 		this.logger = logger;
 		this.personService = personService;
+		logger.info("GetPersonsHandler created!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 	}
 
 	@Override
@@ -28,9 +33,14 @@ public class GetPersonsHandler implements
 			final ExecutionContext context) throws ActionException {
 		GetPersonsCommandResult result = new GetPersonsCommandResult();
 		// TODO add paging
-		result.setPerson(personService.getAll());
+		Person person = new Person();
+		person.setFirstName("Vasia");
+		List<Person> resultList = new ArrayList<Person>();
+		resultList.add(person);
+		result.setPerson(resultList);
+		logger.info("GetPersonsCommandResult !!!!!!!!!!!!!!!!!!!!!!!!!!!"+resultList);
 
-		return new GetPersonsCommandResult();
+		return result;
 
 	}
 
