@@ -1,5 +1,7 @@
 package com.infirmarium.client.components.presenters;
 
+import java.util.List;
+
 import net.customware.gwt.dispatch.client.DispatchAsync;
 import net.customware.gwt.presenter.client.DisplayCallback;
 import net.customware.gwt.presenter.client.EventBus;
@@ -16,6 +18,8 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.inject.Inject;
 import com.infirmarium.client.components.events.GetPersonsEvent;
+import com.infirmarium.client.components.events.handlers.PersonsEventHandler;
+import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.server.shared.GetPersonsCommand;
 import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 
@@ -39,19 +43,19 @@ public class PatientsTablePresenter extends
 			+ "connection and try again.";
 	public static final Place PLACE = new Place("PatientsTable");
 	private final DispatchAsync dispatcher;
+
 	// FUDGE FACTOR! Although this is not used, having GIN pass the object
 	// to this class will force its instantiation and therefore will make the
 	// response presenter listen for events (via bind()). This is not a very
 	// good way to
 	// achieve this, but I wanted to put something together quickly - sorry!
-	private final PatientsTablePresenter patientsTablePresenter;
+	// private final PatientsTablePresenter patientsTablePresenter;
 
 	@Inject
 	public PatientsTablePresenter(final Display display,
-			final EventBus eventBus, final DispatchAsync dispatcher,
-			PatientsTablePresenter patientsTablePresenter) {
+			final EventBus eventBus, final DispatchAsync dispatcher) {
 		super(display, eventBus);
-		this.patientsTablePresenter = patientsTablePresenter;
+		// this.patientsTablePresenter = patientsTablePresenter;
 		this.dispatcher = dispatcher;
 		bind();
 	}
@@ -67,8 +71,7 @@ public class PatientsTablePresenter extends
 
 					@Override
 					protected void handleFailure(final Throwable cause) {
-						Log.error("Handle Failure:", cause);
-
+						Log.info("Handle Failure:", cause);
 						Window.alert(SERVER_ERROR);
 					}
 
@@ -77,6 +80,7 @@ public class PatientsTablePresenter extends
 							final GetPersonsCommandResult result) {
 						// take the result from the server and notify client
 						// interested components
+						Log.info("Recieved.");
 						eventBus.fireEvent(new GetPersonsEvent(result));
 					}
 
@@ -89,7 +93,18 @@ public class PatientsTablePresenter extends
 		// the constructor.
 		display.getSend().addClickHandler(new ClickHandler() {
 			public void onClick(final ClickEvent event) {
+				Log.error("Sending.");
 				doSend();
+			}
+		});
+
+		eventBus.addHandler(GetPersonsEvent.TYPE, new PersonsEventHandler() {
+			@Override
+			public void onGetPersons(GetPersonsEvent event) {
+				GetPersonsCommandResult result = event.getResult();
+				List<Person> personList = result.getPerson();
+				display.getName().setValue(personList.toString());
+
 			}
 		});
 	}

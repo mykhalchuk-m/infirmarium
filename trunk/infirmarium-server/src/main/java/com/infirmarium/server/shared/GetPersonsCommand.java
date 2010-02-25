@@ -1,10 +1,12 @@
 package com.infirmarium.server.shared;
 
+import java.io.Serializable;
+
 import net.customware.gwt.dispatch.shared.Action;
 
 import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 
-public class GetPersonsCommand implements Action<GetPersonsCommandResult> {
+public class GetPersonsCommand implements Action<GetPersonsCommandResult> ,Serializable{
 
 	private static final long serialVersionUID = 1L;
 

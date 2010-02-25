@@ -14,6 +14,14 @@ public class GetPersonsCommandResult implements Result {
 	private int pageNumber;
 	private int totalPages;
 
+	public GetPersonsCommandResult(List<Person> person, int pageNumber,
+			int totalPages) {
+		super();
+		this.person = person;
+		this.pageNumber = pageNumber;
+		this.totalPages = totalPages;
+	}
+
 	public GetPersonsCommandResult() {
 	}
 
