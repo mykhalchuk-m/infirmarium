@@ -1,6 +1,7 @@
 package com.infirmarium.server.commandhandlers;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import net.customware.gwt.dispatch.server.ActionHandler;
@@ -25,7 +26,6 @@ public class GetPersonsHandler implements
 	public GetPersonsHandler(IPersonService personService, Log logger) {
 		this.logger = logger;
 		this.personService = personService;
-		logger.info("GetPersonsHandler created!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 	}
 
 	@Override
@@ -33,12 +33,20 @@ public class GetPersonsHandler implements
 			final ExecutionContext context) throws ActionException {
 		GetPersonsCommandResult result = new GetPersonsCommandResult();
 		// TODO add paging
-		Person person = new Person();
-		person.setFirstName("Vasia");
-		List<Person> resultList = new ArrayList<Person>();
-		resultList.add(person);
+		Person person1 = new Person();
+		person1.setFirstName("Vasia");
+		person1.setLastName("Pupkin");
+		person1.setBirthday(new Date());
+
+		Person person2 = new Person();
+		person2.setFirstName("Petia");
+		person2.setLastName("Sidorov");
+		person2.setBirthday(new Date());
+
+		ArrayList<Person> resultList = new ArrayList<Person>();
+		resultList.add(person1);
+		resultList.add(person2);
 		result.setPerson(resultList);
-		logger.info("GetPersonsCommandResult !!!!!!!!!!!!!!!!!!!!!!!!!!!"+resultList);
 
 		return result;
 

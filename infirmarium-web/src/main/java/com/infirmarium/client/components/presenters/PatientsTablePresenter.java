@@ -11,27 +11,23 @@ import net.customware.gwt.presenter.client.widget.WidgetDisplay;
 import net.customware.gwt.presenter.client.widget.WidgetPresenter;
 
 import com.allen_sauer.gwt.log.client.Log;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.HasValue;
 import com.google.inject.Inject;
 import com.infirmarium.client.components.events.GetPersonsEvent;
 import com.infirmarium.client.components.events.handlers.PersonsEventHandler;
+import com.infirmarium.client.components.model.records.PersonRecord;
 import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.server.shared.GetPersonsCommand;
 import com.infirmarium.server.shared.results.GetPersonsCommandResult;
+import com.smartgwt.client.data.RecordList;
+import com.smartgwt.client.widgets.grid.ListGrid;
 
 public class PatientsTablePresenter extends
 		WidgetPresenter<PatientsTablePresenter.Display> {
 
 	public interface Display extends WidgetDisplay {
 
-		public HasValue<String> getName();
-
-		public HasClickHandlers getSend();
-
+		public ListGrid getListGrid();
 	}
 
 	/**
@@ -43,13 +39,6 @@ public class PatientsTablePresenter extends
 			+ "connection and try again.";
 	public static final Place PLACE = new Place("PatientsTable");
 	private final DispatchAsync dispatcher;
-
-	// FUDGE FACTOR! Although this is not used, having GIN pass the object
-	// to this class will force its instantiation and therefore will make the
-	// response presenter listen for events (via bind()). This is not a very
-	// good way to
-	// achieve this, but I wanted to put something together quickly - sorry!
-	// private final PatientsTablePresenter patientsTablePresenter;
 
 	@Inject
 	public PatientsTablePresenter(final Display display,
@@ -91,20 +80,22 @@ public class PatientsTablePresenter extends
 	protected void onBind() {
 		// 'display' is a final global field containing the Display passed into
 		// the constructor.
-		display.getSend().addClickHandler(new ClickHandler() {
-			public void onClick(final ClickEvent event) {
-				Log.error("Sending.");
-				doSend();
-			}
-		});
-
+		Log.info("Sending.");
+		doSend();
 		eventBus.addHandler(GetPersonsEvent.TYPE, new PersonsEventHandler() {
 			@Override
 			public void onGetPersons(GetPersonsEvent event) {
+				Log.info("Recieved persons.");
 				GetPersonsCommandResult result = event.getResult();
 				List<Person> personList = result.getPerson();
-				display.getName().setValue(personList.toString());
-
+				// display.getName().setValue(personList.toString());
+				Log.info(event.getResult().getPerson().toString());
+				RecordList personRecordList = new RecordList();
+				for (Person person : personList) {
+					personRecordList.add(new PersonRecord(person));
+				}
+				display.getListGrid().setData(personRecordList);
+				display.getListGrid().redraw();
 			}
 		});
 	}
@@ -140,8 +131,6 @@ public class PatientsTablePresenter extends
 		// field.
 		final String name = request.getParameter("name", null);
 
-		if (name != null) {
-			display.getName().setValue(name);
-		}
+		// TODO: implement me
 	}
 }
