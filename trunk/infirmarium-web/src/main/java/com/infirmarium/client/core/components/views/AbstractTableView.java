@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.infirmarium.client.components.presenters.PatientsTablePresenter.Display;
+import com.smartgwt.client.widgets.grid.ListGrid;
 
 public class AbstractTableView extends Composite implements Display {
 	private final TextBox name;
@@ -62,5 +63,11 @@ public class AbstractTableView extends Composite implements Display {
 
 	@Override
 	public void stopProcessing() {
+	}
+
+	@Override
+	public ListGrid getListGrid() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

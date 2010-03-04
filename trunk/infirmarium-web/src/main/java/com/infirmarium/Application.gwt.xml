@@ -6,6 +6,9 @@
 
 	<inherits name='net.customware.gwt.dispatch.Dispatch' />
 	<inherits name='net.customware.gwt.presenter.Presenter' />
+	
+	<inherits name='com.smartgwt.SmartGwt' />
+	
 	<!--
 		Inherit the server project, which defines a service servlet endpoint
 	-->
