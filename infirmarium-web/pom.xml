@@ -122,7 +122,7 @@
 			added from this post
 			http://osdir.com/ml/GoogleWebToolkit/2009-04/msg02003.html
 		-->
-		<resources>
+		<!--<resources>
 			<resource>
 				<directory>${project.build.sourceDirectory}</directory>
 				<targetPath></targetPath>
@@ -131,6 +131,7 @@
 				</excludes>
 			</resource>
 		</resources>
+		-->
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -138,10 +139,15 @@
 				<version>1.1</version>
 				<executions>
 					<execution>
+						<configuration>
+              				<module>com.infirmarium.Application</module>
+            			</configuration>
+						
 						<goals>
 							<goal>compile</goal>
 							<!--
-								<goal>generateAsync</goal> <goal>test</goal>
+							<goal>generateAsync</goal>
+							<goal>test</goal>
 							-->
 						</goals>
 					</execution>
