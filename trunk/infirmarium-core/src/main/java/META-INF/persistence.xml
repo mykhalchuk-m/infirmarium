@@ -1,0 +1,31 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+	<persistence-unit name="InfirmariumCore" transaction-type="JTA">
+		 <jta-data-source>java:jdbc/infirmarium</jta-data-source>
+		 <non-jta-data-source>java:jdbc/infirmarium</non-jta-data-source>	
+		 <class>com.infirmarium.core.persistance.coredomain.BaseEntity</class>
+		 <class>com.infirmarium.core.persistance.coredomain.BaseLongEntity</class>
+		 <class>com.infirmarium.core.persistance.domain.Address</class>
+		 <class>com.infirmarium.core.persistance.domain.Card</class>
+		 <class>com.infirmarium.core.persistance.domain.Department</class>
+		 <class>com.infirmarium.core.persistance.domain.Person</class>
+		 <class>com.infirmarium.core.persistance.domain.enums.BloodGroup</class>
+		 <class>com.infirmarium.core.persistance.domain.enums.Gender</class>
+		 <class>com.infirmarium.core.persistance.domain.enums.Role</class>
+		 <class>com.infirmarium.core.persistance.domain.field.FieldDef</class>
+		 <class>com.infirmarium.core.persistance.domain.field.FieldType</class>
+		 <class>com.infirmarium.core.persistance.domain.field.FieldValue</class>
+		 <class>com.infirmarium.core.persistance.domain.module.ModuleDef</class>
+		 <class>com.infirmarium.core.persistance.domain.module.ModuleValue</class>
+		 <exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			-->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.show_sql" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>

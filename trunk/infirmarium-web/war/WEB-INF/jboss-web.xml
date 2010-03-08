@@ -1,0 +1,4 @@
+<jboss-web>
+	<context-root>Infirmarium</context-root>
+	<security-domain>java:/jaas/Infirmarium</security-domain>
+</jboss-web>
