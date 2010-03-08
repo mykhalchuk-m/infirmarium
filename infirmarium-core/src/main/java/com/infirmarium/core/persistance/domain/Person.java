@@ -71,7 +71,7 @@ public class Person extends BaseLongEntity {
 	private Department department;
 
 	public static class Constants extends BaseLongEntity.Constants {
-		public static final String TABLE_NAME = "address";
+		public static final String TABLE_NAME = "person";
 
 		public static class PersonAddressConstant extends
 				BaseLongEntity.Constants {
