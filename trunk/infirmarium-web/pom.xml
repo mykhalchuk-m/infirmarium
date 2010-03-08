@@ -73,12 +73,12 @@
 			<version>2.0</version>
 		</dependency>
 
-		<!--  GWT dependencies (from central repo) -->
+		<!-- GWT dependencies (from maven "central" repo) -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
 			<version>${gwt.version}</version>
-			<scope>runtime</scope>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
@@ -86,6 +86,7 @@
 			<version>${gwt.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
 		<!-- gwt incubator (for progress bar) -->
 		<dependency>
 			<groupId>com.google.gwt</groupId>
@@ -122,15 +123,11 @@
 			added from this post
 			http://osdir.com/ml/GoogleWebToolkit/2009-04/msg02003.html
 		-->
-		<!--<resources>
-			<resource>
-				<directory>${project.build.sourceDirectory}</directory>
-				<targetPath></targetPath>
-				<excludes>
-					<exclude>**/*.java</exclude>
-				</excludes>
-			</resource>
-		</resources>
+		<!--
+			<resources> <resource>
+			<directory>${project.build.sourceDirectory}</directory>
+			<targetPath></targetPath> <excludes> <exclude>**/*.java</exclude>
+			</excludes> </resource> </resources>
 		-->
 		<plugins>
 			<plugin>
@@ -140,14 +137,13 @@
 				<executions>
 					<execution>
 						<configuration>
-              				<module>com.infirmarium.Application</module>
-            			</configuration>
-						
+							<module>com.infirmarium.Application</module>
+						</configuration>
+
 						<goals>
 							<goal>compile</goal>
 							<!--
-							<goal>generateAsync</goal>
-							<goal>test</goal>
+								<goal>generateAsync</goal> <goal>test</goal>
 							-->
 						</goals>
 					</execution>
