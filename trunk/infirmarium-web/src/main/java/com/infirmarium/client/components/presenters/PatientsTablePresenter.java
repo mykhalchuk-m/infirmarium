@@ -13,14 +13,19 @@ import net.customware.gwt.presenter.client.widget.WidgetPresenter;
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.Window;
 import com.google.inject.Inject;
+import com.infirmarium.client.components.events.GetPersonDetailsEvent;
 import com.infirmarium.client.components.events.GetPersonsEvent;
 import com.infirmarium.client.components.events.handlers.PersonsEventHandler;
 import com.infirmarium.client.components.model.records.PersonRecord;
 import com.infirmarium.core.persistance.domain.Person;
+import com.infirmarium.server.shared.GetPersonDetailsCommand;
 import com.infirmarium.server.shared.GetPersonsCommand;
+import com.infirmarium.server.shared.results.GetPersonDetailsCommandResult;
 import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 import com.smartgwt.client.data.RecordList;
 import com.smartgwt.client.widgets.grid.ListGrid;
+import com.smartgwt.client.widgets.grid.events.CellClickEvent;
+import com.smartgwt.client.widgets.grid.events.CellClickHandler;
 
 public class PatientsTablePresenter extends
 		WidgetPresenter<PatientsTablePresenter.Display> {
@@ -39,13 +44,15 @@ public class PatientsTablePresenter extends
 			+ "connection and try again.";
 	public static final Place PLACE = new Place("PatientsTable");
 	private final DispatchAsync dispatcher;
+	private PatientDetailsPresenter innerPresenter;
 
 	@Inject
 	public PatientsTablePresenter(final Display display,
-			final EventBus eventBus, final DispatchAsync dispatcher) {
+			final EventBus eventBus, final DispatchAsync dispatcher, PatientDetailsPresenter innerPresenter) {
 		super(display, eventBus);
 		// this.patientsTablePresenter = patientsTablePresenter;
 		this.dispatcher = dispatcher;
+		this.innerPresenter = innerPresenter;
 		bind();
 	}
 
@@ -76,6 +83,34 @@ public class PatientsTablePresenter extends
 				});
 	}
 
+	/**
+	 * Try to get person details
+	 */
+	private void doSendGetPersonDetailsAction(Integer id) {
+		Log.info("Calling doSendGetPersonDetailsAction");
+
+		dispatcher.execute(new GetPersonDetailsCommand(),
+				new DisplayCallback<GetPersonDetailsCommandResult>(display) {
+
+					@Override
+					protected void handleFailure(final Throwable cause) {
+						Log.info("Handle Failure:", cause);
+						Window.alert(SERVER_ERROR);
+					}
+
+					@Override
+					protected void handleSuccess(
+							final GetPersonDetailsCommandResult result) {
+						// take the result from the server and notify client
+						// interested components
+						Log.info("Recieved person details");
+						Log.info(result.getName() + " " + result.getMessage());
+						eventBus.fireEvent(new GetPersonDetailsEvent(result));
+					}
+
+				});
+	}
+
 	@Override
 	protected void onBind() {
 		// 'display' is a final global field containing the Display passed into
@@ -97,6 +132,21 @@ public class PatientsTablePresenter extends
 				display.getListGrid().setData(personRecordList);
 				display.getListGrid().redraw();
 			}
+		});
+		display.getListGrid().addCellClickHandler(new CellClickHandler() {
+
+			@Override
+			public void onCellClick(CellClickEvent event) {
+				Log.info("setting click handler");
+				int selectedRow = event.getRowNum();
+
+				if (selectedRow >= 0) {
+					Log.info("selected=" + selectedRow);
+					Integer id = selectedRow;
+					doSendGetPersonDetailsAction(id);
+				}
+			}
+
 		});
 	}
 

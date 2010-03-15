@@ -1,31 +1,18 @@
 package com.infirmarium.client.core.components.presenters;
 
 import net.customware.gwt.dispatch.client.DispatchAsync;
-import net.customware.gwt.presenter.client.DisplayCallback;
 import net.customware.gwt.presenter.client.EventBus;
 import net.customware.gwt.presenter.client.place.Place;
 import net.customware.gwt.presenter.client.place.PlaceRequest;
 import net.customware.gwt.presenter.client.widget.WidgetDisplay;
 import net.customware.gwt.presenter.client.widget.WidgetPresenter;
 
-import com.allen_sauer.gwt.log.client.Log;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.HasValue;
 import com.google.inject.Inject;
-import com.infirmarium.client.components.events.GetPersonsEvent;
-import com.infirmarium.server.shared.GetPersonsCommand;
-import com.infirmarium.server.shared.results.GetPersonsCommandResult;
 
-public class AbstractTablePresenter<D extends AbstractTablePresenter.Display>
+public abstract class AbstractTablePresenter<D extends AbstractTablePresenter.Display>
 		extends WidgetPresenter<D> {
 
 	public interface Display extends WidgetDisplay {
-		public HasValue<String> getName();
-
-		public HasClickHandlers getSend();
 	}
 
 	/**
@@ -35,58 +22,21 @@ public class AbstractTablePresenter<D extends AbstractTablePresenter.Display>
 	private static final String SERVER_ERROR = "An error occurred while "
 			+ "attempting to contact the server. Please check your network "
 			+ "connection and try again.";
-	public static final Place PLACE = new Place("Greeting");
-	private final DispatchAsync dispatcher;
+	protected final DispatchAsync dispatcher;
 
 	@Inject
 	public AbstractTablePresenter(final D display, final EventBus eventBus,
 			final DispatchAsync dispatcher) {
 		super(display, eventBus);
 		this.dispatcher = dispatcher;
-		bind();
-	}
-
-	/**
-	 * Try to send the greeting message
-	 */
-	private void doSend() {
-		Log.info("Calling doSend");
-
-		dispatcher.execute(new GetPersonsCommand(0),
-				new DisplayCallback<GetPersonsCommandResult>(display) {
-
-					@Override
-					protected void handleFailure(final Throwable cause) {
-						Log.error("Handle Failure:", cause);
-
-						Window.alert(SERVER_ERROR);
-					}
-
-					@Override
-					protected void handleSuccess(
-							final GetPersonsCommandResult result) {
-						// take the result from the server and notify client
-						// interested components
-						eventBus.fireEvent(new GetPersonsEvent(result));
-					}
-
-				});
+		bind();// onBind is called
 	}
 
 	@Override
-	protected void onBind() {
-		// 'display' is a final global field containing the Display passed into
-		// the constructor.
-		display.getSend().addClickHandler(new ClickHandler() {
-			public void onClick(final ClickEvent event) {
-				doSend();
-			}
-		});
-	}
+	protected abstract void onBind();
 
 	@Override
 	protected void onUnbind() {
-		// Add unbind functionality here for more complex presenters.
 	}
 
 	public void refreshDisplay() {
@@ -104,19 +54,8 @@ public class AbstractTablePresenter<D extends AbstractTablePresenter.Display>
 	 * '#Greeting' is passed into the browser URL.
 	 */
 	@Override
-	public Place getPlace() {
-		return PLACE;
-	}
+	public abstract Place getPlace();
 
 	@Override
-	protected void onPlaceRequest(final PlaceRequest request) {
-		// Grab the 'name' from the request and put it into the 'name' field.
-		// This allows a tag of '#Greeting;name=Foo' to populate the name
-		// field.
-		final String name = request.getParameter("name", null);
-
-		if (name != null) {
-			display.getName().setValue(name);
-		}
-	}
+	protected abstract void onPlaceRequest(final PlaceRequest request);
 }
