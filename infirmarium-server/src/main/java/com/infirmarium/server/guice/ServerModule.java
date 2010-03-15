@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import com.google.inject.Singleton;
 import com.infirmarium.core.services.IPersonService;
 import com.infirmarium.core.services.impl.PersonServiceImpl;
+import com.infirmarium.server.commandhandlers.GetPersonDetailsHandler;
 import com.infirmarium.server.commandhandlers.GetPersonsHandler;
 
 /**
@@ -18,6 +19,7 @@ public class ServerModule extends ActionHandlerModule {
 	@Override
 	protected void configureHandlers() {
 		bindHandler(GetPersonsHandler.class);
+		bindHandler(GetPersonDetailsHandler.class);
 
 		bind(Log.class).toProvider(LogProvider.class).in(Singleton.class);
 		bind(IPersonService.class).to(PersonServiceImpl.class).in(
