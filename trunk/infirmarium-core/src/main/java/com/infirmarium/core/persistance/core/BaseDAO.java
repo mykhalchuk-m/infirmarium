@@ -10,17 +10,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Repository;
 
 import com.infirmarium.core.persistance.coredomain.BaseEntity;
 
-@Repository
+//@Repository
 public abstract class BaseDAO<E extends BaseEntity<PK>, PK extends Serializable> {
 
     private static final int BATCH_SIZE = 15;
 
-    @Autowired
+//    @Autowired
     protected SessionFactory sessionFactory;
 
     @SuppressWarnings("unchecked")

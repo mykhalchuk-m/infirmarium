@@ -3,13 +3,13 @@ package com.infirmarium.core.persistance.core;
 import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+//import org.springframework.transaction.annotation.Propagation;
+//import org.springframework.transaction.annotation.Transactional;
 
 import com.infirmarium.core.persistance.coredomain.BaseEntity;
 
 @SuppressWarnings("unchecked")
-@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
+//@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 public abstract class BaseServiceImpl<E extends BaseEntity, DAO extends BaseDAO> implements IBaseService<E, DAO> {
 
     private DAO dao;
@@ -45,19 +45,19 @@ public abstract class BaseServiceImpl<E extends BaseEntity, DAO extends BaseDAO>
     }
 
     @Override
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public E merge(E entity) {
         return (E) getDao().merge(entity);
     }
 
     @Override
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void remove(Serializable pk) {
         getDao().remove(pk);
     }
 
     @Override
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
+//    @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public void remove(E entity) {
         getDao().remove(entity);
     }
@@ -75,19 +75,19 @@ public abstract class BaseServiceImpl<E extends BaseEntity, DAO extends BaseDAO>
     }
 
     @Override
-    @Transactional(readOnly = false, propagation = Propagation.NESTED)
+//    @Transactional(readOnly = false, propagation = Propagation.NESTED)
     public void save(final E entity) {
         getDao().save(entity);
     }
 
     @Override
-    @Transactional(readOnly = false, propagation = Propagation.NESTED)
+//    @Transactional(readOnly = false, propagation = Propagation.NESTED)
     public void save(final List<E> entityList) {
         getDao().save(entityList);
     }
 
     @Override
-    @Transactional(readOnly = false, propagation = Propagation.NESTED)
+//    @Transactional(readOnly = false, propagation = Propagation.NESTED)
     public void saveCascade(final List<E> entityList) {
         throw new UnsupportedOperationException("Operation is unsupported.");
     }
