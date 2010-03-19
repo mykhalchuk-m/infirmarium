@@ -15,13 +15,12 @@ public class PatientsTableView extends Composite implements Display {
 	private final ListGrid list;
 
 	public PatientsTableView() {
-
 		reset();
-
 		list = new ListGrid();
 		list.setWidth(910);
 		list.setHeight100();
 		list.setShowAllRecords(true);
+
 		ListGridField nameField = new ListGridField(
 				PersonRecord.Attributes.name);
 		ListGridField birthField = new ListGridField(
@@ -29,7 +28,7 @@ public class PatientsTableView extends Composite implements Display {
 		list.setFields(nameField, birthField);
 
 		RootPanel.get("page-content-slot").add(list);
-		list.draw();
+		list.redraw();
 	}
 
 	public void reset() {

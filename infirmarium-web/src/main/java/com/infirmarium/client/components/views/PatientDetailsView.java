@@ -51,14 +51,10 @@ public class PatientDetailsView extends DialogBox implements Display {
 
 	@Override
 	public void startProcessing() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void stopProcessing() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

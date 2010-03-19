@@ -16,7 +16,7 @@
  
 	<properties>
 		<spring.version>3.0.0.RELEASE</spring.version>
-		<gwt.version>1.6.4</gwt.version>
+		<gwt.version>1.7.1</gwt.version>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
 	</properties>

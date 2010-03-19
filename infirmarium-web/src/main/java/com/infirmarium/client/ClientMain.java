@@ -3,6 +3,7 @@ package com.infirmarium.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.infirmarium.client.components.presenters.AppPresenter;
 import com.infirmarium.client.gin.InfirmariumGinjector;
 
 /**
