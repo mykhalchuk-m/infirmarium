@@ -12,7 +12,6 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.DialogBox;
-import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.inject.Inject;
 import com.infirmarium.client.components.events.GetPersonDetailsEvent;
 import com.infirmarium.client.components.events.handlers.PersonDetailsEventHandler;
@@ -20,19 +19,6 @@ import com.infirmarium.core.persistance.domain.Person;
 
 public class PatientDetailsPresenter extends
 		WidgetPresenter<PatientDetailsPresenter.Display> {
-	@Inject
-	public PatientDetailsPresenter(final Display display, EventBus eventBus,
-			final DispatchAsync dispatcher, Person person) {
-		super(display, eventBus);
-		this.dispatcher = dispatcher;
-		this.person = person;
-		bind();
-		Log.info("starting details presenter");
-	}
-
-	private Person person;
-	protected final DispatchAsync dispatcher;
-	public static final Place PLACE = new Place("PatientDetails");
 
 	public interface Display extends WidgetDisplay {
 		HasClickHandlers getClose();
@@ -42,6 +28,20 @@ public class PatientDetailsPresenter extends
 		void setHeader(String header);
 
 		void setData(String data);
+	}
+
+	private Person person;
+	protected final DispatchAsync dispatcher;
+	public static final Place PLACE = new Place("PatientDetails");
+
+	@Inject
+	public PatientDetailsPresenter(final Display display, EventBus eventBus,
+			final DispatchAsync dispatcher, Person person) {
+		super(display, eventBus);
+		this.dispatcher = dispatcher;
+		this.person = person;
+		bind();
+		Log.info("starting details presenter");
 	}
 
 	@Override

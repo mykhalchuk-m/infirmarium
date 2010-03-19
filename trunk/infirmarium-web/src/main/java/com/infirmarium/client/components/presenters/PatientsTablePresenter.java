@@ -35,24 +35,18 @@ public class PatientsTablePresenter extends
 		public ListGrid getListGrid();
 	}
 
-	/**
-	 * The message displayed to the user when the server cannot be reached or
-	 * returns an error.
-	 */
 	private static final String SERVER_ERROR = "An error occurred while "
 			+ "attempting to contact the server. Please check your network "
 			+ "connection and try again.";
 	public static final Place PLACE = new Place("PatientsTable");
 	private final DispatchAsync dispatcher;
-	private PatientDetailsPresenter innerPresenter;
 
 	@Inject
 	public PatientsTablePresenter(final Display display,
-			final EventBus eventBus, final DispatchAsync dispatcher, PatientDetailsPresenter innerPresenter) {
+			final EventBus eventBus, final DispatchAsync dispatcher) {
 		super(display, eventBus);
 		// this.patientsTablePresenter = patientsTablePresenter;
 		this.dispatcher = dispatcher;
-		this.innerPresenter = innerPresenter;
 		bind();
 	}
 

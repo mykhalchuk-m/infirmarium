@@ -38,6 +38,19 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 	width: 290px;
 	height: 64px;
 	background: transparent url(images/logo-large.gif) no-repeat left top;
+	margin: 20px;
+	float: left;
+}
+
+.inf-navigation-panel {
+	
+}
+
+.inf-navigation-button {
+	width: 60px;
+	height: 74px;
+	background: transparent url(images/navigation-button-back.gif) no-repeat
+		left top;
 	margin: 20px
 }
 
