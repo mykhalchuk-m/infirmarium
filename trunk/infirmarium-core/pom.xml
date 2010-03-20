@@ -59,7 +59,7 @@
 									name="delombok" />
 
  -->
-									<taskdef classpath="${HOMEPATH}/.m2/repository/org/projectlombok/lombok/0.9.2/lombok-0.9.2.jar" classname="lombok.delombok.ant.DelombokTask"
+									<taskdef classpath="${USERPROFILE}/.m2/repository/org/projectlombok/lombok/0.9.2/lombok-0.9.2.jar" classname="lombok.delombok.ant.DelombokTask"
 									name="delombok" />
 								
 								<delombok verbose="true" encoding="UTF-8"
