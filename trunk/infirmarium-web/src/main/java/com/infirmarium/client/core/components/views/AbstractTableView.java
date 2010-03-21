@@ -13,7 +13,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.infirmarium.client.components.presenters.PatientsTablePresenter.Display;
 import com.smartgwt.client.widgets.grid.ListGrid;
 
-public class AbstractTableView extends Composite implements Display {
+public abstract class AbstractTableView extends Composite implements Display {
 	private final TextBox name;
 	private final Button sendButton;
 

@@ -2,6 +2,8 @@ package com.infirmarium.client.components.views;
 
 import net.customware.gwt.presenter.client.widget.WidgetDisplay;
 
+import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -13,12 +15,14 @@ import com.smartgwt.client.widgets.grid.ListGridField;
 public class PatientsTableView extends Composite implements Display {
 
 	private final ListGrid list;
+	private final Button addPattientButton;
 
 	public PatientsTableView() {
 		reset();
+		addPattientButton = new Button("Add new Patient");
 		list = new ListGrid();
 		list.setWidth(910);
-		list.setHeight100();
+		list.setHeight("50%");
 		list.setShowAllRecords(true);
 
 		ListGridField nameField = new ListGridField(
@@ -28,6 +32,7 @@ public class PatientsTableView extends Composite implements Display {
 		list.setFields(nameField, birthField);
 
 		RootPanel.get("page-content-slot").add(list);
+		RootPanel.get("page-content-slot").add(addPattientButton);
 		list.redraw();
 	}
 
@@ -54,5 +59,10 @@ public class PatientsTableView extends Composite implements Display {
 	@Override
 	public ListGrid getListGrid() {
 		return list;
+	}
+
+	@Override
+	public HasClickHandlers getAddPatient() {
+		return addPattientButton;
 	}
 }

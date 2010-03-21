@@ -7,11 +7,13 @@ import net.customware.gwt.presenter.client.gin.AbstractPresenterModule;
 import net.customware.gwt.presenter.client.place.PlaceManager;
 
 import com.google.inject.Singleton;
+import com.infirmarium.client.components.presenters.AddPatientPresenter;
 import com.infirmarium.client.components.presenters.AppPresenter;
 import com.infirmarium.client.components.presenters.NavigationPanelPresenter;
 import com.infirmarium.client.components.presenters.PatientDetailsPresenter;
 import com.infirmarium.client.components.presenters.PatientsTablePresenter;
 import com.infirmarium.client.components.presenters.screens.PatientsScreenPresenter;
+import com.infirmarium.client.components.views.AddPatientView;
 import com.infirmarium.client.components.views.NavigationPanelView;
 import com.infirmarium.client.components.views.PatientDetailsView;
 import com.infirmarium.client.components.views.PatientsTableView;
@@ -34,6 +36,8 @@ public class InfirmariumGinClientModule extends AbstractPresenterModule {
 		
 		bindPresenter(PatientDetailsPresenter.class,
 				PatientDetailsPresenter.Display.class, PatientDetailsView.class);
+		bindPresenter(AddPatientPresenter.class,
+				AddPatientPresenter.Display.class, AddPatientView.class);
 		
 		bindPresenter(NavigationPanelPresenter.class,
 				NavigationPanelPresenter.Display.class,
