@@ -1,7 +1,5 @@
 package com.infirmarium.server.commandhandlers;
 
-import java.util.Date;
-
 import net.customware.gwt.dispatch.server.ActionHandler;
 import net.customware.gwt.dispatch.server.ExecutionContext;
 import net.customware.gwt.dispatch.shared.ActionException;
@@ -31,13 +29,9 @@ public class GetPersonDetailsHandler implements
 		GetPersonDetailsCommandResult result = new GetPersonDetailsCommandResult();
 
 		logger.info("id " + action.getId() + " was requested");
-		Person person1 = new Person();
-		person1.setFirstName("Vasia");
-		person1.setLastName("Pupkin");
-		person1.setBirthday(new Date());
-
-		result.setMessage(person1.toString());
-		result.setName(person1.getFirstName() + " " + person1.getLastName());
+		Person person = Database.resultList.get(action.getId());
+		result.setMessage(person.toString());
+		result.setName(person.getFirstName() + " " + person.getLastName());
 		return result;
 
 	}
