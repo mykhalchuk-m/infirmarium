@@ -4,23 +4,30 @@ import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.infirmarium.client.components.presenters.PatientDetailsPresenter.Display;
+import com.infirmarium.client.components.presenters.AddPatientPresenter.Display;
 
-public class PatientDetailsView extends DialogBox implements Display {
+public class AddPatientView extends DialogBox implements Display {
 
-	private final Button closeButton;
+	private final Button cancelButton;
+	private final Button addButton;
 	private final Label messageLabel;
+	private final TextBox name;
 
-	public PatientDetailsView() {
+	public AddPatientView() {
 		messageLabel = new Label();
-		closeButton = new Button("Close");
+		cancelButton = new Button("Cancel");
+		addButton = new Button("Add");
+		name = new TextBox();
 		setAnimationEnabled(true);
 
 		// We can set the id of a widget by accessing its Element
-		closeButton.getElement().setId("closeButton");
+		cancelButton.getElement().setId("closeButton");
+		addButton.getElement().setId("addButton");
 
 		final VerticalPanel dialogVPanel = new VerticalPanel();
 
@@ -29,13 +36,10 @@ public class PatientDetailsView extends DialogBox implements Display {
 		dialogVPanel.add(new HTML("<br><b>Server replies:</b>"));
 		dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
 		dialogVPanel.add(messageLabel);
-		dialogVPanel.add(closeButton);
+		dialogVPanel.add(name);
+		dialogVPanel.add(addButton);
+		dialogVPanel.add(cancelButton);
 		setWidget(dialogVPanel);
-	}
-
-	@Override
-	public HasClickHandlers getClose() {
-		return closeButton;
 	}
 
 	@Override
@@ -52,13 +56,23 @@ public class PatientDetailsView extends DialogBox implements Display {
 	}
 
 	@Override
-	public void setData(String data) {
-		messageLabel.setText(data);
+	public void setHeader(String header) {
+		setText(header);
 	}
 
 	@Override
-	public void setHeader(String header) {
-		setText(header);
+	public HasClickHandlers getAdd() {
+		return addButton;
+	}
+
+	@Override
+	public HasValue<String> getName() {
+		return name;
+	}
+
+	@Override
+	public HasClickHandlers getCancel() {
+		return cancelButton;
 	}
 
 }

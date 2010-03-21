@@ -16,6 +16,7 @@ public class GetPersonDetailsEvent
 	public GetPersonDetailsEvent() {
 		super(new GetPersonDetailsCommandResult());
 	}
+
 	@Override
 	protected void dispatch(final PersonDetailsEventHandler handler) {
 		handler.onGetPersonDetails(this);

@@ -11,7 +11,6 @@ import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.user.client.ui.DialogBox;
 import com.google.inject.Inject;
 import com.infirmarium.client.components.events.GetPersonDetailsEvent;
 import com.infirmarium.client.components.events.handlers.PersonDetailsEventHandler;
@@ -23,11 +22,13 @@ public class PatientDetailsPresenter extends
 	public interface Display extends WidgetDisplay {
 		HasClickHandlers getClose();
 
-		DialogBox getDialogBox();
-
 		void setHeader(String header);
 
 		void setData(String data);
+
+		void hide();
+
+		void show();
 	}
 
 	private Person person;
@@ -55,7 +56,7 @@ public class PatientDetailsPresenter extends
 				+ "details");
 		display.getClose().addClickHandler(new ClickHandler() {
 			public void onClick(final ClickEvent event) {
-				display.getDialogBox().hide();
+				display.hide();
 			}
 		});
 		eventBus.addHandler(GetPersonDetailsEvent.TYPE,
@@ -66,7 +67,7 @@ public class PatientDetailsPresenter extends
 							final GetPersonDetailsEvent event) {
 						display.setHeader(event.getResult().getName());
 						display.setData(event.getResult().getMessage());
-						display.getDialogBox().show();
+						display.show();
 					}
 
 				});

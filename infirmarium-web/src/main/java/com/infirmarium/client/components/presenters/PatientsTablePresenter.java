@@ -11,11 +11,17 @@ import net.customware.gwt.presenter.client.widget.WidgetDisplay;
 import net.customware.gwt.presenter.client.widget.WidgetPresenter;
 
 import com.allen_sauer.gwt.log.client.Log;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.Window;
 import com.google.inject.Inject;
+import com.infirmarium.client.components.events.AddPatientEvent;
 import com.infirmarium.client.components.events.GetPersonDetailsEvent;
 import com.infirmarium.client.components.events.GetPersonsEvent;
+import com.infirmarium.client.components.events.RefreshDataEvent;
 import com.infirmarium.client.components.events.handlers.PersonsEventHandler;
+import com.infirmarium.client.components.events.handlers.RefreshDataEventHandler;
 import com.infirmarium.client.components.model.records.PersonRecord;
 import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.server.shared.GetPersonDetailsCommand;
@@ -33,6 +39,8 @@ public class PatientsTablePresenter extends
 	public interface Display extends WidgetDisplay {
 
 		public ListGrid getListGrid();
+
+		public HasClickHandlers getAddPatient();
 	}
 
 	private static final String SERVER_ERROR = "An error occurred while "
@@ -83,7 +91,7 @@ public class PatientsTablePresenter extends
 	private void doSendGetPersonDetailsAction(Integer id) {
 		Log.info("Calling doSendGetPersonDetailsAction");
 
-		dispatcher.execute(new GetPersonDetailsCommand(),
+		dispatcher.execute(new GetPersonDetailsCommand(id),
 				new DisplayCallback<GetPersonDetailsCommandResult>(display) {
 
 					@Override
@@ -127,6 +135,14 @@ public class PatientsTablePresenter extends
 				display.getListGrid().redraw();
 			}
 		});
+		eventBus.addHandler(RefreshDataEvent.TYPE,new RefreshDataEventHandler() {
+			
+			@Override
+			public void refreshData(RefreshDataEvent event) {
+				Log.info("refreshing persons.");
+				doSend();
+			}
+		});
 		display.getListGrid().addCellClickHandler(new CellClickHandler() {
 
 			@Override
@@ -141,6 +157,13 @@ public class PatientsTablePresenter extends
 				}
 			}
 
+		});
+		display.getAddPatient().addClickHandler(new ClickHandler() {
+
+			@Override
+			public void onClick(ClickEvent event) {
+				eventBus.fireEvent(new AddPatientEvent());
+			}
 		});
 	}
 

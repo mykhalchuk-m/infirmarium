@@ -18,6 +18,15 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 	width: 950px;
 	margin: 0 auto;
 	display: table;
+	position: relative;
+	z-index: 1;
+}
+
+.gwt-DialogBox {
+	z-index: 500;
+	width: 400px;
+	left: 300px !important;
+	top: 230px !important;
 }
 
 .full-width {
