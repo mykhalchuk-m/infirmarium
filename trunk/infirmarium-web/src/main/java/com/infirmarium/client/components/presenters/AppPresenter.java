@@ -32,14 +32,14 @@ public class AppPresenter {
 				new ScreenChangeEventHandler() {
 					@Override
 					public void onScreenChange(ScreenChangeEvent event) {
-						changeScreen(event.getNewScreenClass());
+					//	changeScreen(event.getNewScreenClass());
 					}
 				});
 	}
 
 	@SuppressWarnings("unchecked")
 	public void changeScreen(Class newScreenClass) {
-		Object newScreen = injector.getPatientsScreen();
+		Object newScreen = null;
 		currentScreen.unbind();
 		currentScreen = (AbstractScreenPresenter<?>) newScreen;
 		showMain();

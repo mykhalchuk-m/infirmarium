@@ -3,7 +3,7 @@ package com.infirmarium.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.infirmarium.client.components.presenters.AppPresenter;
+import com.infirmarium.client.components.elements.RootWidget;
 import com.infirmarium.client.gin.InfirmariumGinjector;
 
 /**
@@ -11,13 +11,13 @@ import com.infirmarium.client.gin.InfirmariumGinjector;
  */
 public class ClientMain implements EntryPoint {
 
-	private final InfirmariumGinjector injector = GWT
-			.create(InfirmariumGinjector.class);
+	private RootWidget rootWidget;
+
+	// private final InfirmariumGinjector injector = GWT
+	// .create(InfirmariumGinjector.class);
 
 	public void onModuleLoad() {
-		final AppPresenter appPresenter = injector.getAppPresenter();
-		appPresenter.go(RootPanel.get());
-		injector.getPlaceManager().fireCurrentPlace();
+		rootWidget = new RootWidget();
+		RootPanel.get().add(rootWidget);
 	}
-
 }

@@ -56,9 +56,9 @@ public class NavigationPanelPresenter extends
 			display.addNavigationWidget(new ClickHandler() {
 				public void onClick(final ClickEvent event) {
 					ScreenChangeEvent screenChangeEvent = new ScreenChangeEvent();
-					screenChangeEvent
-							.setNewScreenClass(binder.getScreenClass());
-					eventBus.fireEvent(screenChangeEvent);
+//					screenChangeEvent
+//							.setNewScreenClass(binder.getScreenClass());
+//					eventBus.fireEvent(screenChangeEvent);
 				}
 			}, binder.getVisualClassName());
 		}
