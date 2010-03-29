@@ -5,19 +5,24 @@ import com.infirmarium.client.components.events.handlers.ScreenChangeEventHandle
 
 public class ScreenChangeEvent extends GwtEvent<ScreenChangeEventHandler> {
 	public static Type<ScreenChangeEventHandler> TYPE = new Type<ScreenChangeEventHandler>();
-	private Class newScreenClass;
+
+	private int screenId;
+
+	public ScreenChangeEvent(int screenId) {
+		super();
+		this.screenId = screenId;
+	}
 
 	public ScreenChangeEvent() {
 		super();
 	}
 
-	public Class getNewScreenClass() {
-		return newScreenClass;
+	public int getScreenId() {
+		return screenId;
 	}
 
-	public void setNewScreenClass(
-			Class newScreenClass) {
-		this.newScreenClass = newScreenClass;
+	public void setScreenId(int screenId) {
+		this.screenId = screenId;
 	}
 
 	@Override

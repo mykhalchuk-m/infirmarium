@@ -1,0 +1,15 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:c="urn:import:com.infirmarium.client.core.components.elements.screens"
+	xmlns:ss="urn:import:com.infirmarium.client.components.elements">
+	<g:HTMLPanel>
+		<c:AbstractScreen ui:field="screen">
+
+		</c:AbstractScreen>
+
+		<g:HTMLPanel ui:field="header">Patients</g:HTMLPanel>
+		<g:VerticalPanel ui:field="content"></g:VerticalPanel>
+
+	</g:HTMLPanel>
+</ui:UiBinder> 
