@@ -26,7 +26,7 @@ public class RootWidget extends Composite {
 
 	public RootWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
-		screenPanel.setNavigation(navigationPanel);
+		screenPanel.bindNavigation(navigationPanel);
 	}
 
 }

@@ -2,27 +2,28 @@ package com.infirmarium.client.components.events;
 
 import com.google.gwt.event.shared.GwtEvent;
 import com.infirmarium.client.components.events.handlers.ScreenChangeEventHandler;
+import com.infirmarium.client.core.components.elements.screens.BaseScreen;
 
 public class ScreenChangeEvent extends GwtEvent<ScreenChangeEventHandler> {
 	public static Type<ScreenChangeEventHandler> TYPE = new Type<ScreenChangeEventHandler>();
 
-	private int screenId;
+	private BaseScreen referedScreen;
 
-	public ScreenChangeEvent(int screenId) {
+	public ScreenChangeEvent(BaseScreen referedScreen) {
 		super();
-		this.screenId = screenId;
+		this.referedScreen = referedScreen;
 	}
 
 	public ScreenChangeEvent() {
 		super();
 	}
 
-	public int getScreenId() {
-		return screenId;
+	public BaseScreen getReferedScreen() {
+		return referedScreen;
 	}
 
-	public void setScreenId(int screenId) {
-		this.screenId = screenId;
+	public void setReferedScreen(BaseScreen referedScreen) {
+		this.referedScreen = referedScreen;
 	}
 
 	@Override
