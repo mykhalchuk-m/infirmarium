@@ -1,36 +1,33 @@
 package com.infirmarium.client.core.components.elements.screens;
 
-import net.customware.gwt.dispatch.client.DispatchAsync;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.infirmarium.client.components.elements.simple.LargeIconWidget;
 
-public class AbstractScreen extends Composite {
+public class AbstractScreenLayout extends Composite {
 
 	private static AbstractScreenUiBinder uiBinder = GWT
 			.create(AbstractScreenUiBinder.class);
 
-	interface AbstractScreenUiBinder extends UiBinder<Widget, AbstractScreen> {
+	interface AbstractScreenUiBinder extends
+			UiBinder<Widget, AbstractScreenLayout> {
 	}
-
-	// private String name = "";
 
 	@UiField
 	public HorizontalPanel topSlot;
 	@UiField
-	public HorizontalPanel contentSlot;
+	public SimplePanel contentSlot;
 	@UiField
-	public HorizontalPanel footerSlot;
+	public LargeIconWidget icon;
 
-	public DispatchAsync dispatcher;
+	public AbstractScreenLayout() {
 
-	public AbstractScreen() {
 		initWidget(uiBinder.createAndBindUi(this));
-
 	}
 
 }

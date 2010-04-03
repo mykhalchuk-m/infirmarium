@@ -4,8 +4,8 @@
 	xmlns:c="urn:import:com.infirmarium.client.core.components.elements.screens"
 	xmlns:ss="urn:import:com.infirmarium.client.components.elements">
 	<g:HTMLPanel>
-		<c:AbstractScreen ui:field="screen">
-		</c:AbstractScreen>
+		<c:AbstractScreenLayout ui:field="screen">
+		</c:AbstractScreenLayout>
 
 		<g:Label ui:field="header">Departments</g:Label>
 	</g:HTMLPanel>

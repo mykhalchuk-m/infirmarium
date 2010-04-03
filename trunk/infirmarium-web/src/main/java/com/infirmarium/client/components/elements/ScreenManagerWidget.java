@@ -1,5 +1,8 @@
 package com.infirmarium.client.components.elements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.customware.gwt.presenter.client.EventBus;
 
 import com.google.gwt.core.client.GWT;
@@ -13,6 +16,7 @@ import com.infirmarium.client.components.elements.screens.DepartmentScreen;
 import com.infirmarium.client.components.elements.screens.PatientScreen;
 import com.infirmarium.client.components.events.ScreenChangeEvent;
 import com.infirmarium.client.components.events.handlers.ScreenChangeEventHandler;
+import com.infirmarium.client.core.components.elements.screens.BaseScreen;
 import com.infirmarium.client.gin.GinManager;
 
 public class ScreenManagerWidget extends Composite {
@@ -30,8 +34,7 @@ public class ScreenManagerWidget extends Composite {
 
 	public EventBus eventBus = GinManager.get().getEventBus();
 
-	// private HashMap<Integer, String> screens = new HashMap<Integer,
-	// String>();
+	private List<BaseScreen> screens = new ArrayList<BaseScreen>();
 
 	public ScreenManagerWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -43,28 +46,29 @@ public class ScreenManagerWidget extends Composite {
 				new ScreenChangeEventHandler() {
 					@Override
 					public void onScreenChange(ScreenChangeEvent event) {
-						InitiableWidget screen = getScreen(event.getScreenId());
+						InitiableWidget screen = event.getReferedScreen();
 						if (!screen.isInitialized()) {
 							screen.init();
 						}
-						mainPanel.showWidget(event.getScreenId());
+						mainPanel.showWidget(screens.indexOf(event
+								.getReferedScreen()));
 					}
 
 				});
 	}
 
-	private void addScreen(Widget screen) {
+	private void addScreen(BaseScreen screen) {
+		screens.add(screen);
 		mainPanel.add(screen);
 	}
 
-	public void setNavigation(NavigationWidget navigation) {
+	public void bindNavigation(NavigationWidget navigation) {
 		this.navigation = navigation;
-		int screenId = 0;
-		for (Widget widget : mainPanel) {
+		for (BaseScreen screen : screens) {
 			NavigationButtonWidget navigationButton = new NavigationButtonWidget(
-					screenId);
+					screen);
+			navigationButton.setIcon(screen.getNavigationIconName());
 			navigation.add(navigationButton);
-			screenId++;
 		}
 	}
 
