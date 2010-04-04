@@ -2,10 +2,9 @@ package com.infirmarium.client.components.elements.screens;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 import com.infirmarium.client.core.components.elements.screens.BaseScreen;
+import com.infirmarium.client.gin.GinManager;
 
 public class DepartmentScreen extends BaseScreen {
 
@@ -16,17 +15,23 @@ public class DepartmentScreen extends BaseScreen {
 			UiBinder<Widget, DepartmentScreen> {
 	}
 
-	@UiField
-	public Label header;
+	private static final String DESCRIPTION = GinManager.get()
+			.InfirmariumMessages().departmentsScreenDescription();
+
+	private static final String TITLE = GinManager.get().InfirmariumMessages()
+			.departmentsScreenTitle();
 
 	public DepartmentScreen() {
-		super("inf-department-screen");
+		super("inf-department-screen", TITLE, DESCRIPTION);
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
 	@Override
 	public void init() {
-		addWidgetToTopSlot(header);
+		addControlLink("inf-small-icon-add", "add new department", null);
+		addControlLink("inf-small-icon-add", "remove all", null);
+		addControlLink("inf-small-icon-add", "print", null);
+		addControlLink("inf-small-icon-add", "send by email", null);
 		super.init();
 	}
 

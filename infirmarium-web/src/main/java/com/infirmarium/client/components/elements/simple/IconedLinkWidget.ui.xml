@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:s="urn:import:com.infirmarium.client.components.elements.simple">
+	<ui:style>
+		.base {
+			display: table;
+		}
+		
+		.icon {
+			float: left;
+		}
+		
+		.text {
+			float: left;
+			margin-left: 5px;
+			padding-top: 3px;
+		}
+	</ui:style>
+	<g:FlowPanel addStyleNames="{style.base} iconed-link-widget">
+		<s:SmallIconWidget addStyleNames="{style.icon}"
+			ui:field="icon" />
+		<g:Label styleName="{style.text}" ui:field="text" />
+	</g:FlowPanel>
+</ui:UiBinder> 

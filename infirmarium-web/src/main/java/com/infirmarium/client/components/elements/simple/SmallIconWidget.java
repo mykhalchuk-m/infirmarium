@@ -10,14 +10,14 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class LargeIconWidget extends Composite implements
+public class SmallIconWidget extends Composite implements
 		com.google.gwt.event.dom.client.HasClickHandlers {
 
 	private static NavigationButtonWidgetUiBinder uiBinder = GWT
 			.create(NavigationButtonWidgetUiBinder.class);
 
 	interface NavigationButtonWidgetUiBinder extends
-			UiBinder<Widget, LargeIconWidget> {
+			UiBinder<Widget, SmallIconWidget> {
 	}
 
 	@UiField
@@ -27,7 +27,7 @@ public class LargeIconWidget extends Composite implements
 
 	private String iconStyleName = "";
 
-	public LargeIconWidget() {
+	public SmallIconWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 

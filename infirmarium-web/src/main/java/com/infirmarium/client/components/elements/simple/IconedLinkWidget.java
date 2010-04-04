@@ -7,28 +7,26 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
 
-public class LargeIconWidget extends Composite implements
+public class IconedLinkWidget extends Composite implements
 		com.google.gwt.event.dom.client.HasClickHandlers {
 
-	private static NavigationButtonWidgetUiBinder uiBinder = GWT
-			.create(NavigationButtonWidgetUiBinder.class);
+	private static IconedLinkUiBinder uiBinder = GWT
+			.create(IconedLinkUiBinder.class);
 
-	interface NavigationButtonWidgetUiBinder extends
-			UiBinder<Widget, LargeIconWidget> {
+	interface IconedLinkUiBinder extends UiBinder<Widget, IconedLinkWidget> {
 	}
 
 	@UiField
-	public SimplePanel base;
+	public SmallIconWidget icon;
 	@UiField
-	public SimplePanel icon;
+	public Label text;
 
-	private String iconStyleName = "";
-
-	public LargeIconWidget() {
+	public IconedLinkWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
+
 	}
 
 	@Override
@@ -37,10 +35,11 @@ public class LargeIconWidget extends Composite implements
 	}
 
 	public void setIcon(String iconStyle) {
-		if (!"".equals(iconStyleName)) {
-			icon.removeStyleName(iconStyleName);
-		}
-		icon.addStyleName(iconStyle);
-		iconStyleName = iconStyle;
+		icon.setIcon(iconStyle);
 	}
+
+	public void setText(String text) {
+		this.text.setText(text);
+	}
+
 }

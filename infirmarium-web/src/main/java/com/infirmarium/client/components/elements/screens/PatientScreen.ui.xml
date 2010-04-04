@@ -8,7 +8,6 @@
 
 		</c:AbstractScreenLayout>
 
-		<g:HTMLPanel ui:field="header">Patients</g:HTMLPanel>
 		<g:VerticalPanel ui:field="content"></g:VerticalPanel>
 
 	</g:HTMLPanel>

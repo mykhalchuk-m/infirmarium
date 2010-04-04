@@ -6,9 +6,9 @@
 
 	<inherits name='net.customware.gwt.dispatch.Dispatch' />
 	<inherits name='net.customware.gwt.presenter.Presenter' />
-	
+
 	<inherits name='com.smartgwt.SmartGwt' />
-	
+
 	<!--
 		Inherit the server project, which defines a service servlet endpoint
 	-->
@@ -22,7 +22,7 @@
 	<!--  inherit css based theme -->
 	<inherits name='com.google.gwt.user.theme.standard.Standard' />
 
-	
+	<inherits name="com.google.gwt.i18n.I18N" />
 
 	<!-- Specify the app entry point class.                         -->
 	<entry-point class='com.infirmarium.client.ClientMain' />
