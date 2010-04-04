@@ -6,7 +6,5 @@
 	<g:HTMLPanel>
 		<c:AbstractScreenLayout ui:field="screen">
 		</c:AbstractScreenLayout>
-
-		<g:Label ui:field="header">Departments</g:Label>
 	</g:HTMLPanel>
 </ui:UiBinder> 

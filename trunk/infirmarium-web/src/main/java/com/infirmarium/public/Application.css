@@ -2,10 +2,13 @@
 body {
 	height: 100%; /* needed for full height effect */
 	background: #fff url(images/back.png) no-repeat center top;
-	font-size: 10px;
-	font-family: Lucida Grande, verdana, arial, sans-serif;
 	outline: none;
 	color: #686868;
+}
+
+body,table td,select {
+	font-size: 10px !important;
+	font-family: Lucida Grande, verdana, arial, sans-serif !important;
 }
 
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td
@@ -35,6 +38,15 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 
 .float-right {
 	float: right;
+}
+
+.float-left {
+	float: left;
+}
+
+.default-head-element {
+	margin-left: 20px;
+	float: left;
 }
 
 .header {
@@ -77,6 +89,22 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 	height: 100%;
 }
 
+.inf-small-icon {
+	width: 20px;
+	height: 20px;
+	background: transparent url(images/small-icon-back.gif) no-repeat left
+		top;
+}
+
+.inf-small-icon-icon {
+	width: 100%;
+	height: 100%;
+}
+
+.screen-description {
+	width: 350px;
+}
+
 .content {
 	margin-top: 20px;
 	width: 100%;
@@ -86,6 +114,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 .page-top-slot {
 	width: 910px;
 	padding: 0 20px 20px 20px;
+	display: table;
 }
 
 .page-content-slot {
@@ -105,6 +134,14 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 	min-height: 150px;
 }
 
+.iconed-link-widget {
+	cursor: pointer;
+}
+
+.iconed-link-widget:hover {
+	color: #ff5a00;
+}
+
 /*navigation icons*/
 .inf-department-screen {
 	background: url(images/navigation-button-icon.gif) no-repeat -120px 0;
@@ -112,4 +149,9 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 
 .inf-patient-screen {
 	background: url(images/navigation-button-icon.gif) no-repeat -240px 0;
+}
+
+/*small icons*/
+.inf-small-icon-add {
+	background: url(images/small-icon-icons.gif) no-repeat 0 0;
 }

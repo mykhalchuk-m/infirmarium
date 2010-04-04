@@ -6,6 +6,7 @@ import net.customware.gwt.presenter.client.EventBus;
 
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
+import com.infirmarium.client.internationalization.InfirmariumMessages;
 
 @GinModules( { ClientDispatchModule.class, InfirmariumGinClientModule.class })
 public interface InfirmariumGinjector extends Ginjector {
@@ -14,4 +15,5 @@ public interface InfirmariumGinjector extends Ginjector {
 
 	DefaultDispatchAsync getDefaultDispatchAsync();
 
+	InfirmariumMessages InfirmariumMessages();
 }

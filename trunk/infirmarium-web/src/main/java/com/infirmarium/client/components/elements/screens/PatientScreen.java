@@ -3,12 +3,12 @@ package com.infirmarium.client.components.elements.screens;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.infirmarium.client.components.model.records.PersonRecord;
 import com.infirmarium.client.core.components.elements.screens.BaseScreen;
+import com.infirmarium.client.gin.GinManager;
 import com.smartgwt.client.widgets.grid.ListGrid;
 import com.smartgwt.client.widgets.grid.ListGridField;
 
@@ -20,8 +20,11 @@ public class PatientScreen extends BaseScreen {
 	interface PatientScreenUiBinder extends UiBinder<Widget, PatientScreen> {
 	}
 
-	@UiField
-	public HTMLPanel header;
+	private static final String DESCRIPTION = GinManager.get()
+			.InfirmariumMessages().patientsScreenDescription();
+
+	private static final String TITLE = GinManager.get().InfirmariumMessages()
+			.patientsScreenTitle();
 
 	@UiField
 	public VerticalPanel content;
@@ -30,7 +33,7 @@ public class PatientScreen extends BaseScreen {
 
 	@Inject
 	public PatientScreen() {
-		super("inf-patient-screen");
+		super("inf-patient-screen", TITLE, DESCRIPTION);
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
@@ -48,8 +51,10 @@ public class PatientScreen extends BaseScreen {
 		list.setFields(nameField, birthField);
 
 		content.add(list);
-		screen.topSlot.add(header);
 		screen.contentSlot.add(content);
+		addControlLink("inf-small-icon-add", "add new user", null);
+		addControlLink("inf-small-icon-add", "remove all", null);
+		addControlLink("inf-small-icon-add", "print", null);
 		super.init();
 	}
 
