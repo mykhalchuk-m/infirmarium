@@ -8,6 +8,8 @@ import com.infirmarium.client.gin.GinManager;
 
 public class DepartmentScreen extends BaseScreen {
 
+	private static final String SCREEN_STYLE_NAME = "inf-department-screen";
+
 	private static DepartmentScreenUiBinder uiBinder = GWT
 			.create(DepartmentScreenUiBinder.class);
 
@@ -22,7 +24,7 @@ public class DepartmentScreen extends BaseScreen {
 			.departmentsScreenTitle();
 
 	public DepartmentScreen() {
-		super("inf-department-screen", TITLE, DESCRIPTION);
+		super(SCREEN_STYLE_NAME, TITLE, DESCRIPTION);
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 

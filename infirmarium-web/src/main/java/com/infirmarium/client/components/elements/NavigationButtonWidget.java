@@ -16,6 +16,7 @@ public class NavigationButtonWidget extends LargeIconWidget implements
 
 	public NavigationButtonWidget(final BaseScreen referedScreen) {
 		super();
+		setIcon(referedScreen.getNavigationIconName());
 		addStyleName("inf-navigation-button");
 		addClickHandler(new ClickHandler() {
 			@Override

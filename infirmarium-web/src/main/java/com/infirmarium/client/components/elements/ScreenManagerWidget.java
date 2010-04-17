@@ -67,7 +67,6 @@ public class ScreenManagerWidget extends Composite {
 		for (BaseScreen screen : screens) {
 			NavigationButtonWidget navigationButton = new NavigationButtonWidget(
 					screen);
-			navigationButton.setIcon(screen.getNavigationIconName());
 			navigation.add(navigationButton);
 		}
 	}
