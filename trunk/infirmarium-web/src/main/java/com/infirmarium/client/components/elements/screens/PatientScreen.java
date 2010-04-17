@@ -14,6 +14,8 @@ import com.smartgwt.client.widgets.grid.ListGridField;
 
 public class PatientScreen extends BaseScreen {
 
+	private static final String SCREEN_STYLE_NAME = "inf-patient-screen";
+
 	private static PatientScreenUiBinder uiBinder = GWT
 			.create(PatientScreenUiBinder.class);
 
@@ -33,7 +35,7 @@ public class PatientScreen extends BaseScreen {
 
 	@Inject
 	public PatientScreen() {
-		super("inf-patient-screen", TITLE, DESCRIPTION);
+		super(SCREEN_STYLE_NAME, TITLE, DESCRIPTION);
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
