@@ -53,7 +53,6 @@ public class PatientScreen extends BaseScreen {
 	@Inject
 	public PatientScreen() {
 		super(SCREEN_STYLE_NAME, TITLE, DESCRIPTION);
-		System.out.println(dispatcher);
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
