@@ -1,6 +1,6 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:sgwt="urn:import:com.smartgwt.client.widgets.grid"
 	xmlns:c="urn:import:com.infirmarium.client.core.components.elements.screens"
 	xmlns:ss="urn:import:com.infirmarium.client.components.elements">
 	<g:HTMLPanel>
@@ -8,7 +8,9 @@
 
 		</c:AbstractScreenLayout>
 
-		<g:VerticalPanel ui:field="content"></g:VerticalPanel>
-
+		<g:VerticalPanel ui:field="content">
+			<sgwt:ListGrid ui:field="list">
+			</sgwt:ListGrid>
+		</g:VerticalPanel>
 	</g:HTMLPanel>
 </ui:UiBinder> 

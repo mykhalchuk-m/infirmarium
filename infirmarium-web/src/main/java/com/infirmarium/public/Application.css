@@ -3,7 +3,6 @@ body {
 	height: 100%; /* needed for full height effect */
 	background: #fff url(images/back.png) no-repeat center top;
 	outline: none;
-	color: #686868;
 }
 
 body,table td,select {
@@ -23,13 +22,6 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 	display: table;
 	position: relative;
 	z-index: 1;
-}
-
-.gwt-DialogBox {
-	z-index: 500;
-	width: 400px;
-	left: 300px !important;
-	top: 230px !important;
 }
 
 .full-width {
