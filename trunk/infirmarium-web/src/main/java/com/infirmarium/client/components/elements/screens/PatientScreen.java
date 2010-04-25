@@ -2,6 +2,7 @@ package com.infirmarium.client.components.elements.screens;
 
 import java.util.List;
 
+import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -137,7 +138,10 @@ public class PatientScreen extends BaseScreen {
 				new AsyncCallback<GetPersonsCommandResult>() {
 					@Override
 					public void onFailure(Throwable arg0) {
-						Window.alert(SERVER_ERROR);
+						for (int i = 0; i < arg0.getStackTrace().length; i++) {
+							Log.info(arg0.getStackTrace()[i].toString());
+						}
+//						Window.alert(arg0.getStackTrace());
 					}
 
 					@Override
