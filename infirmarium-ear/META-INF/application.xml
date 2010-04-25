@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:application="http://java.sun.com/xml/ns/javaee/application_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd" version="5">
+  <display-name>Infirmarium</display-name>
+  <module>
+    <java>META-INF/infirmarium-ds.xml</java>
+  </module>
+  <module id="InfirmariumCore-EJB">
+    <ejb>infirmarium-core-0.0.1-SNAPSHOT.jar</ejb>
+  </module>
+  <module id="InfirmariumWeb-Web">
+    <web>
+      <web-uri>infirmarium-web-0.0.1-SNAPSHOT.war</web-uri>
+      <context-root>Infirmarium</context-root>
+    </web>
+  </module>  
+</application>
