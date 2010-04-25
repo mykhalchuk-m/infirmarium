@@ -8,7 +8,7 @@ import java.util.Date;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 
-import com.infirmarium.core.persistance.core.BaseLongDAO;
+import com.infirmarium.core.persistance.dao.core.BaseLongDAO;
 import com.infirmarium.core.persistance.domain.Card;
 import com.infirmarium.core.persistance.domain.Department;
 import com.infirmarium.core.persistance.domain.Person;

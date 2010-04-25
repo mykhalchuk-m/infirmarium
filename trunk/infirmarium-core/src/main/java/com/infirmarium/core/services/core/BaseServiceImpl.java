@@ -1,12 +1,10 @@
-package com.infirmarium.core.persistance.core;
+package com.infirmarium.core.services.core;
 
 import java.io.Serializable;
 import java.util.List;
 
-//import org.springframework.transaction.annotation.Propagation;
-//import org.springframework.transaction.annotation.Transactional;
-
 import com.infirmarium.core.persistance.coredomain.BaseEntity;
+import com.infirmarium.core.persistance.dao.core.BaseDAO;
 
 @SuppressWarnings("unchecked")
 //@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)

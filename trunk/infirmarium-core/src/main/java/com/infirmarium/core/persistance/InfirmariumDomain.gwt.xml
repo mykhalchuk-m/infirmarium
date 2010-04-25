@@ -1,4 +1,6 @@
 <module rename-to='InfirmariumDomain'>
 	<source path="coredomain" />
 	<source path="domain" />
+	<inherits name='net.sf.gilead.Gilead4Gwt' />
+<!--	<inherits name='net.sf.gilead.Adapter4Gwt15' />-->
 </module>

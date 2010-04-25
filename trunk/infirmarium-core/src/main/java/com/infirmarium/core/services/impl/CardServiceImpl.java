@@ -2,12 +2,12 @@ package com.infirmarium.core.services.impl;
 
 import java.util.Date;
 
-import com.infirmarium.core.persistance.core.BaseServiceImpl;
 import com.infirmarium.core.persistance.dao.CardDAO;
 import com.infirmarium.core.persistance.domain.Card;
 import com.infirmarium.core.persistance.domain.Department;
 import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.core.services.ICardService;
+import com.infirmarium.core.services.core.BaseServiceImpl;
 
 public class CardServiceImpl extends BaseServiceImpl<Card, CardDAO> implements
 		ICardService {

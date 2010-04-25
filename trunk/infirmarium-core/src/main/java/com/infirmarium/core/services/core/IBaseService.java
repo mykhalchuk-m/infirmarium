@@ -1,9 +1,10 @@
-package com.infirmarium.core.persistance.core;
+package com.infirmarium.core.services.core;
 
 import java.io.Serializable;
 import java.util.List;
 
 import com.infirmarium.core.persistance.coredomain.BaseEntity;
+import com.infirmarium.core.persistance.dao.core.BaseDAO;
 
 @SuppressWarnings("unchecked")
 public interface IBaseService<E extends BaseEntity, DAO extends BaseDAO> {

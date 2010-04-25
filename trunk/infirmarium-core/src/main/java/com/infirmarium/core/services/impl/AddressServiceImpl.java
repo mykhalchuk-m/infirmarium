@@ -1,10 +1,10 @@
 package com.infirmarium.core.services.impl;
 
-import com.infirmarium.core.persistance.core.BaseServiceImpl;
 import com.infirmarium.core.persistance.dao.AddressDAO;
 import com.infirmarium.core.persistance.domain.Address;
 import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.core.services.IAddressService;
+import com.infirmarium.core.services.core.BaseServiceImpl;
 
 public class AddressServiceImpl extends BaseServiceImpl<Address, AddressDAO>
 		implements IAddressService {

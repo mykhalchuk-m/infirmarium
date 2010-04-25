@@ -5,14 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import net.sf.gilead.pojo.gwt.LightEntity;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @SuppressWarnings("serial")
 @MappedSuperclass
 @Data
-@EqualsAndHashCode(of = { "primaryKey" })
-public abstract class BaseLongEntity implements BaseEntity<Long> {
+@EqualsAndHashCode(callSuper = false, of = { "primaryKey" })
+public abstract class BaseLongEntity extends LightEntity implements
+		BaseEntity<Long> {
 
 	@Id
 	@GeneratedValue
