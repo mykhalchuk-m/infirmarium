@@ -1,6 +1,8 @@
 <module rename-to='InfirmariumServer'>
-	
+
 	<inherits name='com.infirmarium.core.persistance.InfirmariumDomain' />
 	<source path="shared" />
-
+	<!-- Gilead module	-->
+	<inherits name='net.sf.gilead.Gilead4Gwt' />
+<!--	<inherits name='net.sf.gilead.Adapter4Gwt15' />-->
 </module>
