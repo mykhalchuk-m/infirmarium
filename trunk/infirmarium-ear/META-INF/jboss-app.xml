@@ -1,0 +1,3 @@
+<jboss-app>
+	<security-domain>java:/jaas/Infirmarium</security-domain>
+</jboss-app>
