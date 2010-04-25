@@ -175,6 +175,7 @@
 						them are marked provided in maven
 					-->
 					<warSourceExcludes>.gwt-tmp/**,WEB-INF/lib/gwt-user*</warSourceExcludes>
+					<warSourceExcludes>infirmarium*.jar</warSourceExcludes>
 
 				</configuration>
 			</plugin>
