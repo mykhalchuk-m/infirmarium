@@ -59,9 +59,11 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jboss-maven-plugin</artifactId>
 				<configuration>
-					<jbossHome>d:\Frameworks\jboss-4.2.3.GA</jbossHome>
+					<jbossHome>/media/data/dev/jboss-4.2.3.GA</jbossHome>
 					<serverName>default</serverName>
-					<fileName>d:/javaProgs/infirmarium/maven.1270899693098/infirmarium/infirmarium-ear/target/infirmarium-ear-0.0.1-SNAPSHOT.ear</fileName>
+					<fileNames>
+						<fileName>./target/infirmarium-ear-0.0.1-SNAPSHOT.ear</fileName>
+					</fileNames>
 					<port>8080</port>
 					<type>remote</type>
 					<hostName>localhost</hostName>
