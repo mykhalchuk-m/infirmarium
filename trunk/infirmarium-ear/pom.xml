@@ -9,13 +9,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.infirmarium</groupId>
-			<artifactId>infirmarium-server</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>provided</scope>
-			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>com.infirmarium</groupId>
 			<artifactId>infirmarium-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>provided</scope>
@@ -59,7 +52,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jboss-maven-plugin</artifactId>
 				<configuration>
-					<jbossHome>/media/data/dev/jboss-4.2.3.GA</jbossHome>
+					<jbossHome>${JBOSS_HOME}</jbossHome>
 					<serverName>default</serverName>
 					<fileNames>
 						<fileName>./target/infirmarium-ear-0.0.1-SNAPSHOT.ear</fileName>
@@ -97,11 +90,6 @@ action=invokeOpByName&name=jboss.system:service
 						<jarModule>
 							<groupId>com.infirmarium</groupId>
 							<artifactId>infirmarium-core</artifactId>
-						</jarModule>
-						<jarModule>
-							<groupId>com.infirmarium</groupId>
-							<artifactId>infirmarium-server</artifactId>
-							<bundleDir>lib</bundleDir>
 						</jarModule>
 						<jarModule>
 							<groupId>net.sf.gilead</groupId>
