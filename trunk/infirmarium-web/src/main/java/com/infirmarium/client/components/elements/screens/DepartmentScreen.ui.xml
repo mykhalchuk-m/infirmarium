@@ -4,7 +4,12 @@
 	xmlns:c="urn:import:com.infirmarium.client.core.components.elements.screens"
 	xmlns:ss="urn:import:com.infirmarium.client.components.elements">
 	<g:HTMLPanel>
-		<c:AbstractScreenLayout ui:field="screen">
-		</c:AbstractScreenLayout>
+		<c:TitleScreenLayout ui:field="layout">
+		</c:TitleScreenLayout>
+		
+		<g:VerticalPanel ui:field="content">
+			<g:Hyperlink ui:field="killmeLink">Go to sub level</g:Hyperlink>
+		</g:VerticalPanel>
+		
 	</g:HTMLPanel>
 </ui:UiBinder> 

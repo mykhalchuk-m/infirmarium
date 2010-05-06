@@ -16,7 +16,7 @@ import com.infirmarium.client.components.events.GetPersonsEvent;
 import com.infirmarium.client.components.events.handlers.PersonDetailsEventHandler;
 import com.infirmarium.client.components.events.handlers.PersonsEventHandler;
 import com.infirmarium.client.components.model.records.PersonRecord;
-import com.infirmarium.client.core.components.elements.screens.BaseScreen;
+import com.infirmarium.client.core.components.elements.screens.TitleScreen;
 import com.infirmarium.client.gin.GinManager;
 import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.server.shared.GetPersonDetailsCommand;
@@ -30,7 +30,7 @@ import com.smartgwt.client.widgets.grid.ListGridField;
 import com.smartgwt.client.widgets.grid.events.RecordClickEvent;
 import com.smartgwt.client.widgets.grid.events.RecordClickHandler;
 
-public class PatientScreen extends BaseScreen {
+public class PatientScreen extends TitleScreen {
 
 	private static final String SCREEN_STYLE_NAME = "inf-patient-screen";
 
@@ -53,7 +53,7 @@ public class PatientScreen extends BaseScreen {
 
 	@Inject
 	public PatientScreen() {
-		super(SCREEN_STYLE_NAME, TITLE, DESCRIPTION);
+		super(TITLE, SCREEN_STYLE_NAME, DESCRIPTION);
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
@@ -69,7 +69,7 @@ public class PatientScreen extends BaseScreen {
 				PersonRecord.Attributes.birthDay);
 		list.setFields(nameField, birthField);
 
-		screen.contentSlot.add(content);
+		getLayout().contentSlot.add(content);
 		addControlLink("inf-small-icon-add", "add new user", null);
 		addControlLink("inf-small-icon-add", "remove all", null);
 		addControlLink("inf-small-icon-add", "print", null);
@@ -104,7 +104,8 @@ public class PatientScreen extends BaseScreen {
 					@Override
 					public void onGetPersonDetails(
 							final GetPersonDetailsEvent event) {
-						SC.say(event.getResult().getName(), event.getResult().getMessage());
+						SC.say(event.getResult().getName(), event.getResult()
+								.getMessage());
 					}
 
 				});
@@ -137,11 +138,8 @@ public class PatientScreen extends BaseScreen {
 		dispatcher.execute(new GetPersonsCommand(0),
 				new AsyncCallback<GetPersonsCommandResult>() {
 					@Override
-					public void onFailure(Throwable arg0) {
-						for (int i = 0; i < arg0.getStackTrace().length; i++) {
-							Log.info(arg0.getStackTrace()[i].toString());
-						}
-//						Window.alert(arg0.getStackTrace());
+					public void onFailure(Throwable e) {
+						Log.error("Connection to server failed.", e);
 					}
 
 					@Override

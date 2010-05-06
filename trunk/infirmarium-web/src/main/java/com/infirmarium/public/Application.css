@@ -24,6 +24,29 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 	z-index: 1;
 }
 
+A {
+	color: #ff5a00;
+	text-decoration: none;
+}
+
+A:HOVER {
+	color: #ff5a00;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.inf-blocked-nav-link a{
+	color: #000;
+	text-decoration: none;
+	cursor: default;
+}
+
+.inf-blocked-nav-link a:hover {
+	color: #000;
+	text-decoration: none;
+	cursor: default;
+}
+
 .full-width {
 	width: 100%;
 }

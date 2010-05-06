@@ -8,8 +8,6 @@
 		
 	</ui:style>
 	<g:HTMLPanel>
-		<span class="{style.bold}" ui:field="titleSpan" />
-		<br/>
 		<span ui:field="textSpan" />
 	</g:HTMLPanel>
 </ui:UiBinder>

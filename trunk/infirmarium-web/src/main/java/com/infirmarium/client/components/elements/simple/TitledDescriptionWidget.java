@@ -17,8 +17,6 @@ public class TitledDescriptionWidget extends Composite {
 	}
 
 	@UiField
-	public SpanElement titleSpan;
-	@UiField
 	public SpanElement textSpan;
 
 	public TitledDescriptionWidget() {
@@ -27,10 +25,6 @@ public class TitledDescriptionWidget extends Composite {
 
 	public void setText(String description) {
 		textSpan.setInnerText(description);
-	}
-
-	public void setTitle(String title) {
-		titleSpan.setInnerText(title);
 	}
 
 }
