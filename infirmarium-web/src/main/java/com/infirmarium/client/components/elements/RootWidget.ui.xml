@@ -1,15 +1,13 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:i="urn:import:com.infirmarium.client.components.elements">
-	<g:HTMLPanel>
-		<div id="main" class="main">
-			<div class="header">
-				<div class="inf-logo-large"></div>
-				<i:NavigationWidget ui:field="navigationPanel"
-					addStyleNames="inf-navigation-panel float-right"></i:NavigationWidget>
-			</div>
-			<i:ScreenManagerWidget ui:field="screenPanel"
-				addStyleNames="content"></i:ScreenManagerWidget>
+	<g:HTMLPanel addStyleNames="main">
+		<div class="header">
+			<div class="inf-logo-large" />
+			<i:NavigationWidget ui:field="navigationPanel"
+				addStyleNames="inf-navigation-panel float-right" />
 		</div>
+		<i:ScreenManagerWidget ui:field="screenPanel"
+			addStyleNames="content" />
 	</g:HTMLPanel>
 </ui:UiBinder>

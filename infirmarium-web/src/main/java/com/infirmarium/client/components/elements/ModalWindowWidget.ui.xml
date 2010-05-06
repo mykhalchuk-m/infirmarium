@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.back {
+			position: fixed;
+			z-index: 2147483646;
+			left: 0px;
+			top: 0px;
+			right: 0px;
+			bottom: 0px;
+			opacity: 0.75;
+			background-color: rgb(0, 0, 0);
+		}
+		
+		.content {
+			position: absolute;
+			z-index: 2147483647;
+			left: 50px;
+			top: 50px;
+			width: 600px;
+			color: rgb(255, 255, 255);
+			font-family: verdana;
+		}
+	</ui:style>
+	<g:HTMLPanel ui:field="container">
+		<div class="{style.back}" >
+			<g:FlowPanel styleName="{style.content}" ui:field="content" />
+		</div>		
+	</g:HTMLPanel>
+</ui:UiBinder> 
