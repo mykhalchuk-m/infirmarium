@@ -1,7 +1,7 @@
-package com.infirmarium.client.components.events.handlers;
+package com.infirmarium.client.core.components.events.handlers;
 
 import com.google.gwt.event.shared.EventHandler;
-import com.infirmarium.client.components.events.SubScreenShownEvent;
+import com.infirmarium.client.core.components.events.SubScreenShownEvent;
 
 public interface SubScreenShownEventHandler extends EventHandler {
 

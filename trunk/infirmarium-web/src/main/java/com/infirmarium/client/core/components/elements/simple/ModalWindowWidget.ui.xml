@@ -24,8 +24,8 @@
 		}
 	</ui:style>
 	<g:HTMLPanel ui:field="container">
-		<div class="{style.back}" >
+		<div class="{style.back}">
 			<g:FlowPanel styleName="{style.content}" ui:field="content" />
-		</div>		
+		</div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

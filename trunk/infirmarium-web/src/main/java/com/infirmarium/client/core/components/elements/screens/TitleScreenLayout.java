@@ -7,9 +7,9 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.infirmarium.client.components.elements.simple.ControlLinkSheetWidget;
-import com.infirmarium.client.components.elements.simple.LargeIconWidget;
-import com.infirmarium.client.components.elements.simple.TitledDescriptionWidget;
+import com.infirmarium.client.core.components.elements.simple.ControlLinkSheetWidget;
+import com.infirmarium.client.core.components.elements.simple.LargeIconWidget;
+import com.infirmarium.client.core.components.elements.simple.TitledDescriptionWidget;
 
 public class TitleScreenLayout extends Composite {
 

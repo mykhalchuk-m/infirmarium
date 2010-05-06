@@ -2,7 +2,7 @@ package com.infirmarium.client.core.components.elements.screens;
 
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Widget;
-import com.infirmarium.client.components.elements.simple.IconedLinkWidget;
+import com.infirmarium.client.core.components.elements.simple.IconedLinkWidget;
 
 public class TitleScreen extends BaseScreen<TitleScreenLayout> {
 

@@ -6,7 +6,6 @@ import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
@@ -122,8 +121,8 @@ public class PatientScreen extends TitleScreen {
 				new AsyncCallback<GetPersonDetailsCommandResult>() {
 
 					@Override
-					public void onFailure(Throwable arg0) {
-						Window.alert(SERVER_ERROR);
+					public void onFailure(Throwable e) {
+						Log.error("Connection to server failed.", e);
 					}
 
 					@Override

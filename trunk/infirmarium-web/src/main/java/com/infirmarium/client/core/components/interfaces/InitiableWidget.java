@@ -1,4 +1,4 @@
-package com.infirmarium.client.components.elements.interfaces;
+package com.infirmarium.client.core.components.interfaces;
 
 public interface InitiableWidget {
 

@@ -1,4 +1,4 @@
-package com.infirmarium.client.components.elements.simple;
+package com.infirmarium.client.core.components.elements.simple;
 
 import net.customware.gwt.presenter.client.EventBus;
 
@@ -11,12 +11,11 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.Widget;
-import com.infirmarium.client.components.elements.screens.subscreens.PatientDetailsScreen;
-import com.infirmarium.client.components.events.SubScreenShownEvent;
-import com.infirmarium.client.components.events.TitleScreenShownEvent;
 import com.infirmarium.client.core.components.elements.screens.BaseScreen;
 import com.infirmarium.client.core.components.elements.screens.SubScreen;
 import com.infirmarium.client.core.components.elements.screens.TitleScreen;
+import com.infirmarium.client.core.components.events.SubScreenShownEvent;
+import com.infirmarium.client.core.components.events.TitleScreenShownEvent;
 import com.infirmarium.client.gin.GinManager;
 
 public class SubPageNavigationLink extends Composite {

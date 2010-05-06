@@ -1,4 +1,4 @@
-package com.infirmarium.client.components.elements;
+package com.infirmarium.client.core.components.elements.simple;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -7,13 +7,10 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.smartgwt.client.types.TitleOrientation;
-import com.smartgwt.client.widgets.IButton;
 import com.smartgwt.client.widgets.form.DynamicForm;
 import com.smartgwt.client.widgets.form.fields.FormItem;
 import com.smartgwt.client.widgets.form.fields.PasswordItem;
 import com.smartgwt.client.widgets.form.fields.TextItem;
-
 import com.smartgwt.client.widgets.layout.HLayout;
 
 public class ModalWindowWidget extends Composite {

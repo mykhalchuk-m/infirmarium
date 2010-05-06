@@ -1,4 +1,4 @@
-package com.infirmarium.client.components.elements.simple;
+package com.infirmarium.client.core.components.elements.simple;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.SpanElement;
