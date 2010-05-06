@@ -1,4 +1,4 @@
-package com.infirmarium.client.components.elements.simple;
+package com.infirmarium.client.core.components.elements.simple;
 
 import java.util.HashMap;
 import java.util.Map;

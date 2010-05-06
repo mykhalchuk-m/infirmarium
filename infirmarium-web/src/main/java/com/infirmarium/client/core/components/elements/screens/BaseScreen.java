@@ -6,7 +6,7 @@ import net.customware.gwt.presenter.client.EventBus;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.infirmarium.client.components.elements.interfaces.InitiableWidget;
+import com.infirmarium.client.core.components.interfaces.InitiableWidget;
 import com.infirmarium.client.gin.GinManager;
 
 public abstract class BaseScreen<L extends Widget> extends Composite implements

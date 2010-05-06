@@ -9,8 +9,8 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
-import com.infirmarium.client.components.events.SubScreenShownEvent;
 import com.infirmarium.client.core.components.elements.screens.SubScreen;
+import com.infirmarium.client.core.components.events.SubScreenShownEvent;
 
 public class PatientDetailsScreen extends SubScreen {
 

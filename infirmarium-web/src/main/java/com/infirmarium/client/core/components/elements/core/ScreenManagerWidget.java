@@ -1,4 +1,4 @@
-package com.infirmarium.client.components.elements;
+package com.infirmarium.client.core.components.elements.core;
 
 import net.customware.gwt.presenter.client.EventBus;
 
@@ -8,12 +8,12 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DeckPanel;
 import com.google.gwt.user.client.ui.Widget;
-import com.infirmarium.client.components.elements.simple.SubPageNavigation;
-import com.infirmarium.client.components.events.SubScreenShownEvent;
-import com.infirmarium.client.components.events.TitleScreenShownEvent;
-import com.infirmarium.client.components.events.handlers.SubScreenShownEventHandler;
-import com.infirmarium.client.components.events.handlers.TitleScreenShownEventHandler;
 import com.infirmarium.client.core.components.elements.screens.SubScreen;
+import com.infirmarium.client.core.components.elements.simple.SubPageNavigation;
+import com.infirmarium.client.core.components.events.SubScreenShownEvent;
+import com.infirmarium.client.core.components.events.TitleScreenShownEvent;
+import com.infirmarium.client.core.components.events.handlers.SubScreenShownEventHandler;
+import com.infirmarium.client.core.components.events.handlers.TitleScreenShownEventHandler;
 import com.infirmarium.client.gin.GinManager;
 
 public class ScreenManagerWidget extends Composite {

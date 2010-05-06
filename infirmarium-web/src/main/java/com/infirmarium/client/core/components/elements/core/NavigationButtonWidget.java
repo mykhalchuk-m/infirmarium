@@ -1,12 +1,12 @@
-package com.infirmarium.client.components.elements;
+package com.infirmarium.client.core.components.elements.core;
 
 import net.customware.gwt.presenter.client.EventBus;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.infirmarium.client.components.elements.simple.LargeIconWidget;
-import com.infirmarium.client.components.events.TitleScreenShownEvent;
 import com.infirmarium.client.core.components.elements.screens.TitleScreen;
+import com.infirmarium.client.core.components.elements.simple.LargeIconWidget;
+import com.infirmarium.client.core.components.events.TitleScreenShownEvent;
 import com.infirmarium.client.gin.GinManager;
 
 public class NavigationButtonWidget extends LargeIconWidget implements

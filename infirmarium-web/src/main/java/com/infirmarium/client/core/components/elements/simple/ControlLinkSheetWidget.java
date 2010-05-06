@@ -1,4 +1,4 @@
-package com.infirmarium.client.components.elements.simple;
+package com.infirmarium.client.core.components.elements.simple;
 
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.ui.Grid;
@@ -14,7 +14,7 @@ public class ControlLinkSheetWidget extends Grid {
 
 	public <L extends IconedLinkWidget> void addControlLink(L newLink) {
 		int elements = 0;
-		for (int c = getColumnCount()-1; c > 0; c--) {
+		for (int c = getColumnCount() - 1; c > 0; c--) {
 			for (int r = 0; r < getRowCount(); r++) {
 				if (elements == linksAmount) {
 					linksAmount++;

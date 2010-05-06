@@ -1,13 +1,14 @@
 package com.infirmarium.client.components.elements;
 
-import net.customware.gwt.presenter.client.EventBus;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
-import com.infirmarium.client.gin.GinManager;
+import com.infirmarium.client.components.elements.screens.DepartmentScreen;
+import com.infirmarium.client.components.elements.screens.PatientScreen;
+import com.infirmarium.client.core.components.elements.core.NavigationWidget;
+import com.infirmarium.client.core.components.elements.core.ScreenManagerWidget;
 
 public class RootWidget extends Composite {
 
@@ -18,15 +19,14 @@ public class RootWidget extends Composite {
 	}
 
 	@UiField
-	public NavigationWidget navigationPanel;
+	public NavigationWidget navigationWidget;
 	@UiField
 	public ScreenManagerWidget screenPanel;
 
-	private EventBus eventBus = GinManager.get().getEventBus();
-
 	public RootWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
-	//	screenPanel.bindNavigation(navigationPanel);
+		navigationWidget.addScreen(new DepartmentScreen());
+		navigationWidget.addScreen(new PatientScreen());
 	}
 
 }

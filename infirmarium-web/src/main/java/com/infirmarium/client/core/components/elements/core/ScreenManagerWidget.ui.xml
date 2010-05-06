@@ -1,6 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:i="urn:import:com.infirmarium.client.components.elements.simple">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:i="urn:import:com.infirmarium.client.core.components.elements.simple">
 	<g:FlowPanel>
 		<i:SubPageNavigation ui:field="subPageNavigationWidget"
 			addStyleNames="page-top-slot"></i:SubPageNavigation>

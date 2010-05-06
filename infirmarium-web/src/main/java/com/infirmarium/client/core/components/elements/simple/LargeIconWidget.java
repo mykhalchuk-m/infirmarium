@@ -1,4 +1,4 @@
-package com.infirmarium.client.components.elements.simple;
+package com.infirmarium.client.core.components.elements.simple;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -10,14 +10,14 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.Widget;
 
-public class SmallIconWidget extends Composite implements
+public class LargeIconWidget extends Composite implements
 		com.google.gwt.event.dom.client.HasClickHandlers {
 
 	private static NavigationButtonWidgetUiBinder uiBinder = GWT
 			.create(NavigationButtonWidgetUiBinder.class);
 
 	interface NavigationButtonWidgetUiBinder extends
-			UiBinder<Widget, SmallIconWidget> {
+			UiBinder<Widget, LargeIconWidget> {
 	}
 
 	@UiField
@@ -27,7 +27,7 @@ public class SmallIconWidget extends Composite implements
 
 	private String iconStyleName = "";
 
-	public SmallIconWidget() {
+	public LargeIconWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 

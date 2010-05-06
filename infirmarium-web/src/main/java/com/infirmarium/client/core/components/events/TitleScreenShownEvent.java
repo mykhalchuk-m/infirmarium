@@ -1,10 +1,11 @@
-package com.infirmarium.client.components.events;
+package com.infirmarium.client.core.components.events;
 
 import com.google.gwt.event.shared.GwtEvent;
-import com.infirmarium.client.components.events.handlers.TitleScreenShownEventHandler;
 import com.infirmarium.client.core.components.elements.screens.BaseScreen;
+import com.infirmarium.client.core.components.events.handlers.TitleScreenShownEventHandler;
 
-public class TitleScreenShownEvent extends GwtEvent<TitleScreenShownEventHandler> {
+public class TitleScreenShownEvent extends
+		GwtEvent<TitleScreenShownEventHandler> {
 	public static Type<TitleScreenShownEventHandler> TYPE = new Type<TitleScreenShownEventHandler>();
 
 	private BaseScreen referedScreen;
