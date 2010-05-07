@@ -9,6 +9,7 @@ import com.infirmarium.client.components.elements.screens.DepartmentScreen;
 import com.infirmarium.client.components.elements.screens.PatientScreen;
 import com.infirmarium.client.core.components.elements.core.NavigationWidget;
 import com.infirmarium.client.core.components.elements.core.ScreenManagerWidget;
+import com.infirmarium.client.gin.GinManager;
 
 public class RootWidget extends Composite {
 
@@ -25,8 +26,13 @@ public class RootWidget extends Composite {
 
 	public RootWidget() {
 		initWidget(uiBinder.createAndBindUi(this));
-		navigationWidget.addScreen(new DepartmentScreen());
-		navigationWidget.addScreen(new PatientScreen());
+		DepartmentScreen departmentScreen = new DepartmentScreen();
+		GinManager.get().injectMembers(departmentScreen);
+		navigationWidget.addScreen(departmentScreen);
+
+		PatientScreen patientScreen = new PatientScreen();
+		GinManager.get().injectMembers(patientScreen);
+		navigationWidget.addScreen(patientScreen);
 	}
 
 }

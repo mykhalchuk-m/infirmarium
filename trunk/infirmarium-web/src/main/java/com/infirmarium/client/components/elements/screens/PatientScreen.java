@@ -50,7 +50,7 @@ public class PatientScreen extends TitleScreen {
 	@UiField
 	public ListGrid list;
 
-	@Inject
+	
 	public PatientScreen() {
 		super(TITLE, SCREEN_STYLE_NAME, DESCRIPTION);
 		initWidget(uiBinder.createAndBindUi(this));

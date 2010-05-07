@@ -10,6 +10,7 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 import com.infirmarium.client.components.elements.screens.subscreens.PatientDetailsScreen;
 import com.infirmarium.client.core.components.elements.screens.SubScreen;
 import com.infirmarium.client.core.components.elements.screens.TitleScreen;
@@ -32,7 +33,8 @@ public class DepartmentScreen extends TitleScreen {
 
 	private static final String TITLE = GinManager.get().InfirmariumMessages()
 			.departmentsScreenTitle();
-	private EventBus eventBus = GinManager.get().getEventBus();
+	@Inject
+	private EventBus eventBus /* = GinManager.get().getEventBus() */;
 	@UiField
 	public Hyperlink killmeLink;
 	@UiField
