@@ -1,17 +1,16 @@
 package com.infirmarium.client.core.components.elements.core;
 
 import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.inject.Inject;
 import com.infirmarium.client.core.components.elements.screens.TitleScreen;
 
 public class NavigationWidget extends HorizontalPanel {
 
-	public NavigationWidget() {
-	}
+	@Inject
+	private NavigationButtonWidget navigationButton;
 
 	public void addScreen(TitleScreen screen) {
-		NavigationButtonWidget navigationButton = new NavigationButtonWidget(
-				screen);
+		navigationButton.setReferedScreenAndInitIcon(screen);
 		add(navigationButton);
 	}
-
 }

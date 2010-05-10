@@ -13,11 +13,12 @@ public class ClientMain implements EntryPoint {
 
 	private RootWidget rootWidget;
 
-	// private final InfirmariumGinjector injector = GWT
-	// .create(InfirmariumGinjector.class);
+	private InfirmariumGinjector injector;
 
 	public void onModuleLoad() {
-		rootWidget = new RootWidget();
+		injector = GWT.create(InfirmariumGinjector.class);
+
+		rootWidget = injector.getRootWidget();
 		RootPanel.get().add(rootWidget);
 	}
 }
