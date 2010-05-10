@@ -1,20 +1,19 @@
 package com.infirmarium.client.core.components.elements.core;
 
-import net.customware.gwt.presenter.client.EventBus;
-
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DeckPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 import com.infirmarium.client.core.components.elements.screens.SubScreen;
 import com.infirmarium.client.core.components.elements.simple.SubPageNavigation;
 import com.infirmarium.client.core.components.events.SubScreenShownEvent;
 import com.infirmarium.client.core.components.events.TitleScreenShownEvent;
 import com.infirmarium.client.core.components.events.handlers.SubScreenShownEventHandler;
 import com.infirmarium.client.core.components.events.handlers.TitleScreenShownEventHandler;
-import com.infirmarium.client.gin.GinManager;
 
 public class ScreenManagerWidget extends Composite {
 
@@ -25,15 +24,15 @@ public class ScreenManagerWidget extends Composite {
 			UiBinder<Widget, ScreenManagerWidget> {
 	}
 
-	private EventBus eventBus = GinManager.get().getEventBus();
-
 	@UiField
 	public DeckPanel mainPanel;
 	@UiField
 	public SubPageNavigation subPageNavigationWidget;
 
-	public ScreenManagerWidget() {
+	@Inject
+	void construct(HandlerManager eventBus) {
 		initWidget(uiBinder.createAndBindUi(this));
+
 		eventBus.addHandler(TitleScreenShownEvent.TYPE,
 				new TitleScreenShownEventHandler() {
 					@Override

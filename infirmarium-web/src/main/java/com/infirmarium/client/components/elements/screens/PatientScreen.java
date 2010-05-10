@@ -2,8 +2,11 @@ package com.infirmarium.client.components.elements.screens;
 
 import java.util.List;
 
+import net.customware.gwt.dispatch.client.DispatchAsync;
+
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -16,7 +19,7 @@ import com.infirmarium.client.components.events.handlers.PersonDetailsEventHandl
 import com.infirmarium.client.components.events.handlers.PersonsEventHandler;
 import com.infirmarium.client.components.model.records.PersonRecord;
 import com.infirmarium.client.core.components.elements.screens.TitleScreen;
-import com.infirmarium.client.gin.GinManager;
+import com.infirmarium.client.internationalization.InfirmariumMessages;
 import com.infirmarium.core.persistance.domain.Person;
 import com.infirmarium.server.shared.GetPersonDetailsCommand;
 import com.infirmarium.server.shared.GetPersonsCommand;
@@ -39,20 +42,28 @@ public class PatientScreen extends TitleScreen {
 	interface PatientScreenUiBinder extends UiBinder<Widget, PatientScreen> {
 	}
 
-	private static final String DESCRIPTION = GinManager.get()
-			.InfirmariumMessages().patientsScreenDescription();
-
-	private static final String TITLE = GinManager.get().InfirmariumMessages()
-			.patientsScreenTitle();
-
+	@Inject
+	private HandlerManager eventBus;
+	@Inject
+	private DispatchAsync dispatcher;
 	@UiField
-	public VerticalPanel content;
+	VerticalPanel content;
 	@UiField
-	public ListGrid list;
+	ListGrid list;
 
-	
 	public PatientScreen() {
-		super(TITLE, SCREEN_STYLE_NAME, DESCRIPTION);
+		// at this point we cannot resolve subclass dependencies
+		// as @Inject dependencies are injected after object construction
+		// instead we do in in void construct(..)
+		super(null, SCREEN_STYLE_NAME, null);
+
+	}
+
+	@Inject
+	/** @PostConstruct simulation*/
+	void construct(InfirmariumMessages infirmariumMessages) {
+		setDescription(infirmariumMessages.patientsScreenDescription());
+		setName(infirmariumMessages.patientsScreenTitle());
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
@@ -148,5 +159,4 @@ public class PatientScreen extends TitleScreen {
 
 				});
 	}
-
 }

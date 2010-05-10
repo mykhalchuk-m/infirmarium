@@ -12,8 +12,4 @@ public class SubScreen extends BaseScreen<SubScreenLayout> {
 		layout.contentSlot.add(widget);
 	}
 
-	@Override
-	public void init() {
-		super.init();
-	}
 }

@@ -1,9 +1,8 @@
 package com.infirmarium.client.components.elements.screens;
 
-import net.customware.gwt.presenter.client.EventBus;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -11,11 +10,13 @@ import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
+import com.google.inject.Provides;
 import com.infirmarium.client.components.elements.screens.subscreens.PatientDetailsScreen;
 import com.infirmarium.client.core.components.elements.screens.SubScreen;
 import com.infirmarium.client.core.components.elements.screens.TitleScreen;
 import com.infirmarium.client.core.components.events.SubScreenShownEvent;
-import com.infirmarium.client.gin.GinManager;
+import com.infirmarium.client.internationalization.InfirmariumMessages;
 
 public class DepartmentScreen extends TitleScreen {
 
@@ -28,27 +29,33 @@ public class DepartmentScreen extends TitleScreen {
 			UiBinder<Widget, DepartmentScreen> {
 	}
 
-	private static final String DESCRIPTION = GinManager.get()
-			.InfirmariumMessages().departmentsScreenDescription();
-
-	private static final String TITLE = GinManager.get().InfirmariumMessages()
-			.departmentsScreenTitle();
 	@Inject
-	private EventBus eventBus /* = GinManager.get().getEventBus() */;
+	private HandlerManager eventBus;
+
 	@UiField
-	public Hyperlink killmeLink;
+	Hyperlink killmeLink;
 	@UiField
-	public VerticalPanel content;
+	VerticalPanel content;
+
+	@Inject
+	Provider<PatientDetailsScreen> patientDetailsScreenProvider;
 
 	public DepartmentScreen() {
-		super(TITLE, SCREEN_STYLE_NAME, DESCRIPTION);
-		initWidget(uiBinder.createAndBindUi(this));
+		super(null, SCREEN_STYLE_NAME, null);
+	}
 
+	@Inject
+	/** @PostConstruct simulation*/
+	void construct(InfirmariumMessages infirmariumMessages,
+			HandlerManager eventBus) {
+		setDescription(infirmariumMessages.departmentsScreenDescription());
+		setName(infirmariumMessages.departmentsScreenTitle());
+		initWidget(uiBinder.createAndBindUi(this));
 	}
 
 	@UiHandler("killmeLink")
 	void handleClick(ClickEvent e) {
-		SubScreen referedScreen = new PatientDetailsScreen();
+		SubScreen referedScreen = patientDetailsScreenProvider.get();
 		eventBus.fireEvent(new SubScreenShownEvent(referedScreen));
 	}
 

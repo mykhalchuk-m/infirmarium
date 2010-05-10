@@ -1,13 +1,9 @@
 package com.infirmarium.client.core.components.elements.screens;
 
-import net.customware.gwt.dispatch.client.DispatchAsync;
-import net.customware.gwt.presenter.client.EventBus;
-
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import com.infirmarium.client.core.components.interfaces.InitiableWidget;
-import com.infirmarium.client.gin.GinManager;
 
 public abstract class BaseScreen<L extends Widget> extends Composite implements
 		InitiableWidget {
@@ -21,10 +17,6 @@ public abstract class BaseScreen<L extends Widget> extends Composite implements
 	// this field is public because of uibinder
 	@UiField
 	public L layout;
-
-	protected final DispatchAsync dispatcher = GinManager.get()
-			.getDefaultDispatchAsync();
-	protected EventBus eventBus = GinManager.get().getEventBus();
 
 	public BaseScreen(String name) {
 		this.name = name;

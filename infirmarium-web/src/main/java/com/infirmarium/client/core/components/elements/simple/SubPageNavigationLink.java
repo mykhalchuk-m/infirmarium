@@ -1,9 +1,8 @@
 package com.infirmarium.client.core.components.elements.simple;
 
-import net.customware.gwt.presenter.client.EventBus;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.shared.HandlerManager;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -16,7 +15,6 @@ import com.infirmarium.client.core.components.elements.screens.SubScreen;
 import com.infirmarium.client.core.components.elements.screens.TitleScreen;
 import com.infirmarium.client.core.components.events.SubScreenShownEvent;
 import com.infirmarium.client.core.components.events.TitleScreenShownEvent;
-import com.infirmarium.client.gin.GinManager;
 
 public class SubPageNavigationLink extends Composite {
 
@@ -27,7 +25,7 @@ public class SubPageNavigationLink extends Composite {
 			UiBinder<Widget, SubPageNavigationLink> {
 	}
 
-	private EventBus eventBus = GinManager.get().getEventBus();
+	private HandlerManager eventBus;
 
 	@UiField
 	public Hyperlink text;
