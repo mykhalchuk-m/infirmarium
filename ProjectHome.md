@@ -1,0 +1,1 @@
+The project is designed to save doctors from routine and manual filling of the cards. It also allows to gather useful statistics, and identify patterns in the development of disease.
